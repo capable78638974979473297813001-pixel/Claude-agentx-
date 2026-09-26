@@ -3,16 +3,16 @@
   "comparison_run": false,
   "tasks": 50,
   "areas": {
-    "frontend": 14,
+    "frontend": 17,
     "cross": 5,
     "languages": 6,
-    "apis": 4,
+    "apis": 2,
     "databases": 3,
     "security": 3,
     "backend": 2,
     "debugging": 2,
     "devops": 2,
-    "testing": 2,
+    "testing": 1,
     "vcs": 1,
     "cli": 1,
     "architecture": 1,
@@ -48,10 +48,10 @@
   },
   "retrieval_seconds": {
     "none": 0.0,
-    "old": 0.0996,
-    "new": 0.1415
+    "old": 0.1288,
+    "new": 0.2128
   },
-  "route_seconds": 0.1415,
+  "route_seconds": 0.2128,
   "dry_run": {
     "starter_failures": 50,
     "solution_passes": 50,
@@ -68,13 +68,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3862,
-        "solution": 0.47
+        "starter": 0.4239,
+        "solution": 0.3992
       },
       "retrieval_seconds": {
         "none": 0.0,
         "old": 0.002,
-        "new": 0.0024
+        "new": 0.0036
       },
       "top5_hit": {
         "none": false,
@@ -93,9 +93,9 @@
         "new": [
           "react-19-ref-as-prop",
           "react-index-key-sticks-dom-state",
+          "react-stale-state-updater",
           "react-strict-mode-effect-double-invoke",
-          "java-21-switch-null-throws",
-          "vue-3-5-destructured-props-stay-bound"
+          "java-21-switch-null-throws"
         ]
       },
       "pass": {
@@ -118,13 +118,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3983,
-        "solution": 0.3701
+        "starter": 0.5086,
+        "solution": 0.3685
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0024
+        "old": 0.0023,
+        "new": 0.0028
       },
       "top5_hit": {
         "none": false,
@@ -142,10 +142,10 @@
         ],
         "new": [
           "react-strict-mode-effect-double-invoke",
+          "react-stale-state-updater",
           "react-19-ref-as-prop",
           "test-driven-development",
-          "react-index-key-sticks-dom-state",
-          "python-closure-late-binding"
+          "react-index-key-sticks-dom-state"
         ]
       },
       "pass": {
@@ -168,13 +168,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3702,
-        "solution": 0.3739
+        "starter": 0.5096,
+        "solution": 0.4447
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0021,
-        "new": 0.0028
+        "old": 0.0025,
+        "new": 0.0037
       },
       "top5_hit": {
         "none": false,
@@ -218,13 +218,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3567,
-        "solution": 0.3576
+        "starter": 0.547,
+        "solution": 0.4078
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0022,
-        "new": 0.0029
+        "old": 0.0023,
+        "new": 0.0036
       },
       "top5_hit": {
         "none": false,
@@ -243,9 +243,9 @@
         "new": [
           "testing-library-input-number-is-spinbutton",
           "testing-library-byrole-name-is-exact",
+          "aria-hidden-removed-from-role-query",
           "node-22-type-stripping-is-experimental",
-          "html-enter-implicitly-submits-form",
-          "javascript-array-sort-lexicographic"
+          "html-enter-implicitly-submits-form"
         ]
       },
       "pass": {
@@ -268,13 +268,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3449,
-        "solution": 0.3467
+        "starter": 0.4434,
+        "solution": 0.611
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0024,
-        "new": 0.0029
+        "old": 0.0026,
+        "new": 0.0037
       },
       "top5_hit": {
         "none": false,
@@ -293,8 +293,8 @@
         "new": [
           "testing-library-byrole-name-is-exact",
           "testing-library-input-number-is-spinbutton",
+          "aria-hidden-removed-from-role-query",
           "sqlite-unindexed-lookup-plans-scan",
-          "html-enter-implicitly-submits-form",
           "sql-fstring-interpolates-untrusted-input"
         ]
       },
@@ -310,21 +310,21 @@
       }
     },
     {
-      "id": "byrole-regex-matches-multiple",
+      "id": "react-interval-stays-at-one",
       "area": "frontend",
       "expected_skills": [
-        "testing-library-byrole-name-is-exact"
+        "react-stale-state-updater"
       ],
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3403,
-        "solution": 0.3332
+        "starter": 0.4146,
+        "solution": 0.5001
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0024,
-        "new": 0.0029
+        "old": 0.0023,
+        "new": 0.004
       },
       "top5_hit": {
         "none": false,
@@ -335,67 +335,67 @@
         "none": [],
         "old": [
           "swarm",
+          "tax-jurisdiction-modeling",
           "tax-engine-architecture",
           "tax-engine-kit",
+          "tax-money-math"
+        ],
+        "new": [
+          "react-stale-state-updater",
+          "react-strict-mode-effect-double-invoke",
+          "react-index-key-sticks-dom-state",
+          "react-19-ref-as-prop",
+          "node-mock-timers-do-not-advance-alone"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "pushstate-does-not-pop",
+      "area": "frontend",
+      "expected_skills": [
+        "history-pushstate-skips-popstate"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.6233,
+        "solution": 0.7128
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0032,
+        "new": 0.0055
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
           "tax-money-math",
           "tax-progressive-brackets"
         ],
         "new": [
-          "testing-library-byrole-name-is-exact",
-          "testing-library-input-number-is-spinbutton",
+          "history-pushstate-skips-popstate",
+          "react-strict-mode-effect-double-invoke",
+          "vue-3-5-destructured-props-stay-bound",
           "html-enter-implicitly-submits-form",
-          "git-describe-fails-on-shallow-clone",
-          "sql-fstring-interpolates-untrusted-input"
-        ]
-      },
-      "pass": {
-        "none": null,
-        "old": null,
-        "new": null
-      },
-      "tokens": {
-        "none": null,
-        "old": null,
-        "new": null
-      }
-    },
-    {
-      "id": "byrole-name-case",
-      "area": "frontend",
-      "expected_skills": [
-        "testing-library-byrole-name-is-exact"
-      ],
-      "starter_failed": true,
-      "solution_passed": true,
-      "check_seconds": {
-        "starter": 0.3186,
-        "solution": 0.3158
-      },
-      "retrieval_seconds": {
-        "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0022
-      },
-      "top5_hit": {
-        "none": false,
-        "old": false,
-        "new": true
-      },
-      "top5": {
-        "none": [],
-        "old": [
-          "swarm",
-          "tax-engine-architecture",
-          "tax-golden-test-vectors",
-          "tax-money-math",
-          "tax-phaseouts-and-limits"
-        ],
-        "new": [
-          "testing-library-byrole-name-is-exact",
-          "testing-library-input-number-is-spinbutton",
-          "html-enter-implicitly-submits-form",
-          "if-match-rejects-stale-update",
-          "sqlite-null-comparisons-are-unknown"
+          "react-stale-state-updater"
         ]
       },
       "pass": {
@@ -418,13 +418,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3878,
-        "solution": 0.4235
+        "starter": 0.5819,
+        "solution": 0.5772
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0027
+        "old": 0.0025,
+        "new": 0.0038
       },
       "top5_hit": {
         "none": false,
@@ -442,10 +442,10 @@
         ],
         "new": [
           "css-unlayered-author-style-beats-layers",
+          "css-import-must-precede-rules",
           "css-container-query-ignores-viewport",
           "wcag-contrast-below-4-5-fails-aa",
-          "mobile-safe-area-fallback-only-if-undefined",
-          "tax-rules-as-data"
+          "mobile-safe-area-fallback-only-if-undefined"
         ]
       },
       "pass": {
@@ -468,13 +468,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3749,
-        "solution": 0.4111
+        "starter": 0.5464,
+        "solution": 0.5151
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0018,
-        "new": 0.0024
+        "old": 0.0032,
+        "new": 0.0053
       },
       "top5_hit": {
         "none": false,
@@ -518,13 +518,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3603,
-        "solution": 0.4227
+        "starter": 0.5119,
+        "solution": 0.584
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0027
+        "old": 0.0023,
+        "new": 0.0057
       },
       "top5_hit": {
         "none": false,
@@ -568,13 +568,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3966,
-        "solution": 0.4856
+        "starter": 0.5326,
+        "solution": 0.5188
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0027
+        "old": 0.0024,
+        "new": 0.0036
       },
       "top5_hit": {
         "none": false,
@@ -592,9 +592,9 @@
         ],
         "new": [
           "html-enter-implicitly-submits-form",
+          "formdata-omits-disabled-fields",
           "python-unboundlocalerror-on-assignment",
           "python-exception-context-chaining",
-          "testing-library-byrole-name-is-exact",
           "node-22-type-stripping-is-experimental"
         ]
       },
@@ -618,13 +618,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0137,
-        "solution": 0.0141
+        "starter": 0.0187,
+        "solution": 0.0238
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0037
+        "old": 0.0028,
+        "new": 0.0039
       },
       "top5_hit": {
         "none": false,
@@ -644,8 +644,8 @@
           "wcag-contrast-below-4-5-fails-aa",
           "spec-writing",
           "test-driven-development",
-          "css-container-query-ignores-viewport",
-          "iterative-canvas-editing"
+          "iterative-canvas-editing",
+          "css-container-query-ignores-viewport"
         ]
       },
       "pass": {
@@ -668,12 +668,12 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.1072,
-        "solution": 0.1213
+        "starter": 0.2026,
+        "solution": 0.1706
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0025,
+        "old": 0.0026,
         "new": 0.003
       },
       "top5_hit": {
@@ -718,13 +718,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0562,
-        "solution": 0.0509
+        "starter": 0.0891,
+        "solution": 0.0797
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0017,
-        "new": 0.0024
+        "old": 0.0031,
+        "new": 0.0057
       },
       "top5_hit": {
         "none": false,
@@ -742,10 +742,10 @@
         ],
         "new": [
           "vue-3-5-destructured-props-stay-bound",
+          "react-stale-state-updater",
           "python-unboundlocalerror-on-assignment",
-          "react-strict-mode-effect-double-invoke",
-          "n-plus-one-query-per-row",
-          "go-nil-pointer-stored-in-interface"
+          "history-pushstate-skips-popstate",
+          "react-strict-mode-effect-double-invoke"
         ]
       },
       "pass": {
@@ -769,13 +769,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0151,
-        "solution": 0.0168
+        "starter": 0.0205,
+        "solution": 0.0188
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0026
+        "old": 0.0021,
+        "new": 0.0047
       },
       "top5_hit": {
         "none": false,
@@ -820,13 +820,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.014,
-        "solution": 0.0152
+        "starter": 0.0174,
+        "solution": 0.0181
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0027
+        "old": 0.0024,
+        "new": 0.0034
       },
       "top5_hit": {
         "none": false,
@@ -845,9 +845,9 @@
         "new": [
           "idempotency-key-replays-stored-response",
           "if-match-rejects-stale-update",
+          "history-pushstate-skips-popstate",
           "go-http-shutdown-blocks-on-handler",
-          "react-strict-mode-effect-double-invoke",
-          "node-http-client-hangs-without-end"
+          "react-strict-mode-effect-double-invoke"
         ]
       },
       "pass": {
@@ -871,13 +871,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0162,
-        "solution": 0.0184
+        "starter": 0.0266,
+        "solution": 0.0189
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0022,
-        "new": 0.0035
+        "old": 0.0041,
+        "new": 0.0082
       },
       "top5_hit": {
         "none": false,
@@ -898,7 +898,7 @@
           "transactional-outbox-commit-with-row",
           "javascript-array-sort-lexicographic",
           "css-unlayered-author-style-beats-layers",
-          "tax-sales-and-vat"
+          "react-stale-state-updater"
         ]
       },
       "pass": {
@@ -922,13 +922,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0143,
-        "solution": 0.0152
+        "starter": 0.0188,
+        "solution": 0.0268
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0028
+        "old": 0.0034,
+        "new": 0.0073
       },
       "top5_hit": {
         "none": false,
@@ -947,9 +947,9 @@
         "new": [
           "cursor-page-needs-unique-tie-break",
           "n-plus-one-query-per-row",
+          "aria-hidden-removed-from-role-query",
           "sql-fstring-interpolates-untrusted-input",
-          "sqlite-null-comparisons-are-unknown",
-          "sqlite-unindexed-lookup-plans-scan"
+          "sqlite-null-comparisons-are-unknown"
         ]
       },
       "pass": {
@@ -973,13 +973,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.1079,
-        "solution": 0.11
+        "starter": 0.1249,
+        "solution": 0.1103
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0031
+        "old": 0.0023,
+        "new": 0.0035
       },
       "top5_hit": {
         "none": false,
@@ -1000,7 +1000,7 @@
           "git-abbrev-ref-is-head-when-detached",
           "testing-library-byrole-name-is-exact",
           "svelte-5-export-let-invalid-in-runes",
-          "python-exception-context-chaining"
+          "offsetheight-in-loop-forces-layout"
         ]
       },
       "pass": {
@@ -1023,13 +1023,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0883,
-        "solution": 0.0813
+        "starter": 0.103,
+        "solution": 0.093
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0023,
-        "new": 0.0052
+        "old": 0.002,
+        "new": 0.0035
       },
       "top5_hit": {
         "none": false,
@@ -1073,13 +1073,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0156,
-        "solution": 0.0138
+        "starter": 0.0159,
+        "solution": 0.0154
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0027
+        "old": 0.0021,
+        "new": 0.0032
       },
       "top5_hit": {
         "none": false,
@@ -1123,13 +1123,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0132,
-        "solution": 0.0146
+        "starter": 0.0155,
+        "solution": 0.0167
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0026,
-        "new": 0.0042
+        "old": 0.0019,
+        "new": 0.0032
       },
       "top5_hit": {
         "none": false,
@@ -1173,13 +1173,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0223,
-        "solution": 0.0193
+        "starter": 0.0285,
+        "solution": 0.0219
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0013,
-        "new": 0.0022
+        "old": 0.0018,
+        "new": 0.003
       },
       "top5_hit": {
         "none": false,
@@ -1223,13 +1223,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0395,
-        "solution": 0.1253
+        "starter": 0.0482,
+        "solution": 0.1382
       },
       "retrieval_seconds": {
         "none": 0.0,
         "old": 0.0023,
-        "new": 0.0022
+        "new": 0.0038
       },
       "top5_hit": {
         "none": false,
@@ -1248,8 +1248,8 @@
         "new": [
           "rust-temporary-dropped-while-borrowed",
           "python-unboundlocalerror-on-assignment",
-          "css-flex-item-min-width-auto",
           "sql-fstring-interpolates-untrusted-input",
+          "css-flex-item-min-width-auto",
           "svelte-5-export-let-invalid-in-runes"
         ]
       },
@@ -1273,13 +1273,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3931,
-        "solution": 0.4631
+        "starter": 0.454,
+        "solution": 0.5042
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0018,
-        "new": 0.0023
+        "old": 0.0021,
+        "new": 0.0029
       },
       "top5_hit": {
         "none": false,
@@ -1299,8 +1299,8 @@
           "java-21-switch-null-throws",
           "sqlite-null-comparisons-are-unknown",
           "testing-library-byrole-name-is-exact",
-          "react-19-ref-as-prop",
-          "css-unlayered-author-style-beats-layers"
+          "formdata-omits-disabled-fields",
+          "package-json-type-module-rejects-require"
         ]
       },
       "pass": {
@@ -1315,21 +1315,21 @@
       }
     },
     {
-      "id": "keyset-second-page",
-      "area": "apis",
+      "id": "formdata-skips-disabled",
+      "area": "frontend",
       "expected_skills": [
-        "cursor-page-needs-unique-tie-break"
+        "formdata-omits-disabled-fields"
       ],
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0138,
-        "solution": 0.013
+        "starter": 0.4159,
+        "solution": 0.4855
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0027
+        "old": 0.0022,
+        "new": 0.0032
       },
       "top5_hit": {
         "none": false,
@@ -1340,17 +1340,17 @@
         "none": [],
         "old": [
           "swarm",
-          "tax-engine-kit",
           "tax-engine-architecture",
+          "tax-engine-kit",
           "tax-money-math",
           "tax-progressive-brackets"
         ],
         "new": [
-          "cursor-page-needs-unique-tie-break",
-          "n-plus-one-query-per-row",
-          "sqlite-null-comparisons-are-unknown",
-          "react-index-key-sticks-dom-state",
-          "transactional-outbox-commit-with-row"
+          "formdata-omits-disabled-fields",
+          "html-enter-implicitly-submits-form",
+          "tax-rules-as-data",
+          "sqlite-foreign-keys-require-pragma",
+          "react-index-key-sticks-dom-state"
         ]
       },
       "pass": {
@@ -1373,13 +1373,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.013,
-        "solution": 0.0133
+        "starter": 0.0197,
+        "solution": 0.0162
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0018,
-        "new": 0.0024
+        "old": 0.0031,
+        "new": 0.004
       },
       "top5_hit": {
         "none": false,
@@ -1423,13 +1423,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.013,
-        "solution": 0.0129
+        "starter": 0.0147,
+        "solution": 0.0153
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0028
+        "old": 0.0023,
+        "new": 0.0036
       },
       "top5_hit": {
         "none": false,
@@ -1450,7 +1450,7 @@
           "idempotency-key-replays-stored-response",
           "react-strict-mode-effect-double-invoke",
           "python-generator-second-pass-empty",
-          "sqlite-null-comparisons-are-unknown"
+          "history-pushstate-skips-popstate"
         ]
       },
       "pass": {
@@ -1465,21 +1465,21 @@
       }
     },
     {
-      "id": "cursor-does-not-skip-tie",
-      "area": "apis",
+      "id": "type-module-require-throws",
+      "area": "frontend",
       "expected_skills": [
-        "cursor-page-needs-unique-tie-break"
+        "package-json-type-module-rejects-require"
       ],
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0129,
-        "solution": 0.0132
+        "starter": 0.0524,
+        "solution": 0.0508
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0018,
-        "new": 0.0025
+        "old": 0.0024,
+        "new": 0.0037
       },
       "top5_hit": {
         "none": false,
@@ -1492,15 +1492,15 @@
           "swarm",
           "tax-engine-kit",
           "tax-engine-architecture",
-          "tax-progressive-brackets",
-          "test-driven-development"
+          "tax-money-math",
+          "tax-sales-and-vat"
         ],
         "new": [
-          "cursor-page-needs-unique-tie-break",
-          "sqlite-null-comparisons-are-unknown",
-          "n-plus-one-query-per-row",
-          "react-index-key-sticks-dom-state",
-          "css-flex-item-min-width-auto"
+          "package-json-type-module-rejects-require",
+          "node-22-type-stripping-is-experimental",
+          "aria-hidden-removed-from-role-query",
+          "testing-library-input-number-is-spinbutton",
+          "node-unhandled-rejection-is-not-thrown"
         ]
       },
       "pass": {
@@ -1523,13 +1523,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0148,
-        "solution": 0.0145
+        "starter": 0.0202,
+        "solution": 0.0177
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0031
+        "old": 0.0028,
+        "new": 0.0049
       },
       "top5_hit": {
         "none": false,
@@ -1573,13 +1573,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0145,
-        "solution": 0.0144
+        "starter": 0.0168,
+        "solution": 0.0168
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0016,
-        "new": 0.0024
+        "old": 0.0018,
+        "new": 0.0028
       },
       "top5_hit": {
         "none": false,
@@ -1623,13 +1623,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0143,
-        "solution": 0.0163
+        "starter": 0.0162,
+        "solution": 0.0166
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0027
+        "old": 0.0025,
+        "new": 0.0034
       },
       "top5_hit": {
         "none": false,
@@ -1673,13 +1673,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.023,
-        "solution": 0.031
+        "starter": 0.027,
+        "solution": 0.0267
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0016,
-        "new": 0.0023
+        "old": 0.002,
+        "new": 0.0028
       },
       "top5_hit": {
         "none": false,
@@ -1697,10 +1697,10 @@
         ],
         "new": [
           "path-join-allows-traversal",
+          "aria-hidden-removed-from-role-query",
           "debugging-scientific-method",
           "css-container-query-ignores-viewport",
-          "react-19-ref-as-prop",
-          "vue-3-5-destructured-props-stay-bound"
+          "react-19-ref-as-prop"
         ]
       },
       "pass": {
@@ -1723,13 +1723,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0128,
-        "solution": 0.015
+        "starter": 0.0148,
+        "solution": 0.017
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0017,
-        "new": 0.0022
+        "old": 0.0019,
+        "new": 0.0028
       },
       "top5_hit": {
         "none": false,
@@ -1773,13 +1773,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0141,
-        "solution": 0.014
+        "starter": 0.0169,
+        "solution": 0.0168
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0015,
-        "new": 0.0021
+        "old": 0.0017,
+        "new": 0.0025
       },
       "top5_hit": {
         "none": false,
@@ -1823,13 +1823,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.3626,
-        "solution": 0.2131
+        "starter": 0.4045,
+        "solution": 0.2523
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0027
+        "old": 0.0033,
+        "new": 0.006
       },
       "top5_hit": {
         "none": false,
@@ -1850,7 +1850,7 @@
           "node-http-client-hangs-without-end",
           "node-mock-timers-do-not-advance-alone",
           "transactional-outbox-commit-with-row",
-          "sqlite-unindexed-lookup-plans-scan"
+          "html-enter-implicitly-submits-form"
         ]
       },
       "pass": {
@@ -1873,13 +1873,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.2458,
-        "solution": 0.0487
+        "starter": 0.2533,
+        "solution": 0.0521
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0022,
-        "new": 0.0031
+        "old": 0.0025,
+        "new": 0.0038
       },
       "top5_hit": {
         "none": false,
@@ -1897,10 +1897,10 @@
         ],
         "new": [
           "node-http-client-hangs-without-end",
+          "history-pushstate-skips-popstate",
           "go-http-shutdown-blocks-on-handler",
           "node-mock-timers-do-not-advance-alone",
-          "node-unhandled-rejection-is-not-thrown",
-          "if-match-rejects-stale-update"
+          "node-unhandled-rejection-is-not-thrown"
         ]
       },
       "pass": {
@@ -1923,13 +1923,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0138,
-        "solution": 0.0136
+        "starter": 0.0148,
+        "solution": 0.0181
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0017,
-        "new": 0.0022
+        "old": 0.002,
+        "new": 0.0028
       },
       "top5_hit": {
         "none": false,
@@ -1973,13 +1973,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0198,
-        "solution": 0.019
+        "starter": 0.0252,
+        "solution": 0.0218
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0024
+        "old": 0.0029,
+        "new": 0.0048
       },
       "top5_hit": {
         "none": false,
@@ -2023,13 +2023,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0301,
-        "solution": 0.0293
+        "starter": 0.0308,
+        "solution": 0.0304
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0021,
-        "new": 0.003
+        "old": 0.0031,
+        "new": 0.0052
       },
       "top5_hit": {
         "none": false,
@@ -2073,13 +2073,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.089,
-        "solution": 0.0999
+        "starter": 0.0889,
+        "solution": 0.1073
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0018,
-        "new": 0.0025
+        "old": 0.003,
+        "new": 0.0048
       },
       "top5_hit": {
         "none": false,
@@ -2123,13 +2123,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.025,
-        "solution": 0.0262
+        "starter": 0.0296,
+        "solution": 0.0397
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0019,
-        "new": 0.0025
+        "old": 0.0032,
+        "new": 0.0052
       },
       "top5_hit": {
         "none": false,
@@ -2148,8 +2148,8 @@
         "new": [
           "node-mock-timers-do-not-advance-alone",
           "node-http-client-hangs-without-end",
-          "node-unhandled-rejection-is-not-thrown",
-          "node-22-type-stripping-is-experimental",
+          "history-pushstate-skips-popstate",
+          "react-stale-state-updater",
           "tax-golden-test-vectors"
         ]
       },
@@ -2165,21 +2165,21 @@
       }
     },
     {
-      "id": "mock-timers-partial-tick",
-      "area": "testing",
+      "id": "offsetheight-loop-layouts",
+      "area": "frontend",
       "expected_skills": [
-        "node-mock-timers-do-not-advance-alone"
+        "offsetheight-in-loop-forces-layout"
       ],
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0238,
-        "solution": 0.0244
+        "starter": 0.4262,
+        "solution": 0.5176
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0016,
-        "new": 0.0022
+        "old": 0.0032,
+        "new": 0.0063
       },
       "top5_hit": {
         "none": false,
@@ -2190,17 +2190,17 @@
         "none": [],
         "old": [
           "swarm",
-          "tax-engine-architecture",
           "tax-engine-kit",
           "tax-money-math",
-          "tax-phaseouts-and-limits"
+          "tax-engine-architecture",
+          "tax-progressive-brackets"
         ],
         "new": [
-          "node-mock-timers-do-not-advance-alone",
-          "node-unhandled-rejection-is-not-thrown",
-          "react-19-ref-as-prop",
-          "node-22-type-stripping-is-experimental",
-          "node-http-client-hangs-without-end"
+          "offsetheight-in-loop-forces-layout",
+          "tax-sales-and-vat",
+          "package-json-type-module-rejects-require",
+          "svelte-5-export-let-invalid-in-runes",
+          "css-unlayered-author-style-beats-layers"
         ]
       },
       "pass": {
@@ -2223,13 +2223,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0566,
-        "solution": 0.0528
+        "starter": 0.0746,
+        "solution": 0.0603
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0018,
-        "new": 0.0022
+        "old": 0.003,
+        "new": 0.005
       },
       "top5_hit": {
         "none": false,
@@ -2249,8 +2249,8 @@
           "git-abbrev-ref-is-head-when-detached",
           "git-describe-fails-on-shallow-clone",
           "java-21-switch-null-throws",
-          "tax-explainability-audit-trail",
-          "tax-sales-and-vat"
+          "package-json-type-module-rejects-require",
+          "tax-explainability-audit-trail"
         ]
       },
       "pass": {
@@ -2273,13 +2273,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0207,
-        "solution": 0.021
+        "starter": 0.0334,
+        "solution": 0.0235
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0023,
-        "new": 0.0035
+        "old": 0.0027,
+        "new": 0.0046
       },
       "top5_hit": {
         "none": false,
@@ -2323,13 +2323,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0141,
-        "solution": 0.0141
+        "starter": 0.0165,
+        "solution": 0.016
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0026,
-        "new": 0.0042
+        "old": 0.003,
+        "new": 0.0053
       },
       "top5_hit": {
         "none": false,
@@ -2373,13 +2373,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0127,
-        "solution": 0.0127
+        "starter": 0.0144,
+        "solution": 0.015
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0024,
-        "new": 0.0039
+        "old": 0.0025,
+        "new": 0.0047
       },
       "top5_hit": {
         "none": false,
@@ -2423,13 +2423,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0204,
-        "solution": 0.0269
+        "starter": 0.0305,
+        "solution": 0.0218
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0022,
-        "new": 0.0033
+        "old": 0.0025,
+        "new": 0.0037
       },
       "top5_hit": {
         "none": false,
@@ -2448,8 +2448,8 @@
         "new": [
           "python-warnings-stacklevel",
           "go-nil-pointer-stored-in-interface",
-          "path-join-allows-traversal",
           "git-describe-fails-on-shallow-clone",
+          "path-join-allows-traversal",
           "sql-fstring-interpolates-untrusted-input"
         ]
       },
@@ -2473,13 +2473,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.0142,
-        "solution": 0.0159
+        "starter": 0.0187,
+        "solution": 0.0168
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.0024,
-        "new": 0.0039
+        "old": 0.0029,
+        "new": 0.0047
       },
       "top5_hit": {
         "none": false,
@@ -2500,7 +2500,7 @@
           "sqlite-unindexed-lookup-plans-scan",
           "skill-router",
           "sqlite-null-comparisons-are-unknown",
-          "sql-fstring-interpolates-untrusted-input"
+          "package-json-type-module-rejects-require"
         ]
       },
       "pass": {
@@ -2523,13 +2523,13 @@
       "starter_failed": true,
       "solution_passed": true,
       "check_seconds": {
-        "starter": 0.4127,
-        "solution": 0.4199
+        "starter": 0.4485,
+        "solution": 0.5196
       },
       "retrieval_seconds": {
         "none": 0.0,
-        "old": 0.002,
-        "new": 0.0031
+        "old": 0.0037,
+        "new": 0.0074
       },
       "top5_hit": {
         "none": false,
@@ -2547,10 +2547,10 @@
         ],
         "new": [
           "mobile-safe-area-fallback-only-if-undefined",
+          "css-import-must-precede-rules",
+          "offsetheight-in-loop-forces-layout",
           "python-unboundlocalerror-on-assignment",
-          "github-actions-unquoted-run-script",
-          "transactional-outbox-commit-with-row",
-          "go-1-22-loop-var-per-iteration"
+          "github-actions-unquoted-run-script"
         ]
       },
       "pass": {
