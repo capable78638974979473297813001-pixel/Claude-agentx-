@@ -1,452 +1,1538 @@
 {
-  "counts": {
-    "atoms": 35,
-    "lenses": 17,
-    "domains": 23,
-    "agents": 10,
-    "blends": 3099600
+  "verified": 43,
+  "curated": 32,
+  "total": 75,
+  "verified_by_area": {
+    "apis": 3,
+    "architecture": 1,
+    "backend": 2,
+    "cli": 1,
+    "databases": 3,
+    "debugging": 2,
+    "devops": 2,
+    "docs": 1,
+    "frontend": 12,
+    "languages": 8,
+    "mobile": 1,
+    "performance": 1,
+    "refactoring": 1,
+    "security": 3,
+    "testing": 1,
+    "vcs": 1
   },
-  "atoms": [
+  "curated_by_area": {
+    "engineering": 18,
+    "tax": 14
+  },
+  "counts_note": "verified is the count of skills whose examples ran. Curated tax skills were kept and not expanded. Lenses and domain notes are omitted because the router does not search them.",
+  "tree": {
+    "apis": {
+      "http": [
+        {
+          "id": "idempotency-key-replays-stored-response",
+          "task": "replay-idempotent-post",
+          "title": "An idempotency key must replay the stored response, not run the handler again",
+          "kind": "verified"
+        },
+        {
+          "id": "if-match-rejects-stale-update",
+          "task": "reject-stale-if-match",
+          "title": "A second update with a stale version must return 412",
+          "kind": "verified"
+        }
+      ],
+      "pagination": [
+        {
+          "id": "cursor-page-needs-unique-tie-break",
+          "task": "keyset-with-unique-column",
+          "title": "A keyset cursor on created alone skips rows that share the timestamp",
+          "kind": "verified"
+        }
+      ]
+    },
+    "architecture": {
+      "transactions": [
+        {
+          "id": "transactional-outbox-commit-with-row",
+          "task": "commit-outbox-with-order",
+          "title": "The outbox row has to commit in the same transaction as the order",
+          "kind": "verified"
+        }
+      ]
+    },
+    "backend": {
+      "go": [
+        {
+          "id": "go-http-shutdown-blocks-on-handler",
+          "task": "unblock-http-shutdown",
+          "title": "http.Server.Shutdown waits until the handler returns",
+          "kind": "verified"
+        }
+      ],
+      "node": [
+        {
+          "id": "node-http-client-hangs-without-end",
+          "task": "end-the-http-request",
+          "title": "A Node http request that never calls end() stays open",
+          "kind": "verified"
+        }
+      ]
+    },
+    "cli": {
+      "python": [
+        {
+          "id": "argparse-options-after-positionals",
+          "task": "pass-options-after-double-dash",
+          "title": "argparse nargs='*' rejects an unknown --flag unless the user passes --",
+          "kind": "verified"
+        }
+      ]
+    },
+    "databases": {
+      "sqlite": [
+        {
+          "id": "sqlite-foreign-keys-require-pragma",
+          "task": "enable-foreign-keys",
+          "title": "SQLite foreign keys stay off unless PRAGMA foreign_keys runs outside a transaction",
+          "kind": "verified"
+        },
+        {
+          "id": "sqlite-null-comparisons-are-unknown",
+          "task": "include-null-in-filter",
+          "title": "name != 'Ada' does not return the row whose name is NULL",
+          "kind": "verified"
+        },
+        {
+          "id": "sqlite-unindexed-lookup-plans-scan",
+          "task": "index-the-filtered-column",
+          "title": "A lookup on user_id scans until an index exists, and the plan says COVERING",
+          "kind": "verified"
+        }
+      ]
+    },
+    "debugging": {
+      "node": [
+        {
+          "id": "node-unhandled-rejection-is-not-thrown",
+          "task": "await-or-catch-rejection",
+          "title": "try/catch does not see a rejected Promise you did not await",
+          "kind": "verified"
+        }
+      ],
+      "python": [
+        {
+          "id": "python-exception-context-chaining",
+          "task": "chain-exception-cause",
+          "title": "raise X from exc sets __cause__; a bare raise inside except sets __context__",
+          "kind": "verified"
+        }
+      ]
+    },
+    "devops": {
+      "git": [
+        {
+          "id": "git-describe-fails-on-shallow-clone",
+          "task": "fetch-tags-before-describe",
+          "title": "git describe --tags fails on a depth-1 clone with no names found",
+          "kind": "verified"
+        }
+      ],
+      "github-actions": [
+        {
+          "id": "github-actions-unquoted-run-script",
+          "task": "quote-untrusted-run-input",
+          "title": "Interpolating untrusted text into a run script executes it as shell",
+          "kind": "verified"
+        }
+      ]
+    },
+    "docs": {
+      "python": [
+        {
+          "id": "python-warnings-stacklevel",
+          "task": "attribute-warning-to-caller",
+          "title": "warnings.warn stacklevel=1 names the helper; stacklevel=2 names the caller",
+          "kind": "verified"
+        }
+      ]
+    },
+    "engineering": {
+      "general": [
+        {
+          "id": "adversarial-red-team",
+          "task": "adversarial-red-team",
+          "title": "adversarial-red-team",
+          "kind": "curated"
+        },
+        {
+          "id": "api-design",
+          "task": "api-design",
+          "title": "api-design",
+          "kind": "curated"
+        },
+        {
+          "id": "code-review-rigorous",
+          "task": "code-review-rigorous",
+          "title": "code-review-rigorous",
+          "kind": "curated"
+        },
+        {
+          "id": "data-analysis-with-code",
+          "task": "data-analysis-with-code",
+          "title": "data-analysis-with-code",
+          "kind": "curated"
+        },
+        {
+          "id": "data-modeling",
+          "task": "data-modeling",
+          "title": "data-modeling",
+          "kind": "curated"
+        },
+        {
+          "id": "debugging-scientific-method",
+          "task": "debugging-scientific-method",
+          "title": "debugging-scientific-method",
+          "kind": "curated"
+        },
+        {
+          "id": "docs-writer",
+          "task": "docs-writer",
+          "title": "docs-writer",
+          "kind": "curated"
+        },
+        {
+          "id": "iterative-canvas-editing",
+          "task": "iterative-canvas-editing",
+          "title": "iterative-canvas-editing",
+          "kind": "curated"
+        },
+        {
+          "id": "performance-profiling",
+          "task": "performance-profiling",
+          "title": "performance-profiling",
+          "kind": "curated"
+        },
+        {
+          "id": "python-engineering",
+          "task": "python-engineering",
+          "title": "python-engineering",
+          "kind": "curated"
+        },
+        {
+          "id": "refactoring-safe",
+          "task": "refactoring-safe",
+          "title": "refactoring-safe",
+          "kind": "curated"
+        },
+        {
+          "id": "research-synthesis",
+          "task": "research-synthesis",
+          "title": "research-synthesis",
+          "kind": "curated"
+        },
+        {
+          "id": "security-review-lite",
+          "task": "security-review-lite",
+          "title": "security-review-lite",
+          "kind": "curated"
+        },
+        {
+          "id": "skill-router",
+          "task": "skill-router",
+          "title": "skill-router",
+          "kind": "curated"
+        },
+        {
+          "id": "spec-writing",
+          "task": "spec-writing",
+          "title": "spec-writing",
+          "kind": "curated"
+        },
+        {
+          "id": "test-driven-development",
+          "task": "test-driven-development",
+          "title": "test-driven-development",
+          "kind": "curated"
+        },
+        {
+          "id": "typescript-engineering",
+          "task": "typescript-engineering",
+          "title": "typescript-engineering",
+          "kind": "curated"
+        },
+        {
+          "id": "verify-before-claiming",
+          "task": "verify-before-claiming",
+          "title": "verify-before-claiming",
+          "kind": "curated"
+        }
+      ]
+    },
+    "frontend": {
+      "accessibility": [
+        {
+          "id": "wcag-contrast-below-4-5-fails-aa",
+          "task": "compute-srgb-contrast",
+          "title": "WCAG 2.2 contrast needs sRGB linearization, and 4.5 is a hard floor",
+          "kind": "verified"
+        }
+      ],
+      "css": [
+        {
+          "id": "css-container-query-ignores-viewport",
+          "task": "query-the-container-not-the-viewport",
+          "title": "A @media rule follows the viewport, not the 200px card",
+          "kind": "verified"
+        },
+        {
+          "id": "css-flex-item-min-width-auto",
+          "task": "let-flex-item-shrink",
+          "title": "A flex item's min-width:auto refuses to shrink below its content",
+          "kind": "verified"
+        },
+        {
+          "id": "css-unlayered-author-style-beats-layers",
+          "task": "order-cascade-layers",
+          "title": "An unlayered author rule beats any style inside @layer",
+          "kind": "verified"
+        }
+      ],
+      "html": [
+        {
+          "id": "html-enter-implicitly-submits-form",
+          "task": "stop-implicit-form-submit",
+          "title": "Enter in a one-field form submits, and type=button does not stop it",
+          "kind": "verified"
+        }
+      ],
+      "react": [
+        {
+          "id": "react-19-ref-as-prop",
+          "task": "forward-ref-to-host",
+          "title": "React 19 function components take ref as a prop",
+          "kind": "verified"
+        },
+        {
+          "id": "react-index-key-sticks-dom-state",
+          "task": "key-list-rows-by-identity",
+          "title": "An index key keeps DOM state on the position, not the row",
+          "kind": "verified"
+        },
+        {
+          "id": "react-strict-mode-effect-double-invoke",
+          "task": "survive-strict-mode-setup",
+          "title": "React StrictMode runs effect setup twice in development",
+          "kind": "verified"
+        }
+      ],
+      "svelte": [
+        {
+          "id": "svelte-5-export-let-invalid-in-runes",
+          "task": "replace-export-let-with-props",
+          "title": "Svelte 5 rejects export let once a component uses a rune",
+          "kind": "verified"
+        }
+      ],
+      "testing-library": [
+        {
+          "id": "testing-library-byrole-name-is-exact",
+          "task": "match-accessible-name-exactly",
+          "title": "getByRole name strings are exact and case-sensitive",
+          "kind": "verified"
+        },
+        {
+          "id": "testing-library-input-number-is-spinbutton",
+          "task": "query-number-input-by-role",
+          "title": "An input type=number has role spinbutton, not textbox",
+          "kind": "verified"
+        }
+      ],
+      "vue": [
+        {
+          "id": "vue-3-5-destructured-props-stay-bound",
+          "task": "keep-destructured-props-reactive",
+          "title": "Vue 3.5 keeps a defineProps destructure bound; a plain const does not",
+          "kind": "verified"
+        }
+      ]
+    },
+    "languages": {
+      "go": [
+        {
+          "id": "go-1-22-loop-var-per-iteration",
+          "task": "capture-loop-variable",
+          "title": "Go 1.22 gives each iteration its own loop variable",
+          "kind": "verified"
+        },
+        {
+          "id": "go-nil-pointer-stored-in-interface",
+          "task": "detect-typed-nil-interface",
+          "title": "A nil pointer stored in an interface is not a nil interface",
+          "kind": "verified"
+        }
+      ],
+      "java": [
+        {
+          "id": "java-21-switch-null-throws",
+          "task": "match-null-in-switch",
+          "title": "A Java 21 switch without case null throws NullPointerException",
+          "kind": "verified"
+        }
+      ],
+      "javascript": [
+        {
+          "id": "javascript-array-sort-lexicographic",
+          "task": "sort-numbers-numerically",
+          "title": "Array.prototype.sort compares numbers as strings",
+          "kind": "verified"
+        }
+      ],
+      "node": [
+        {
+          "id": "node-22-type-stripping-is-experimental",
+          "task": "run-typescript-with-strip-types",
+          "title": "Node 22 runs .ts only with --experimental-strip-types",
+          "kind": "verified"
+        }
+      ],
+      "python": [
+        {
+          "id": "python-closure-late-binding",
+          "task": "capture-loop-value",
+          "title": "A lambda in a loop reads i after the loop, unless the default binds it",
+          "kind": "verified"
+        },
+        {
+          "id": "python-unboundlocalerror-on-assignment",
+          "task": "bind-name-before-read",
+          "title": "Assigning to count makes it local, so the earlier print raises UnboundLocalError",
+          "kind": "verified"
+        }
+      ],
+      "rust": [
+        {
+          "id": "rust-temporary-dropped-while-borrowed",
+          "task": "bind-temporary-before-borrow",
+          "title": "value.unwrap().as_str() drops the temporary and rustc reports E0716",
+          "kind": "verified"
+        }
+      ]
+    },
+    "mobile": {
+      "css": [
+        {
+          "id": "mobile-safe-area-fallback-only-if-undefined",
+          "task": "use-env-safe-area-fallback",
+          "title": "env(safe-area-inset-top, 12px) is 0px when the variable exists",
+          "kind": "verified"
+        }
+      ]
+    },
+    "performance": {
+      "sql": [
+        {
+          "id": "n-plus-one-query-per-row",
+          "task": "batch-the-lookup",
+          "title": "One query per user is N round trips; one IN list is a single query",
+          "kind": "verified"
+        }
+      ]
+    },
+    "refactoring": {
+      "python": [
+        {
+          "id": "python-generator-second-pass-empty",
+          "task": "reuse-a-sequence",
+          "title": "A generator iterator is empty the second time you iterate it",
+          "kind": "verified"
+        }
+      ]
+    },
+    "security": {
+      "python": [
+        {
+          "id": "hmac-compare-digest-for-secrets",
+          "task": "compare-mac-bytes",
+          "title": "hmac.compare_digest rejects a str against bytes and returns False for a different length",
+          "kind": "verified"
+        },
+        {
+          "id": "path-join-allows-traversal",
+          "task": "contain-joined-path",
+          "title": "normpath(join(root, user)).startswith(root) accepts uploads-evil",
+          "kind": "verified"
+        },
+        {
+          "id": "sql-fstring-interpolates-untrusted-input",
+          "task": "bind-sql-parameters",
+          "title": "An f-string SQL predicate runs the quote the caller sent",
+          "kind": "verified"
+        }
+      ]
+    },
+    "tax": {
+      "tax": [
+        {
+          "id": "tax-api-and-scenarios",
+          "task": "tax-api-and-scenarios",
+          "title": "tax-api-and-scenarios",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-credits-engine",
+          "task": "tax-credits-engine",
+          "title": "tax-credits-engine",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-engine-architecture",
+          "task": "tax-engine-architecture",
+          "title": "tax-engine-architecture",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-explainability-audit-trail",
+          "task": "tax-explainability-audit-trail",
+          "title": "tax-explainability-audit-trail",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-filing-status-and-household",
+          "task": "tax-filing-status-and-household",
+          "title": "tax-filing-status-and-household",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-golden-test-vectors",
+          "task": "tax-golden-test-vectors",
+          "title": "tax-golden-test-vectors",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-jurisdiction-modeling",
+          "task": "tax-jurisdiction-modeling",
+          "title": "tax-jurisdiction-modeling",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-money-math",
+          "task": "tax-money-math",
+          "title": "tax-money-math",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-payroll-withholding",
+          "task": "tax-payroll-withholding",
+          "title": "tax-payroll-withholding",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-phaseouts-and-limits",
+          "task": "tax-phaseouts-and-limits",
+          "title": "tax-phaseouts-and-limits",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-progressive-brackets",
+          "task": "tax-progressive-brackets",
+          "title": "tax-progressive-brackets",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-rules-as-data",
+          "task": "tax-rules-as-data",
+          "title": "tax-rules-as-data",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-sales-and-vat",
+          "task": "tax-sales-and-vat",
+          "title": "tax-sales-and-vat",
+          "kind": "curated"
+        },
+        {
+          "id": "tax-source-research",
+          "task": "tax-source-research",
+          "title": "tax-source-research",
+          "kind": "curated"
+        }
+      ]
+    },
+    "testing": {
+      "node": [
+        {
+          "id": "node-mock-timers-do-not-advance-alone",
+          "task": "tick-mocked-timers",
+          "title": "node:test mock.timers does not fire a timer until tick()",
+          "kind": "verified"
+        }
+      ]
+    },
+    "vcs": {
+      "git": [
+        {
+          "id": "git-abbrev-ref-is-head-when-detached",
+          "task": "detect-detached-head",
+          "title": "git rev-parse --abbrev-ref HEAD prints HEAD when detached",
+          "kind": "verified"
+        }
+      ]
+    }
+  },
+  "skills": [
     {
-      "name": "adversarial-red-team",
-      "description": "Attack a design or implementation to find where it breaks - hostile and edge inputs, broken assumptions, spec ambiguities, and \"the team agreed too easily\" checks. Use when reviewing swarm output, when all agents converge on one answer, or before trusting a numeric engine.",
-      "path": ".claude/skills/adversarial-red-team/SKILL.md"
+      "id": "cursor-page-needs-unique-tie-break",
+      "area": "apis",
+      "topic": "pagination",
+      "task": "keyset-with-unique-column",
+      "title": "A keyset cursor on created alone skips rows that share the timestamp",
+      "description": "Use when page 2 of a created_at cursor jumps over a row that has the same timestamp as the last row of page 1.",
+      "path": "library/skills/apis/cursor-page-needs-unique-tie-break.md",
+      "kind": "verified",
+      "related": [
+        "react-index-key-sticks-dom-state",
+        "sqlite-null-comparisons-are-unknown"
+      ]
     },
     {
-      "name": "api-design",
+      "id": "idempotency-key-replays-stored-response",
+      "area": "apis",
+      "topic": "http",
+      "task": "replay-idempotent-post",
+      "title": "An idempotency key must replay the stored response, not run the handler again",
+      "description": "Use when a retried POST with the same Idempotency-Key creates a second row or returns a new id.",
+      "path": "library/skills/apis/idempotency-key-replays-stored-response.md",
+      "kind": "verified",
+      "related": [
+        "if-match-rejects-stale-update",
+        "sqlite-foreign-keys-require-pragma"
+      ]
+    },
+    {
+      "id": "if-match-rejects-stale-update",
+      "area": "apis",
+      "topic": "http",
+      "task": "reject-stale-if-match",
+      "title": "A second update with a stale version must return 412",
+      "description": "Use when two clients PUT the same row and the slower write overwrites the faster one, or version climbs past the client's If-Match.",
+      "path": "library/skills/apis/if-match-rejects-stale-update.md",
+      "kind": "verified",
+      "related": [
+        "idempotency-key-replays-stored-response",
+        "transactional-outbox-commit-with-row"
+      ]
+    },
+    {
+      "id": "transactional-outbox-commit-with-row",
+      "area": "architecture",
+      "topic": "transactions",
+      "task": "commit-outbox-with-order",
+      "title": "The outbox row has to commit in the same transaction as the order",
+      "description": "Use when an order row exists and the outbox is empty because the process raised after commit and before the outbox insert.",
+      "path": "library/skills/architecture/transactional-outbox-commit-with-row.md",
+      "kind": "verified",
+      "related": [
+        "idempotency-key-replays-stored-response",
+        "sqlite-foreign-keys-require-pragma"
+      ]
+    },
+    {
+      "id": "go-http-shutdown-blocks-on-handler",
+      "area": "backend",
+      "topic": "go",
+      "task": "unblock-http-shutdown",
+      "title": "http.Server.Shutdown waits until the handler returns",
+      "description": "Use when Shutdown returns context deadline exceeded while a handler is still inside Sleep or a request that never finishes.",
+      "path": "library/skills/backend/go-http-shutdown-blocks-on-handler.md",
+      "kind": "verified",
+      "related": [
+        "node-http-client-hangs-without-end",
+        "go-nil-pointer-stored-in-interface"
+      ]
+    },
+    {
+      "id": "node-http-client-hangs-without-end",
+      "area": "backend",
+      "topic": "node",
+      "task": "end-the-http-request",
+      "title": "A Node http request that never calls end() stays open",
+      "description": "Use when a client writes a body, the server never responds, and the socket sits until a timeout.",
+      "path": "library/skills/backend/node-http-client-hangs-without-end.md",
+      "kind": "verified",
+      "related": [
+        "go-http-shutdown-blocks-on-handler",
+        "path-join-allows-traversal"
+      ]
+    },
+    {
+      "id": "argparse-options-after-positionals",
+      "area": "cli",
+      "topic": "python",
+      "task": "pass-options-after-double-dash",
+      "title": "argparse nargs='*' rejects an unknown --flag unless the user passes --",
+      "description": "Use when a CLI exits 2 with unrecognized arguments: --flag after a positional that was meant to accept extra options.",
+      "path": "library/skills/cli/argparse-options-after-positionals.md",
+      "kind": "verified",
+      "related": [
+        "node-http-client-hangs-without-end",
+        "github-actions-unquoted-run-script"
+      ]
+    },
+    {
+      "id": "sqlite-foreign-keys-require-pragma",
+      "area": "databases",
+      "topic": "sqlite",
+      "task": "enable-foreign-keys",
+      "title": "SQLite foreign keys stay off unless PRAGMA foreign_keys runs outside a transaction",
+      "description": "Use when an orphan child row inserts successfully, or PRAGMA foreign_keys reports 0 after you thought you enabled it.",
+      "path": "library/skills/databases/sqlite-foreign-keys-require-pragma.md",
+      "kind": "verified",
+      "related": [
+        "sqlite-null-comparisons-are-unknown",
+        "transactional-outbox-commit-with-row"
+      ]
+    },
+    {
+      "id": "sqlite-null-comparisons-are-unknown",
+      "area": "databases",
+      "topic": "sqlite",
+      "task": "include-null-in-filter",
+      "title": "name != 'Ada' does not return the row whose name is NULL",
+      "description": "Use when a filter meant to exclude one name also drops rows with a null name, and the missing row has no SQL error.",
+      "path": "library/skills/databases/sqlite-null-comparisons-are-unknown.md",
+      "kind": "verified",
+      "related": [
+        "sqlite-foreign-keys-require-pragma",
+        "sql-fstring-interpolates-untrusted-input"
+      ]
+    },
+    {
+      "id": "sqlite-unindexed-lookup-plans-scan",
+      "area": "databases",
+      "topic": "sqlite",
+      "task": "index-the-filtered-column",
+      "title": "A lookup on user_id scans until an index exists, and the plan says COVERING",
+      "description": "Use when EXPLAIN QUERY PLAN prints SCAN events for a user_id filter and you expected SEARCH using an index.",
+      "path": "library/skills/databases/sqlite-unindexed-lookup-plans-scan.md",
+      "kind": "verified",
+      "related": [
+        "n-plus-one-query-per-row",
+        "sqlite-foreign-keys-require-pragma"
+      ]
+    },
+    {
+      "id": "node-unhandled-rejection-is-not-thrown",
+      "area": "debugging",
+      "topic": "node",
+      "task": "await-or-catch-rejection",
+      "title": "try/catch does not see a rejected Promise you did not await",
+      "description": "Use when a try block calls Promise.reject, the catch never runs, and unhandledRejection later reports nope.",
+      "path": "library/skills/debugging/node-unhandled-rejection-is-not-thrown.md",
+      "kind": "verified",
+      "related": [
+        "node-mock-timers-do-not-advance-alone",
+        "react-strict-mode-effect-double-invoke"
+      ]
+    },
+    {
+      "id": "python-exception-context-chaining",
+      "area": "debugging",
+      "topic": "python",
+      "task": "chain-exception-cause",
+      "title": "raise X from exc sets __cause__; a bare raise inside except sets __context__",
+      "description": "Use when a log shows 'During handling of the above exception' and __cause__ is None, or you need the original ValueError attached as the cause.",
+      "path": "library/skills/debugging/python-exception-context-chaining.md",
+      "kind": "verified",
+      "related": [
+        "python-warnings-stacklevel",
+        "python-unboundlocalerror-on-assignment"
+      ]
+    },
+    {
+      "id": "git-describe-fails-on-shallow-clone",
+      "area": "devops",
+      "topic": "git",
+      "task": "fetch-tags-before-describe",
+      "title": "git describe --tags fails on a depth-1 clone with no names found",
+      "description": "Use when CI prints fatal: No names found, cannot describe anything after a shallow clone of a tagged repo.",
+      "path": "library/skills/devops/git-describe-fails-on-shallow-clone.md",
+      "kind": "verified",
+      "related": [
+        "git-abbrev-ref-is-head-when-detached",
+        "github-actions-unquoted-run-script"
+      ]
+    },
+    {
+      "id": "github-actions-unquoted-run-script",
+      "area": "devops",
+      "topic": "github-actions",
+      "task": "quote-untrusted-run-input",
+      "title": "Interpolating untrusted text into a run script executes it as shell",
+      "description": "Use when a workflow builds echo {message} from an issue title and the title contains a semicolon and a second command.",
+      "path": "library/skills/devops/github-actions-unquoted-run-script.md",
+      "kind": "verified",
+      "related": [
+        "git-describe-fails-on-shallow-clone",
+        "sql-fstring-interpolates-untrusted-input"
+      ]
+    },
+    {
+      "id": "python-warnings-stacklevel",
+      "area": "docs",
+      "topic": "python",
+      "task": "attribute-warning-to-caller",
+      "title": "warnings.warn stacklevel=1 names the helper; stacklevel=2 names the caller",
+      "description": "Use when a deprecation warning points at your wrapper file instead of the application line that called it.",
+      "path": "library/skills/docs/python-warnings-stacklevel.md",
+      "kind": "verified",
+      "related": [
+        "python-exception-context-chaining",
+        "python-generator-second-pass-empty"
+      ]
+    },
+    {
+      "id": "css-container-query-ignores-viewport",
+      "area": "frontend",
+      "topic": "css",
+      "task": "query-the-container-not-the-viewport",
+      "title": "A @media rule follows the viewport, not the 200px card",
+      "description": "Use when a sidebar card picks up a desktop @media rule while the card itself is only a couple hundred pixels wide.",
+      "path": "library/skills/frontend/css-container-query-ignores-viewport.md",
+      "kind": "verified",
+      "related": [
+        "css-flex-item-min-width-auto",
+        "mobile-safe-area-fallback-only-if-undefined"
+      ]
+    },
+    {
+      "id": "css-flex-item-min-width-auto",
+      "area": "frontend",
+      "topic": "css",
+      "task": "let-flex-item-shrink",
+      "title": "A flex item's min-width:auto refuses to shrink below its content",
+      "description": "Use when a flex row scrolls or spills even though the item has flex: 1 1 auto and the container has a fixed width.",
+      "path": "library/skills/frontend/css-flex-item-min-width-auto.md",
+      "kind": "verified",
+      "related": [
+        "css-unlayered-author-style-beats-layers",
+        "css-container-query-ignores-viewport"
+      ]
+    },
+    {
+      "id": "css-unlayered-author-style-beats-layers",
+      "area": "frontend",
+      "topic": "css",
+      "task": "order-cascade-layers",
+      "title": "An unlayered author rule beats any style inside @layer",
+      "description": "Use when a more specific rule inside @layer loses to a short selector written outside every layer.",
+      "path": "library/skills/frontend/css-unlayered-author-style-beats-layers.md",
+      "kind": "verified",
+      "related": [
+        "css-flex-item-min-width-auto",
+        "css-container-query-ignores-viewport"
+      ]
+    },
+    {
+      "id": "html-enter-implicitly-submits-form",
+      "area": "frontend",
+      "topic": "html",
+      "task": "stop-implicit-form-submit",
+      "title": "Enter in a one-field form submits, and type=button does not stop it",
+      "description": "Use when pressing Enter in a search box fires submit even though the form has no submit button, or a type=button failed to block it.",
+      "path": "library/skills/frontend/html-enter-implicitly-submits-form.md",
+      "kind": "verified",
+      "related": [
+        "idempotency-key-replays-stored-response",
+        "if-match-rejects-stale-update"
+      ]
+    },
+    {
+      "id": "react-19-ref-as-prop",
+      "area": "frontend",
+      "topic": "react",
+      "task": "forward-ref-to-host",
+      "title": "React 19 function components take ref as a prop",
+      "description": "Use when a parent ref stays null on a function component that used to need forwardRef, or when element.ref warns after a React 19 upgrade.",
+      "path": "library/skills/frontend/react-19-ref-as-prop.md",
+      "kind": "verified",
+      "related": [
+        "react-strict-mode-effect-double-invoke",
+        "react-index-key-sticks-dom-state"
+      ]
+    },
+    {
+      "id": "react-index-key-sticks-dom-state",
+      "area": "frontend",
+      "topic": "react",
+      "task": "key-list-rows-by-identity",
+      "title": "An index key keeps DOM state on the position, not the row",
+      "description": "Use when a typed value or focus stays on the wrong row after a list is sorted, filtered, or reversed.",
+      "path": "library/skills/frontend/react-index-key-sticks-dom-state.md",
+      "kind": "verified",
+      "related": [
+        "cursor-page-needs-unique-tie-break",
+        "react-19-ref-as-prop"
+      ]
+    },
+    {
+      "id": "react-strict-mode-effect-double-invoke",
+      "area": "frontend",
+      "topic": "react",
+      "task": "survive-strict-mode-setup",
+      "title": "React StrictMode runs effect setup twice in development",
+      "description": "Use when a useEffect subscription, fetch, or analytics call happens twice in development and once in production.",
+      "path": "library/skills/frontend/react-strict-mode-effect-double-invoke.md",
+      "kind": "verified",
+      "related": [
+        "react-19-ref-as-prop",
+        "node-unhandled-rejection-is-not-thrown"
+      ]
+    },
+    {
+      "id": "svelte-5-export-let-invalid-in-runes",
+      "area": "frontend",
+      "topic": "svelte",
+      "task": "replace-export-let-with-props",
+      "title": "Svelte 5 rejects export let once a component uses a rune",
+      "description": "Use when the Svelte compiler reports legacy_export_invalid or says Cannot use export let in runes mode.",
+      "path": "library/skills/frontend/svelte-5-export-let-invalid-in-runes.md",
+      "kind": "verified",
+      "related": [
+        "vue-3-5-destructured-props-stay-bound",
+        "react-19-ref-as-prop"
+      ]
+    },
+    {
+      "id": "testing-library-byrole-name-is-exact",
+      "area": "frontend",
+      "topic": "testing-library",
+      "task": "match-accessible-name-exactly",
+      "title": "getByRole name strings are exact and case-sensitive",
+      "description": "Use when getByRole cannot find a button whose visible text contains the word you searched for, such as Save inside Save draft.",
+      "path": "library/skills/frontend/testing-library-byrole-name-is-exact.md",
+      "kind": "verified",
+      "related": [
+        "testing-library-input-number-is-spinbutton",
+        "wcag-contrast-below-4-5-fails-aa"
+      ]
+    },
+    {
+      "id": "testing-library-input-number-is-spinbutton",
+      "area": "frontend",
+      "topic": "testing-library",
+      "task": "query-number-input-by-role",
+      "title": "An input type=number has role spinbutton, not textbox",
+      "description": "Use when getByRole(container, 'textbox') throws for a labeled number input that is clearly in the document.",
+      "path": "library/skills/frontend/testing-library-input-number-is-spinbutton.md",
+      "kind": "verified",
+      "related": [
+        "testing-library-byrole-name-is-exact",
+        "wcag-contrast-below-4-5-fails-aa"
+      ]
+    },
+    {
+      "id": "vue-3-5-destructured-props-stay-bound",
+      "area": "frontend",
+      "topic": "vue",
+      "task": "keep-destructured-props-reactive",
+      "title": "Vue 3.5 keeps a defineProps destructure bound; a plain const does not",
+      "description": "Use when a child copies props.count into a const and keeps rendering the old number after the parent updates the prop.",
+      "path": "library/skills/frontend/vue-3-5-destructured-props-stay-bound.md",
+      "kind": "verified",
+      "related": [
+        "svelte-5-export-let-invalid-in-runes",
+        "react-19-ref-as-prop"
+      ]
+    },
+    {
+      "id": "wcag-contrast-below-4-5-fails-aa",
+      "area": "frontend",
+      "topic": "accessibility",
+      "task": "compute-srgb-contrast",
+      "title": "WCAG 2.2 contrast needs sRGB linearization, and 4.5 is a hard floor",
+      "description": "Use when a gray-on-white check says the contrast passes, or when dividing channel by 255 disagrees with the WCAG ratio.",
+      "path": "library/skills/frontend/wcag-contrast-below-4-5-fails-aa.md",
+      "kind": "verified",
+      "related": [
+        "testing-library-input-number-is-spinbutton",
+        "testing-library-byrole-name-is-exact"
+      ]
+    },
+    {
+      "id": "go-1-22-loop-var-per-iteration",
+      "area": "languages",
+      "topic": "go",
+      "task": "capture-loop-variable",
+      "title": "Go 1.22 gives each iteration its own loop variable",
+      "description": "Use when &i inside a for loop prints the same number on Go 1.21 and a different number per element on Go 1.22.",
+      "path": "library/skills/languages/go-1-22-loop-var-per-iteration.md",
+      "kind": "verified",
+      "related": [
+        "go-nil-pointer-stored-in-interface",
+        "rust-temporary-dropped-while-borrowed"
+      ]
+    },
+    {
+      "id": "go-nil-pointer-stored-in-interface",
+      "area": "languages",
+      "topic": "go",
+      "task": "detect-typed-nil-interface",
+      "title": "A nil pointer stored in an interface is not a nil interface",
+      "description": "Use when a function returns a nil *T as an error or interface and the caller sees i == nil as false.",
+      "path": "library/skills/languages/go-nil-pointer-stored-in-interface.md",
+      "kind": "verified",
+      "related": [
+        "go-1-22-loop-var-per-iteration",
+        "go-http-shutdown-blocks-on-handler"
+      ]
+    },
+    {
+      "id": "java-21-switch-null-throws",
+      "area": "languages",
+      "topic": "java",
+      "task": "match-null-in-switch",
+      "title": "A Java 21 switch without case null throws NullPointerException",
+      "description": "Use when a pattern switch on a nullable String prints npe, and adding case null prints missing.",
+      "path": "library/skills/languages/java-21-switch-null-throws.md",
+      "kind": "verified",
+      "related": [
+        "rust-temporary-dropped-while-borrowed",
+        "go-nil-pointer-stored-in-interface"
+      ]
+    },
+    {
+      "id": "javascript-array-sort-lexicographic",
+      "area": "languages",
+      "topic": "javascript",
+      "task": "sort-numbers-numerically",
+      "title": "Array.prototype.sort compares numbers as strings",
+      "description": "Use when [10, 2, 1].sort() comes back as 1,10,2 and a numeric compare was omitted.",
+      "path": "library/skills/languages/javascript-array-sort-lexicographic.md",
+      "kind": "verified",
+      "related": [
+        "node-22-type-stripping-is-experimental",
+        "testing-library-byrole-name-is-exact"
+      ]
+    },
+    {
+      "id": "node-22-type-stripping-is-experimental",
+      "area": "languages",
+      "topic": "node",
+      "task": "run-typescript-with-strip-types",
+      "title": "Node 22 runs .ts only with --experimental-strip-types",
+      "description": "Use when node sample.ts throws SyntaxError on a type annotation, or when strip-types prints the value and an ExperimentalWarning.",
+      "path": "library/skills/languages/node-22-type-stripping-is-experimental.md",
+      "kind": "verified",
+      "related": [
+        "javascript-array-sort-lexicographic",
+        "node-mock-timers-do-not-advance-alone"
+      ]
+    },
+    {
+      "id": "python-closure-late-binding",
+      "area": "languages",
+      "topic": "python",
+      "task": "capture-loop-value",
+      "title": "A lambda in a loop reads i after the loop, unless the default binds it",
+      "description": "Use when a list of lambdas created in a for-loop all return the last index instead of the index from their iteration.",
+      "path": "library/skills/languages/python-closure-late-binding.md",
+      "kind": "verified",
+      "related": [
+        "python-unboundlocalerror-on-assignment",
+        "python-generator-second-pass-empty"
+      ]
+    },
+    {
+      "id": "python-unboundlocalerror-on-assignment",
+      "area": "languages",
+      "topic": "python",
+      "task": "bind-name-before-read",
+      "title": "Assigning to count makes it local, so the earlier print raises UnboundLocalError",
+      "description": "Use when Python says cannot access local variable 'count' where it is not associated with a value, even though count exists on the module.",
+      "path": "library/skills/languages/python-unboundlocalerror-on-assignment.md",
+      "kind": "verified",
+      "related": [
+        "python-closure-late-binding",
+        "python-exception-context-chaining"
+      ]
+    },
+    {
+      "id": "rust-temporary-dropped-while-borrowed",
+      "area": "languages",
+      "topic": "rust",
+      "task": "bind-temporary-before-borrow",
+      "title": "value.unwrap().as_str() drops the temporary and rustc reports E0716",
+      "description": "Use when rustc says temporary value dropped while borrowed on a chain that borrows from unwrap or a function return.",
+      "path": "library/skills/languages/rust-temporary-dropped-while-borrowed.md",
+      "kind": "verified",
+      "related": [
+        "java-21-switch-null-throws",
+        "go-1-22-loop-var-per-iteration"
+      ]
+    },
+    {
+      "id": "mobile-safe-area-fallback-only-if-undefined",
+      "area": "mobile",
+      "topic": "css",
+      "task": "use-env-safe-area-fallback",
+      "title": "env(safe-area-inset-top, 12px) is 0px when the variable exists",
+      "description": "Use when a fallback padding inside env() is ignored and the header sits under the status bar, or the fallback appears on desktop unexpectedly.",
+      "path": "library/skills/mobile/mobile-safe-area-fallback-only-if-undefined.md",
+      "kind": "verified",
+      "related": [
+        "css-container-query-ignores-viewport",
+        "css-flex-item-min-width-auto"
+      ]
+    },
+    {
+      "id": "n-plus-one-query-per-row",
+      "area": "performance",
+      "topic": "sql",
+      "task": "batch-the-lookup",
+      "title": "One query per user is N round trips; one IN list is a single query",
+      "description": "Use when a trace shows one SELECT per user id and the count equals the page size.",
+      "path": "library/skills/performance/n-plus-one-query-per-row.md",
+      "kind": "verified",
+      "related": [
+        "sqlite-unindexed-lookup-plans-scan",
+        "cursor-page-needs-unique-tie-break"
+      ]
+    },
+    {
+      "id": "python-generator-second-pass-empty",
+      "area": "refactoring",
+      "topic": "python",
+      "task": "reuse-a-sequence",
+      "title": "A generator iterator is empty the second time you iterate it",
+      "description": "Use when the first list(gen) has the rows and the second list(gen) is [] after a refactor that replaced a list with yield.",
+      "path": "library/skills/refactoring/python-generator-second-pass-empty.md",
+      "kind": "verified",
+      "related": [
+        "python-closure-late-binding",
+        "python-warnings-stacklevel"
+      ]
+    },
+    {
+      "id": "hmac-compare-digest-for-secrets",
+      "area": "security",
+      "topic": "python",
+      "task": "compare-mac-bytes",
+      "title": "hmac.compare_digest rejects a str against bytes and returns False for a different length",
+      "description": "Use when compare_digest raises TypeError: a bytes-like object is required, not 'str', or a token check uses ==.",
+      "path": "library/skills/security/hmac-compare-digest-for-secrets.md",
+      "kind": "verified",
+      "related": [
+        "sql-fstring-interpolates-untrusted-input",
+        "if-match-rejects-stale-update"
+      ]
+    },
+    {
+      "id": "path-join-allows-traversal",
+      "area": "security",
+      "topic": "python",
+      "task": "contain-joined-path",
+      "title": "normpath(join(root, user)).startswith(root) accepts uploads-evil",
+      "description": "Use when a filename of ../uploads-evil/x.txt passes a startswith check against the uploads directory.",
+      "path": "library/skills/security/path-join-allows-traversal.md",
+      "kind": "verified",
+      "related": [
+        "sql-fstring-interpolates-untrusted-input",
+        "node-http-client-hangs-without-end"
+      ]
+    },
+    {
+      "id": "sql-fstring-interpolates-untrusted-input",
+      "area": "security",
+      "topic": "python",
+      "task": "bind-sql-parameters",
+      "title": "An f-string SQL predicate runs the quote the caller sent",
+      "description": "Use when a name filter built with an f-string returns every row for a payload that closes the quote.",
+      "path": "library/skills/security/sql-fstring-interpolates-untrusted-input.md",
+      "kind": "verified",
+      "related": [
+        "sqlite-null-comparisons-are-unknown",
+        "hmac-compare-digest-for-secrets"
+      ]
+    },
+    {
+      "id": "node-mock-timers-do-not-advance-alone",
+      "area": "testing",
+      "topic": "node",
+      "task": "tick-mocked-timers",
+      "title": "node:test mock.timers does not fire a timer until tick()",
+      "description": "Use when a test enables mock timers, a 5000ms timeout never runs, and the assertion sees the flag still false.",
+      "path": "library/skills/testing/node-mock-timers-do-not-advance-alone.md",
+      "kind": "verified",
+      "related": [
+        "node-unhandled-rejection-is-not-thrown",
+        "node-22-type-stripping-is-experimental"
+      ]
+    },
+    {
+      "id": "git-abbrev-ref-is-head-when-detached",
+      "area": "vcs",
+      "topic": "git",
+      "task": "detect-detached-head",
+      "title": "git rev-parse --abbrev-ref HEAD prints HEAD when detached",
+      "description": "Use when a deploy script treats the branch name HEAD as a real branch after checkout of a tag or a raw commit.",
+      "path": "library/skills/vcs/git-abbrev-ref-is-head-when-detached.md",
+      "kind": "verified",
+      "related": [
+        "git-describe-fails-on-shallow-clone",
+        "github-actions-unquoted-run-script"
+      ]
+    },
+    {
+      "id": "adversarial-red-team",
+      "area": "engineering",
+      "topic": "general",
+      "task": "adversarial-red-team",
+      "title": "adversarial-red-team",
+      "description": "Attack a design or implementation to find where it breaks - hostile and edge inputs, broken assumptions, spec ambiguities, and \"the team agreed too easily\" checks. Use when reviewing an implementation, when several reviewers converge on one answer, or before trusting a numeric engine.",
+      "path": ".claude/skills/adversarial-red-team/SKILL.md",
+      "kind": "curated",
+      "related": []
+    },
+    {
+      "id": "api-design",
+      "area": "engineering",
+      "topic": "general",
+      "task": "api-design",
+      "title": "api-design",
       "description": "Design library and HTTP APIs that are hard to misuse - small surfaces, explicit types, consistent naming, actionable errors, versioning, idempotency, and pagination. Use when publishing an interface other agents, services, or users will call.",
-      "path": ".claude/skills/api-design/SKILL.md"
+      "path": ".claude/skills/api-design/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "code-review-rigorous",
+      "id": "code-review-rigorous",
+      "area": "engineering",
+      "topic": "general",
+      "task": "code-review-rigorous",
+      "title": "code-review-rigorous",
       "description": "Review code for correctness bugs first, then design, tests, and clarity, producing ranked findings with concrete failure scenarios. Use when reviewing a diff, a PR, another agent's output, or before declaring work done.",
-      "path": ".claude/skills/code-review-rigorous/SKILL.md"
+      "path": ".claude/skills/code-review-rigorous/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "data-analysis-with-code",
+      "id": "data-analysis-with-code",
+      "area": "engineering",
+      "topic": "general",
+      "task": "data-analysis-with-code",
+      "title": "data-analysis-with-code",
       "description": "Answer quantitative questions by writing and running code rather than estimating - load data, inspect it, compute, chart, and report numbers with the code that produced them. Use for any calculation, dataset question, or sanity check of engine output (the code-interpreter working style).",
-      "path": ".claude/skills/data-analysis-with-code/SKILL.md"
+      "path": ".claude/skills/data-analysis-with-code/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "data-modeling",
+      "id": "data-modeling",
+      "area": "engineering",
+      "topic": "general",
+      "task": "data-modeling",
+      "title": "data-modeling",
       "description": "Model domain data - entities, value objects, invariants, immutability, identity, normalization vs denormalization, temporal (effective-dated) records, and schema evolution. Use when designing dataclasses, database tables, JSON schemas, or rule/config files.",
-      "path": ".claude/skills/data-modeling/SKILL.md"
+      "path": ".claude/skills/data-modeling/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "debugging-scientific-method",
+      "id": "debugging-scientific-method",
+      "area": "engineering",
+      "topic": "general",
+      "task": "debugging-scientific-method",
+      "title": "debugging-scientific-method",
       "description": "Debug by hypothesis and experiment - reproduce, minimize, form ranked hypotheses, run discriminating experiments, fix root cause, add a regression test. Use for any failing test, wrong output, crash, or flaky behavior.",
-      "path": ".claude/skills/debugging-scientific-method/SKILL.md"
+      "path": ".claude/skills/debugging-scientific-method/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "docs-writer",
-      "description": "Write developer docs people actually use - README quickstart, how-to guides, reference, and design notes, each in its own place. Use when documenting a module, engine, API, or this swarm setup.",
-      "path": ".claude/skills/docs-writer/SKILL.md"
+      "id": "docs-writer",
+      "area": "engineering",
+      "topic": "general",
+      "task": "docs-writer",
+      "title": "docs-writer",
+      "description": "Write developer docs people actually use - README quickstart, how-to guides, reference, and design notes, each in its own place. Use when documenting a module, engine, or API.",
+      "path": ".claude/skills/docs-writer/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "iterative-canvas-editing",
+      "id": "iterative-canvas-editing",
+      "area": "engineering",
+      "topic": "general",
+      "task": "iterative-canvas-editing",
+      "title": "iterative-canvas-editing",
       "description": "Improve a single document or file in focused passes - structure, then correctness, then clarity, then polish - making targeted edits instead of full rewrites and summarizing each pass. Use when refining a spec, README, or module with a user (the canvas working style).",
-      "path": ".claude/skills/iterative-canvas-editing/SKILL.md"
+      "path": ".claude/skills/iterative-canvas-editing/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "performance-profiling",
+      "id": "performance-profiling",
+      "area": "engineering",
+      "topic": "general",
+      "task": "performance-profiling",
+      "title": "performance-profiling",
       "description": "Measure before optimizing - benchmarks, profilers, complexity analysis, caching of pure functions, and batch processing. Use when something is slow, when running large scenario grids or batch tax computations, or before adding caches.",
-      "path": ".claude/skills/performance-profiling/SKILL.md"
+      "path": ".claude/skills/performance-profiling/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "prompt-engineering",
-      "description": "Write prompts for subagents and LLM features - self-contained context, clear role, explicit deliverable and format, examples, constraints, and verification steps. Use when spawning swarm agents or building prompts into an application.",
-      "path": ".claude/skills/prompt-engineering/SKILL.md"
-    },
-    {
-      "name": "python-engineering",
+      "id": "python-engineering",
+      "area": "engineering",
+      "topic": "general",
+      "task": "python-engineering",
+      "title": "python-engineering",
       "description": "Modern Python conventions - project layout, typing, dataclasses, Decimal, pathlib, pytest, packaging with pyproject, and stdlib-first dependencies. Use when writing or reviewing Python code in this repo or projects it builds.",
-      "path": ".claude/skills/python-engineering/SKILL.md"
+      "path": ".claude/skills/python-engineering/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "refactoring-safe",
-      "description": "Change code structure without changing behavior - characterization tests first, small mechanical steps, one move at a time, run tests after each. Use when restructuring code, extracting modules, renaming across files, or cleaning up after a swarm integrates.",
-      "path": ".claude/skills/refactoring-safe/SKILL.md"
+      "id": "refactoring-safe",
+      "area": "engineering",
+      "topic": "general",
+      "task": "refactoring-safe",
+      "title": "refactoring-safe",
+      "description": "Change code structure without changing behavior - characterization tests first, small mechanical steps, one move at a time, run tests after each. Use when restructuring code, extracting modules, renaming across files, or cleaning up after a large change lands.",
+      "path": ".claude/skills/refactoring-safe/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "research-synthesis",
+      "id": "research-synthesis",
+      "area": "engineering",
+      "topic": "general",
+      "task": "research-synthesis",
+      "title": "research-synthesis",
       "description": "Research a question across sources and synthesize a sourced answer - source ranking, claim extraction, cross-checking, and explicit confidence. Use for regulatory research, library/tool comparisons, or any question where facts must be cited.",
-      "path": ".claude/skills/research-synthesis/SKILL.md"
+      "path": ".claude/skills/research-synthesis/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "security-review-lite",
+      "id": "security-review-lite",
+      "area": "engineering",
+      "topic": "general",
+      "task": "security-review-lite",
+      "title": "security-review-lite",
       "description": "Quick security pass for application code - input validation, injection, authn/authz, secrets, PII handling, dependency risk, and logging. Use before shipping an API or when code handles personal or financial data (e.g. tax returns).",
-      "path": ".claude/skills/security-review-lite/SKILL.md"
+      "path": ".claude/skills/security-review-lite/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "skill-router",
-      "description": "Find and pick the right skills for a task from this repo's catalog - search core skills, lenses, and domain packs, and forge blended skills. Use when you or a swarm agent need to choose skills, when the user asks \"what skills do you have\", or before spawning agents.",
-      "path": ".claude/skills/skill-router/SKILL.md"
+      "id": "skill-router",
+      "area": "engineering",
+      "topic": "general",
+      "task": "skill-router",
+      "title": "skill-router",
+      "description": "Search this repo as one skill library. Route a question to a few matching skills, or abstain and reason without a skill when the match is weak. Use when choosing skills, when the user asks what skills exist, or before applying a verified coding note.",
+      "path": ".claude/skills/skill-router/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "spec-writing",
-      "description": "Turn a fuzzy goal into a short, testable spec - scope, non-goals, inputs/outputs, examples, acceptance commands, and open questions. Use at the start of a swarm run, before large features, or when agents disagree about what to build.",
-      "path": ".claude/skills/spec-writing/SKILL.md"
+      "id": "spec-writing",
+      "area": "engineering",
+      "topic": "general",
+      "task": "spec-writing",
+      "title": "spec-writing",
+      "description": "Turn a fuzzy goal into a short, testable spec - scope, non-goals, inputs/outputs, examples, acceptance commands, and open questions. Use at the start of a large feature, or when people disagree about what to build.",
+      "path": ".claude/skills/spec-writing/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "swarm",
-      "description": "Split yourself into a coordinated team of subagents, each loaded with different skills, to build something large. Use when the user says \"go\", \"/swarm <goal>\", asks to build a whole system, or asks for agents/a team. Covers decomposition, skill assignment, the shared blackboard, parallel spawning, integration, and review loops.",
-      "path": ".claude/skills/swarm/SKILL.md"
-    },
-    {
-      "name": "tax-api-and-scenarios",
+      "id": "tax-api-and-scenarios",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-api-and-scenarios",
+      "title": "tax-api-and-scenarios",
       "description": "Design the public API and scenario tooling for a tax engine - compute/explain/diff endpoints, input schemas with validation errors users can act on, what-if scenarios, optimizers for elections, batch runs, and stable versioned outputs. Use when exposing a tax engine as a library, CLI, or HTTP service.",
-      "path": ".claude/skills/tax-api-and-scenarios/SKILL.md"
+      "path": ".claude/skills/tax-api-and-scenarios/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-credits-engine",
+      "id": "tax-credits-engine",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-credits-engine",
+      "title": "tax-credits-engine",
       "description": "Model tax credits - nonrefundable vs refundable vs partially refundable, statutory ordering, limitation by liability, per-person/per-dependent credits, earned-income style phase-in/plateau/phase-out curves, and credit carryforwards. Use when implementing or reviewing any credit logic in an income tax engine.",
-      "path": ".claude/skills/tax-credits-engine/SKILL.md"
+      "path": ".claude/skills/tax-credits-engine/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-engine-architecture",
+      "id": "tax-engine-architecture",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-engine-architecture",
+      "title": "tax-engine-architecture",
       "description": "Architecture for a tax calculation engine - pipeline stages, pure-function calculators, rules-as-data, jurisdiction/year versioning, and a traceable result object. Use when designing or restructuring any income, payroll, sales/VAT, or property tax engine, or when deciding module boundaries for a tax codebase.",
-      "path": ".claude/skills/tax-engine-architecture/SKILL.md"
+      "path": ".claude/skills/tax-engine-architecture/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-engine-kit",
-      "description": "One-command launch of the tax-engine swarm - spins up architect, researcher, calc engineers, test oracle, auditor, and API builder agents with the tax skill pack to build a tax calculation engine. Use when the user says \"build a tax engine\", \"tax calculator\", \"/tax-engine-kit\", or \"go\" with a tax goal.",
-      "path": ".claude/skills/tax-engine-kit/SKILL.md"
-    },
-    {
-      "name": "tax-explainability-audit-trail",
+      "id": "tax-explainability-audit-trail",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-explainability-audit-trail",
+      "title": "tax-explainability-audit-trail",
       "description": "Make every number a tax engine produces explainable and auditable - named lines, calculation traces with inputs, rule references and formulas, provenance (ruleset hash, engine version), warnings, and human-readable explanations. Use when designing result objects, debugging a wrong number, building \"why is my tax X\" features, or preparing an engine for audit.",
-      "path": ".claude/skills/tax-explainability-audit-trail/SKILL.md"
+      "path": ".claude/skills/tax-explainability-audit-trail/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-filing-status-and-household",
+      "id": "tax-filing-status-and-household",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-filing-status-and-household",
+      "title": "tax-filing-status-and-household",
       "description": "Model taxpayers, households, filing status, dependents, and qualifying-person tests as data plus explicit eligibility functions. Use when a tax engine needs per-status thresholds, dependent-based amounts, or household composition rules.",
-      "path": ".claude/skills/tax-filing-status-and-household/SKILL.md"
+      "path": ".claude/skills/tax-filing-status-and-household/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-golden-test-vectors",
+      "id": "tax-golden-test-vectors",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-golden-test-vectors",
+      "title": "tax-golden-test-vectors",
       "description": "Testing strategy for tax engines - sourced golden test vectors from official worked examples, property-based invariants (monotonicity, continuity, bounds, symmetry), boundary generators, differential testing against an independent implementation, and regression snapshots of full traces. Use when writing or reviewing tests for any tax or financial calculation.",
-      "path": ".claude/skills/tax-golden-test-vectors/SKILL.md"
+      "path": ".claude/skills/tax-golden-test-vectors/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-jurisdiction-modeling",
+      "id": "tax-jurisdiction-modeling",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-jurisdiction-modeling",
+      "title": "tax-jurisdiction-modeling",
       "description": "Model multiple taxing jurisdictions - federal/state/local stacking, conformity and decoupling from a base jurisdiction, residency and part-year allocation, credits for taxes paid to other jurisdictions, and adding a new jurisdiction by composition. Use when an engine must support more than one country, state, province, or locality.",
-      "path": ".claude/skills/tax-jurisdiction-modeling/SKILL.md"
+      "path": ".claude/skills/tax-jurisdiction-modeling/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-money-math",
+      "id": "tax-money-math",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-money-math",
+      "title": "tax-money-math",
       "description": "Correct money arithmetic for tax and finance code - Decimal or integer minor units, explicit rounding modes and points, allocation without losing cents, percentage and rate math, and currency handling. Use whenever code adds, multiplies, rounds, splits, or compares monetary amounts.",
-      "path": ".claude/skills/tax-money-math/SKILL.md"
+      "path": ".claude/skills/tax-money-math/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-payroll-withholding",
+      "id": "tax-payroll-withholding",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-payroll-withholding",
+      "title": "tax-payroll-withholding",
       "description": "Payroll tax and income tax withholding calculations - annualization, pay-frequency conversion, percentage-method tables, wage-base caps for social insurance, employer vs employee shares, year-to-date tracking, and supplemental wages. Use when building payroll engines or paycheck calculators.",
-      "path": ".claude/skills/tax-payroll-withholding/SKILL.md"
+      "path": ".claude/skills/tax-payroll-withholding/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-phaseouts-and-limits",
+      "id": "tax-phaseouts-and-limits",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-phaseouts-and-limits",
+      "title": "tax-phaseouts-and-limits",
       "description": "Implement phase-outs, phase-ins, caps, floors, percentage-of-income limits, carryforwards, and \"lesser of / greater of\" rules in tax engines, including step-rounding phrases like \"or fraction thereof\". Use when a deduction, credit, or exemption shrinks, grows, or is limited based on income or other amounts.",
-      "path": ".claude/skills/tax-phaseouts-and-limits/SKILL.md"
+      "path": ".claude/skills/tax-phaseouts-and-limits/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-progressive-brackets",
+      "id": "tax-progressive-brackets",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-progressive-brackets",
+      "title": "tax-progressive-brackets",
       "description": "Compute progressive (marginal) tax from bracket schedules correctly - the algorithm, tax-table bands vs exact computation, preferential-rate stacking for capital gains, marginal/effective rate reporting, and the boundary tests that catch off-by-one bugs. Use when implementing or testing any tiered or bracketed rate.",
-      "path": ".claude/skills/tax-progressive-brackets/SKILL.md"
+      "path": ".claude/skills/tax-progressive-brackets/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-rules-as-data",
+      "id": "tax-rules-as-data",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-rules-as-data",
+      "title": "tax-rules-as-data",
       "description": "Model tax law parameters (brackets, rates, thresholds, phase-outs, caps, inflation indexing, effective dates) as versioned, schema-validated data with citations, instead of code. Use when adding a tax year or jurisdiction, designing a ruleset schema, or reviewing hard-coded tax numbers.",
-      "path": ".claude/skills/tax-rules-as-data/SKILL.md"
+      "path": ".claude/skills/tax-rules-as-data/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-sales-and-vat",
+      "id": "tax-sales-and-vat",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-sales-and-vat",
+      "title": "tax-sales-and-vat",
       "description": "Build sales tax, VAT, and GST calculation - tax-inclusive vs exclusive pricing, multiple rates and stacked jurisdictions, product taxability categories, exemptions, rounding per line vs per invoice, discounts, shipping, returns, and reverse charge. Use for any transaction/indirect tax engine or checkout tax logic.",
-      "path": ".claude/skills/tax-sales-and-vat/SKILL.md"
+      "path": ".claude/skills/tax-sales-and-vat/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "tax-source-research",
+      "id": "tax-source-research",
+      "area": "tax",
+      "topic": "tax",
+      "task": "tax-source-research",
+      "title": "tax-source-research",
       "description": "Research tax law parameters from primary sources and record them with citations - how to find official tables, revenue procedures, statutes, and agency publications, how to cross-check values, and how to mark anything unverified. Use before entering any rate, bracket, threshold, or rule into a tax ruleset.",
-      "path": ".claude/skills/tax-source-research/SKILL.md"
+      "path": ".claude/skills/tax-source-research/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "test-driven-development",
+      "id": "test-driven-development",
+      "area": "engineering",
+      "topic": "general",
+      "task": "test-driven-development",
+      "title": "test-driven-development",
       "description": "Red-green-refactor workflow - write a failing test that states the requirement, make it pass with the smallest change, then clean up. Use when implementing new behavior with a clear spec, fixing a bug (reproduce first), or when another agent will build against your tests.",
-      "path": ".claude/skills/test-driven-development/SKILL.md"
+      "path": ".claude/skills/test-driven-development/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "typescript-engineering",
+      "id": "typescript-engineering",
+      "area": "engineering",
+      "topic": "general",
+      "task": "typescript-engineering",
+      "title": "typescript-engineering",
       "description": "TypeScript conventions - strict mode, discriminated unions, zod-style boundary validation, no number for money, vitest, and ESM packaging. Use when writing or reviewing TypeScript/JavaScript code.",
-      "path": ".claude/skills/typescript-engineering/SKILL.md"
+      "path": ".claude/skills/typescript-engineering/SKILL.md",
+      "kind": "curated",
+      "related": []
     },
     {
-      "name": "verify-before-claiming",
+      "id": "verify-before-claiming",
+      "area": "engineering",
+      "topic": "general",
+      "task": "verify-before-claiming",
+      "title": "verify-before-claiming",
       "description": "Never report work as done, correct, or passing without running a command that proves it, and report exactly what was and wasn't verified. Use at the end of every task and every agent handoff.",
-      "path": ".claude/skills/verify-before-claiming/SKILL.md"
-    }
-  ],
-  "lenss": [
-    {
-      "name": "adversarial",
-      "description": "Adversarial: assume it's broken and prove where.",
-      "path": "forge/lenses/adversarial.md"
-    },
-    {
-      "name": "auditor",
-      "description": "Auditor: trace every number to its source and every claim to evidence.",
-      "path": "forge/lenses/auditor.md"
-    },
-    {
-      "name": "builder",
-      "description": "Builder: ship the simplest thing that fully works, then improve.",
-      "path": "forge/lenses/builder.md"
-    },
-    {
-      "name": "claude-agentic-coder",
-      "description": "Claude Code style: explore the repo, make focused edits, run the tests, iterate until green, report exactly what was verified.",
-      "path": "forge/lenses/claude-agentic-coder.md"
-    },
-    {
-      "name": "claude-artifact-builder",
-      "description": "Claude artifacts style: produce one complete, self-contained, runnable deliverable, polished enough to hand to someone.",
-      "path": "forge/lenses/claude-artifact-builder.md"
-    },
-    {
-      "name": "claude-careful",
-      "description": "Claude-style careful reasoning: surface assumptions, ask about real ambiguity, cite, and state uncertainty plainly.",
-      "path": "forge/lenses/claude-careful.md"
-    },
-    {
-      "name": "claude-projects-memory",
-      "description": "Claude Projects style: treat the board and repo docs as persistent project knowledge; keep them current and consult them first.",
-      "path": "forge/lenses/claude-projects-memory.md"
-    },
-    {
-      "name": "first-principles",
-      "description": "First principles: derive from the source definition, not from existing code or conventions.",
-      "path": "forge/lenses/first-principles.md"
-    },
-    {
-      "name": "gpt-canvas",
-      "description": "ChatGPT canvas style: work on one document in place with targeted, reviewable edits and short change summaries.",
-      "path": "forge/lenses/gpt-canvas.md"
-    },
-    {
-      "name": "gpt-code-interpreter",
-      "description": "ChatGPT code-interpreter style: compute every number by running code, show the code, and check results numerically.",
-      "path": "forge/lenses/gpt-code-interpreter.md"
-    },
-    {
-      "name": "gpt-custom-persona",
-      "description": "ChatGPT custom-GPT style: adopt a narrowly scoped expert persona with fixed conventions and refuse to drift outside scope.",
-      "path": "forge/lenses/gpt-custom-persona.md"
-    },
-    {
-      "name": "gpt-deep-research",
-      "description": "ChatGPT deep-research style: plan sub-questions, gather many sources, cross-check, and write a cited synthesis.",
-      "path": "forge/lenses/gpt-deep-research.md"
-    },
-    {
-      "name": "minimalist",
-      "description": "Minimalist: fewest moving parts, no speculative generality.",
-      "path": "forge/lenses/minimalist.md"
-    },
-    {
-      "name": "performance-hawk",
-      "description": "Performance hawk: measure, then make it fast where it matters.",
-      "path": "forge/lenses/performance-hawk.md"
-    },
-    {
-      "name": "product-thinker",
-      "description": "Product thinker: optimize for the user who reads the result.",
-      "path": "forge/lenses/product-thinker.md"
-    },
-    {
-      "name": "teacher",
-      "description": "Teacher: make the work understandable to a newcomer.",
-      "path": "forge/lenses/teacher.md"
-    },
-    {
-      "name": "test-first",
-      "description": "Test-first: the test is the spec; nothing is built without a failing test.",
-      "path": "forge/lenses/test-first.md"
-    }
-  ],
-  "domains": [
-    {
-      "name": "accounting-ledger",
-      "description": "Double-entry accounting domain pack.",
-      "path": "forge/domains/accounting-ledger.md"
-    },
-    {
-      "name": "australia-gst",
-      "description": "Australian GST and income tax domain pack.",
-      "path": "forge/domains/australia-gst.md"
-    },
-    {
-      "name": "benefits-eligibility",
-      "description": "Public benefits eligibility rules-engine domain pack.",
-      "path": "forge/domains/benefits-eligibility.md"
-    },
-    {
-      "name": "canada-income-tax",
-      "description": "Canadian federal and provincial income tax domain pack.",
-      "path": "forge/domains/canada-income-tax.md"
-    },
-    {
-      "name": "capital-gains",
-      "description": "Capital gains and investment income domain pack.",
-      "path": "forge/domains/capital-gains.md"
-    },
-    {
-      "name": "corporate-income-tax",
-      "description": "Corporate income tax domain pack.",
-      "path": "forge/domains/corporate-income-tax.md"
-    },
-    {
-      "name": "crypto-tax",
-      "description": "Crypto asset tax domain pack.",
-      "path": "forge/domains/crypto-tax.md"
-    },
-    {
-      "name": "ecommerce-checkout",
-      "description": "E-commerce checkout domain pack.",
-      "path": "forge/domains/ecommerce-checkout.md"
-    },
-    {
-      "name": "estate-gift-tax",
-      "description": "Estate and gift tax domain pack.",
-      "path": "forge/domains/estate-gift-tax.md"
-    },
-    {
-      "name": "eu-vat",
-      "description": "EU value-added tax domain pack.",
-      "path": "forge/domains/eu-vat.md"
-    },
-    {
-      "name": "fintech-payments",
-      "description": "Fintech and payments domain pack.",
-      "path": "forge/domains/fintech-payments.md"
-    },
-    {
-      "name": "india-gst",
-      "description": "Indian GST domain pack.",
-      "path": "forge/domains/india-gst.md"
-    },
-    {
-      "name": "international-tax",
-      "description": "International tax domain pack.",
-      "path": "forge/domains/international-tax.md"
-    },
-    {
-      "name": "invoicing-billing",
-      "description": "Invoicing and billing domain pack.",
-      "path": "forge/domains/invoicing-billing.md"
-    },
-    {
-      "name": "lending-interest",
-      "description": "Lending and interest calculation domain pack.",
-      "path": "forge/domains/lending-interest.md"
-    },
-    {
-      "name": "property-tax",
-      "description": "Property tax domain pack.",
-      "path": "forge/domains/property-tax.md"
-    },
-    {
-      "name": "retirement-accounts",
-      "description": "Retirement accounts domain pack.",
-      "path": "forge/domains/retirement-accounts.md"
-    },
-    {
-      "name": "rules-engines-general",
-      "description": "General rules-engine domain pack for law and policy.",
-      "path": "forge/domains/rules-engines-general.md"
-    },
-    {
-      "name": "uk-income-tax",
-      "description": "UK income tax and National Insurance domain pack.",
-      "path": "forge/domains/uk-income-tax.md"
-    },
-    {
-      "name": "us-federal-income-tax",
-      "description": "US federal individual income tax domain pack.",
-      "path": "forge/domains/us-federal-income-tax.md"
-    },
-    {
-      "name": "us-payroll",
-      "description": "US payroll tax and withholding domain pack.",
-      "path": "forge/domains/us-payroll.md"
-    },
-    {
-      "name": "us-sales-tax",
-      "description": "US sales and use tax domain pack.",
-      "path": "forge/domains/us-sales-tax.md"
-    },
-    {
-      "name": "us-state-income-tax",
-      "description": "US state and local income tax domain pack.",
-      "path": "forge/domains/us-state-income-tax.md"
-    }
-  ],
-  "agents": [
-    {
-      "name": "swarm-reviewer",
-      "description": "Reviews the integrated output of a swarm run - correctness, contract adherence against the board, test independence, and shared blind spots between agents. Use at the end of every swarm run.",
-      "path": ".claude/agents/swarm-reviewer.md",
-      "skills": "code-review-rigorous, adversarial-red-team, verify-before-claiming"
-    },
-    {
-      "name": "swarm-worker",
-      "description": "General-purpose swarm member that takes on whatever forged skill file the lead assigns. Use for any workstream without a dedicated agent; the prompt must name a skill file in .swarm/skills/.",
-      "path": ".claude/agents/swarm-worker.md",
-      "skills": "verify-before-claiming, prompt-engineering"
-    },
-    {
-      "name": "tax-api-builder",
-      "description": "Builds the public surface of a tax engine - compute/explain/diff/scenarios API, input validation with actionable errors, CLI, and optional HTTP service. Use once calc interfaces exist.",
-      "path": ".claude/agents/tax-api-builder.md",
-      "skills": "tax-api-and-scenarios, api-design, security-review-lite, python-engineering, docs-writer"
-    },
-    {
-      "name": "tax-architect",
-      "description": "Designs the tax engine spine - module layout, interfaces, ruleset schema, named-line catalog. Use first in a tax-engine swarm, or when restructuring a tax codebase.",
-      "path": ".claude/agents/tax-architect.md",
-      "skills": "tax-engine-architecture, tax-rules-as-data, tax-jurisdiction-modeling, tax-explainability-audit-trail, api-design, data-modeling"
-    },
-    {
-      "name": "tax-auditor",
-      "description": "Reviews tax engine code and data like an auditor - money math, hard-coded numbers, rounding sites, trace completeness, unverified parameters, test independence, and PII handling. Use after implementation, before reporting done.",
-      "path": ".claude/agents/tax-auditor.md",
-      "skills": "code-review-rigorous, adversarial-red-team, tax-explainability-audit-trail, tax-money-math, security-review-lite, verify-before-claiming"
-    },
-    {
-      "name": "tax-calc-engineer",
-      "description": "Implements tax calculation stages - brackets, preferential rates, deductions, phase-outs, limits, and credits - as pure functions over Decimal with full traces. Use for the core math of an income tax engine.",
-      "path": ".claude/agents/tax-calc-engineer.md",
-      "skills": "tax-money-math, tax-progressive-brackets, tax-phaseouts-and-limits, tax-credits-engine, tax-explainability-audit-trail, test-driven-development, python-engineering"
-    },
-    {
-      "name": "tax-indirect-engineer",
-      "description": "Implements sales tax, VAT, and GST calculation - taxability, stacked rates, inclusive/exclusive pricing, discount allocation, per-line vs per-invoice rounding, returns. Use when a tax engine covers transaction taxes.",
-      "path": ".claude/agents/tax-indirect-engineer.md",
-      "skills": "tax-sales-and-vat, tax-money-math, tax-rules-as-data, test-driven-development, python-engineering"
-    },
-    {
-      "name": "tax-payroll-engineer",
-      "description": "Implements payroll tax and income tax withholding - annualization, percentage method, wage-base caps, employer/employee shares, supplemental wages, YTD as explicit input/output. Use when a tax engine covers payroll.",
-      "path": ".claude/agents/tax-payroll-engineer.md",
-      "skills": "tax-payroll-withholding, tax-progressive-brackets, tax-money-math, test-driven-development, python-engineering"
-    },
-    {
-      "name": "tax-rules-researcher",
-      "description": "Researches tax parameters from primary sources and enters them as cited, versioned ruleset data. Also runs as a verifier that re-checks another researcher's values. Use for any rates, brackets, thresholds, or phase-out numbers.",
-      "path": ".claude/agents/tax-rules-researcher.md",
-      "skills": "tax-source-research, tax-rules-as-data, tax-filing-status-and-household, research-synthesis"
-    },
-    {
-      "name": "tax-test-oracle",
-      "description": "Builds the independent test suite for a tax engine - sourced golden vectors, property tests, boundary generators from ruleset data, a naive differential implementation, and trace snapshots. Use in every tax-engine swarm.",
-      "path": ".claude/agents/tax-test-oracle.md",
-      "skills": "tax-golden-test-vectors, tax-progressive-brackets, tax-money-math, adversarial-red-team, python-engineering"
+      "path": ".claude/skills/verify-before-claiming/SKILL.md",
+      "kind": "curated",
+      "related": []
     }
   ]
 }

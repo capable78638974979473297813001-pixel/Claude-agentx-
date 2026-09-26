@@ -1,6 +1,6 @@
 ---
 name: docs-writer
-description: Write developer docs people actually use - README quickstart, how-to guides, reference, and design notes, each in its own place. Use when documenting a module, engine, API, or this swarm setup.
+description: Write developer docs people actually use - README quickstart, how-to guides, reference, and design notes, each in its own place. Use when documenting a module, engine, or API.
 ---
 
 # Docs writer

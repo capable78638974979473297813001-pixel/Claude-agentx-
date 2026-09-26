@@ -14,6 +14,6 @@ description: Red-green-refactor workflow - write a failing test that states the 
 
 Bug fixes: first a test that reproduces the bug and fails, then the fix.
 
-In a swarm, a test-owning agent can publish failing tests as the interface;
-the implementing agent's job is to make them pass without editing them.
-Disputes about a test go on the board, not into an edited assertion.
+A failing test can be the interface for the change: make it pass without
+editing the assertion. Disputes about a test change the spec, not the expected
+value, until the spec itself is wrong.

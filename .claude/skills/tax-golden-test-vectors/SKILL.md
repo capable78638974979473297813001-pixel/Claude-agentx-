@@ -46,8 +46,8 @@ Read thresholds from the data, so a new year gets boundary tests for free.
 
 Write a second, deliberately naive implementation (closed-form bracket math,
 a straight transcription of the worksheet) and compare on thousands of random
-inputs. Two implementations by different agents with different skill loadouts
-are the swarm's best bug detector.
+inputs. Two implementations written separately are the strongest bug detector
+for calculation changes.
 
 ## 5. Trace snapshots
 

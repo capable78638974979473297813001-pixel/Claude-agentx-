@@ -1,0 +1,47 @@
+{
+  "model_invoked": false,
+  "tasks": 50,
+  "areas": {
+    "frontend": 14,
+    "cross": 5,
+    "languages": 6,
+    "apis": 4,
+    "databases": 3,
+    "security": 3,
+    "backend": 2,
+    "debugging": 2,
+    "devops": 2,
+    "testing": 2,
+    "vcs": 1,
+    "cli": 1,
+    "architecture": 1,
+    "refactoring": 1,
+    "docs": 1,
+    "performance": 1,
+    "mobile": 1
+  },
+  "pass_rate": {
+    "none": null,
+    "old": null,
+    "new": null
+  },
+  "top5_hit_rate": {
+    "none": 0.0,
+    "old": 0.0,
+    "new": 1.0
+  },
+  "top5_hits": {
+    "none": 0,
+    "old": 0,
+    "new": 50
+  },
+  "tokens": null,
+  "route_seconds": 0.1554,
+  "dry_run": {
+    "starter_failures": 50,
+    "solution_passes": 50,
+    "ok": true
+  },
+  "router_misses": [],
+  "note": "pass_rate and tokens are null because no model was called. top5_hit_rate.new is the router only. A hit requires every expected skill id to appear in the top 5. An abstention counts as a miss."
+}

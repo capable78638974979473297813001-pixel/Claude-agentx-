@@ -1,65 +1,71 @@
-import math
+import json
+import subprocess
 import sys
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT))
 import skillforge as sf  # noqa: E402
 
 
-class LibraryTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.lib = sf.load_all()
+class SkillforgeCliTest(unittest.TestCase):
+    def test_stats_counts_verified_skills(self):
+        completed = subprocess.run(
+            [sys.executable, str(ROOT / "tools" / "skillforge.py"), "stats"],
+            cwd=ROOT,
+            check=True,
+            text=True,
+            capture_output=True,
+        )
+        self.assertIn("verified skills   43", completed.stdout)
+        self.assertIn("curated skills", completed.stdout)
+        self.assertNotIn("blends", completed.stdout)
 
-    def test_library_validates(self):
-        self.assertEqual(sf.validate(self.lib), [])
+    def test_route_vat_and_abstain(self):
+        vat = subprocess.run(
+            [sys.executable, str(ROOT / "tools" / "skillforge.py"), "route", "vat invoice rounding"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        self.assertEqual(vat.returncode, 0)
+        self.assertIn("tax-sales-and-vat", vat.stdout)
+        vague = subprocess.run(
+            [sys.executable, str(ROOT / "tools" / "skillforge.py"), "route", "help me code"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        self.assertEqual(vague.returncode, 2)
+        self.assertIn("fallback: reason without a skill", vague.stdout)
 
-    def test_tax_pack_present(self):
-        names = {e.name for e in self.lib["atom"]}
-        for required in ("swarm", "tax-engine-kit", "tax-money-math", "tax-progressive-brackets",
-                         "tax-rules-as-data", "tax-golden-test-vectors"):
-            self.assertIn(required, names)
+    def test_removed_paths_stay_gone(self):
+        self.assertFalse((ROOT / ".claude" / "agents").exists())
+        self.assertFalse((ROOT / ".claude" / "skills" / "swarm").exists())
+        self.assertFalse((ROOT / ".claude" / "skills" / "tax-engine-kit").exists())
+        self.assertFalse((ROOT / ".claude" / "skills" / "prompt-engineering").exists())
+        self.assertFalse((ROOT / "catalog" / "kits.json").exists())
+        self.assertFalse(list((ROOT / "forge" / "lenses").glob("claude-*.md")))
+        self.assertFalse(list((ROOT / "forge" / "lenses").glob("gpt-*.md")))
+        self.assertTrue((ROOT / "forge" / "lenses" / "adversarial.md").is_file())
 
-    def test_blend_count_formula(self):
-        self.assertEqual(sf.blend_count(3, 0, 0), 7)       # 3 + 3 + 1 atom sets
-        self.assertEqual(sf.blend_count(4, 1, 2), (4 + 6 + 4) * 2 * 3)
-        a, l, d = (len(self.lib[k]) for k in ("atom", "lens", "domain"))
-        expected = sum(math.comb(a, k) for k in (1, 2, 3)) * (l + 1) * (d + 1)
-        self.assertEqual(sf.build_index(self.lib)["counts"]["blends"], expected)
+    def test_index_shape(self):
+        code = sf.cmd_index(argparse_namespace())
+        self.assertEqual(code, 0)
+        payload = json.loads((ROOT / "catalog" / "index.json").read_text(encoding="utf-8"))
+        self.assertEqual(payload["verified"], 43)
+        self.assertNotIn("blends", payload)
+        self.assertGreaterEqual(payload["curated"], 30)
+        ids = {item["id"] for item in payload["skills"]}
+        self.assertIn("tax-money-math", ids)
+        self.assertIn("react-19-ref-as-prop", ids)
+        self.assertNotIn("swarm", ids)
 
-    def test_compose_structure(self):
-        text = sf.compose(self.lib, ["tax-money-math", "tax-progressive-brackets"],
-                          "adversarial", "us-federal-income-tax")
-        meta, body = sf.parse_frontmatter(text)
-        self.assertTrue(meta["name"].startswith("blend-tax-money-math"))
-        for part in ("## Lens: adversarial", "## Domain: us-federal-income-tax",
-                     "## Atom 1: tax-money-math", "## Atom 2: tax-progressive-brackets"):
-            self.assertIn(part, body)
 
-    def test_compose_keeps_code_comments(self):
-        # A comment line inside a fenced block must not be demoted to a heading.
-        text = sf.compose(self.lib, ["tax-golden-test-vectors"], None, None)
-        self.assertIn("\n# tests/golden/", text)
-        self.assertNotIn("## tests/golden/", text)
-
-    def test_compose_rejects_bad_input(self):
-        with self.assertRaises(ValueError):
-            sf.compose(self.lib, ["nope"], None, None)
-        with self.assertRaises(ValueError):
-            sf.compose(self.lib, ["tax-money-math"] * 2, None, None)
-        with self.assertRaises(ValueError):
-            sf.compose(self.lib, ["swarm", "tax-money-math", "api-design", "spec-writing"], None, None)
-        with self.assertRaises(ValueError):
-            sf.compose(self.lib, ["swarm"], "no-such-lens", None)
-
-    def test_search_finds_vat(self):
-        hits = sf.search(self.lib, "vat invoice rounding")
-        self.assertEqual(hits[0][1].name, "tax-sales-and-vat")
-
-    def test_demote_headings_skips_fences(self):
-        src = "# Title\n```\n# comment\n```\n## Sub"
-        self.assertEqual(sf.demote_headings(src), "## Title\n```\n# comment\n```\n### Sub")
+def argparse_namespace():
+    return type("Args", (), {})()
 
 
 if __name__ == "__main__":
