@@ -1,0 +1,452 @@
+{
+  "counts": {
+    "atoms": 35,
+    "lenses": 17,
+    "domains": 23,
+    "agents": 10,
+    "blends": 3099600
+  },
+  "atoms": [
+    {
+      "name": "adversarial-red-team",
+      "description": "Attack a design or implementation to find where it breaks - hostile and edge inputs, broken assumptions, spec ambiguities, and \"the team agreed too easily\" checks. Use when reviewing swarm output, when all agents converge on one answer, or before trusting a numeric engine.",
+      "path": ".claude/skills/adversarial-red-team/SKILL.md"
+    },
+    {
+      "name": "api-design",
+      "description": "Design library and HTTP APIs that are hard to misuse - small surfaces, explicit types, consistent naming, actionable errors, versioning, idempotency, and pagination. Use when publishing an interface other agents, services, or users will call.",
+      "path": ".claude/skills/api-design/SKILL.md"
+    },
+    {
+      "name": "code-review-rigorous",
+      "description": "Review code for correctness bugs first, then design, tests, and clarity, producing ranked findings with concrete failure scenarios. Use when reviewing a diff, a PR, another agent's output, or before declaring work done.",
+      "path": ".claude/skills/code-review-rigorous/SKILL.md"
+    },
+    {
+      "name": "data-analysis-with-code",
+      "description": "Answer quantitative questions by writing and running code rather than estimating - load data, inspect it, compute, chart, and report numbers with the code that produced them. Use for any calculation, dataset question, or sanity check of engine output (the code-interpreter working style).",
+      "path": ".claude/skills/data-analysis-with-code/SKILL.md"
+    },
+    {
+      "name": "data-modeling",
+      "description": "Model domain data - entities, value objects, invariants, immutability, identity, normalization vs denormalization, temporal (effective-dated) records, and schema evolution. Use when designing dataclasses, database tables, JSON schemas, or rule/config files.",
+      "path": ".claude/skills/data-modeling/SKILL.md"
+    },
+    {
+      "name": "debugging-scientific-method",
+      "description": "Debug by hypothesis and experiment - reproduce, minimize, form ranked hypotheses, run discriminating experiments, fix root cause, add a regression test. Use for any failing test, wrong output, crash, or flaky behavior.",
+      "path": ".claude/skills/debugging-scientific-method/SKILL.md"
+    },
+    {
+      "name": "docs-writer",
+      "description": "Write developer docs people actually use - README quickstart, how-to guides, reference, and design notes, each in its own place. Use when documenting a module, engine, API, or this swarm setup.",
+      "path": ".claude/skills/docs-writer/SKILL.md"
+    },
+    {
+      "name": "iterative-canvas-editing",
+      "description": "Improve a single document or file in focused passes - structure, then correctness, then clarity, then polish - making targeted edits instead of full rewrites and summarizing each pass. Use when refining a spec, README, or module with a user (the canvas working style).",
+      "path": ".claude/skills/iterative-canvas-editing/SKILL.md"
+    },
+    {
+      "name": "performance-profiling",
+      "description": "Measure before optimizing - benchmarks, profilers, complexity analysis, caching of pure functions, and batch processing. Use when something is slow, when running large scenario grids or batch tax computations, or before adding caches.",
+      "path": ".claude/skills/performance-profiling/SKILL.md"
+    },
+    {
+      "name": "prompt-engineering",
+      "description": "Write prompts for subagents and LLM features - self-contained context, clear role, explicit deliverable and format, examples, constraints, and verification steps. Use when spawning swarm agents or building prompts into an application.",
+      "path": ".claude/skills/prompt-engineering/SKILL.md"
+    },
+    {
+      "name": "python-engineering",
+      "description": "Modern Python conventions - project layout, typing, dataclasses, Decimal, pathlib, pytest, packaging with pyproject, and stdlib-first dependencies. Use when writing or reviewing Python code in this repo or projects it builds.",
+      "path": ".claude/skills/python-engineering/SKILL.md"
+    },
+    {
+      "name": "refactoring-safe",
+      "description": "Change code structure without changing behavior - characterization tests first, small mechanical steps, one move at a time, run tests after each. Use when restructuring code, extracting modules, renaming across files, or cleaning up after a swarm integrates.",
+      "path": ".claude/skills/refactoring-safe/SKILL.md"
+    },
+    {
+      "name": "research-synthesis",
+      "description": "Research a question across sources and synthesize a sourced answer - source ranking, claim extraction, cross-checking, and explicit confidence. Use for regulatory research, library/tool comparisons, or any question where facts must be cited.",
+      "path": ".claude/skills/research-synthesis/SKILL.md"
+    },
+    {
+      "name": "security-review-lite",
+      "description": "Quick security pass for application code - input validation, injection, authn/authz, secrets, PII handling, dependency risk, and logging. Use before shipping an API or when code handles personal or financial data (e.g. tax returns).",
+      "path": ".claude/skills/security-review-lite/SKILL.md"
+    },
+    {
+      "name": "skill-router",
+      "description": "Find and pick the right skills for a task from this repo's catalog - search core skills, lenses, and domain packs, and forge blended skills. Use when you or a swarm agent need to choose skills, when the user asks \"what skills do you have\", or before spawning agents.",
+      "path": ".claude/skills/skill-router/SKILL.md"
+    },
+    {
+      "name": "spec-writing",
+      "description": "Turn a fuzzy goal into a short, testable spec - scope, non-goals, inputs/outputs, examples, acceptance commands, and open questions. Use at the start of a swarm run, before large features, or when agents disagree about what to build.",
+      "path": ".claude/skills/spec-writing/SKILL.md"
+    },
+    {
+      "name": "swarm",
+      "description": "Split yourself into a coordinated team of subagents, each loaded with different skills, to build something large. Use when the user says \"go\", \"/swarm <goal>\", asks to build a whole system, or asks for agents/a team. Covers decomposition, skill assignment, the shared blackboard, parallel spawning, integration, and review loops.",
+      "path": ".claude/skills/swarm/SKILL.md"
+    },
+    {
+      "name": "tax-api-and-scenarios",
+      "description": "Design the public API and scenario tooling for a tax engine - compute/explain/diff endpoints, input schemas with validation errors users can act on, what-if scenarios, optimizers for elections, batch runs, and stable versioned outputs. Use when exposing a tax engine as a library, CLI, or HTTP service.",
+      "path": ".claude/skills/tax-api-and-scenarios/SKILL.md"
+    },
+    {
+      "name": "tax-credits-engine",
+      "description": "Model tax credits - nonrefundable vs refundable vs partially refundable, statutory ordering, limitation by liability, per-person/per-dependent credits, earned-income style phase-in/plateau/phase-out curves, and credit carryforwards. Use when implementing or reviewing any credit logic in an income tax engine.",
+      "path": ".claude/skills/tax-credits-engine/SKILL.md"
+    },
+    {
+      "name": "tax-engine-architecture",
+      "description": "Architecture for a tax calculation engine - pipeline stages, pure-function calculators, rules-as-data, jurisdiction/year versioning, and a traceable result object. Use when designing or restructuring any income, payroll, sales/VAT, or property tax engine, or when deciding module boundaries for a tax codebase.",
+      "path": ".claude/skills/tax-engine-architecture/SKILL.md"
+    },
+    {
+      "name": "tax-engine-kit",
+      "description": "One-command launch of the tax-engine swarm - spins up architect, researcher, calc engineers, test oracle, auditor, and API builder agents with the tax skill pack to build a tax calculation engine. Use when the user says \"build a tax engine\", \"tax calculator\", \"/tax-engine-kit\", or \"go\" with a tax goal.",
+      "path": ".claude/skills/tax-engine-kit/SKILL.md"
+    },
+    {
+      "name": "tax-explainability-audit-trail",
+      "description": "Make every number a tax engine produces explainable and auditable - named lines, calculation traces with inputs, rule references and formulas, provenance (ruleset hash, engine version), warnings, and human-readable explanations. Use when designing result objects, debugging a wrong number, building \"why is my tax X\" features, or preparing an engine for audit.",
+      "path": ".claude/skills/tax-explainability-audit-trail/SKILL.md"
+    },
+    {
+      "name": "tax-filing-status-and-household",
+      "description": "Model taxpayers, households, filing status, dependents, and qualifying-person tests as data plus explicit eligibility functions. Use when a tax engine needs per-status thresholds, dependent-based amounts, or household composition rules.",
+      "path": ".claude/skills/tax-filing-status-and-household/SKILL.md"
+    },
+    {
+      "name": "tax-golden-test-vectors",
+      "description": "Testing strategy for tax engines - sourced golden test vectors from official worked examples, property-based invariants (monotonicity, continuity, bounds, symmetry), boundary generators, differential testing against an independent implementation, and regression snapshots of full traces. Use when writing or reviewing tests for any tax or financial calculation.",
+      "path": ".claude/skills/tax-golden-test-vectors/SKILL.md"
+    },
+    {
+      "name": "tax-jurisdiction-modeling",
+      "description": "Model multiple taxing jurisdictions - federal/state/local stacking, conformity and decoupling from a base jurisdiction, residency and part-year allocation, credits for taxes paid to other jurisdictions, and adding a new jurisdiction by composition. Use when an engine must support more than one country, state, province, or locality.",
+      "path": ".claude/skills/tax-jurisdiction-modeling/SKILL.md"
+    },
+    {
+      "name": "tax-money-math",
+      "description": "Correct money arithmetic for tax and finance code - Decimal or integer minor units, explicit rounding modes and points, allocation without losing cents, percentage and rate math, and currency handling. Use whenever code adds, multiplies, rounds, splits, or compares monetary amounts.",
+      "path": ".claude/skills/tax-money-math/SKILL.md"
+    },
+    {
+      "name": "tax-payroll-withholding",
+      "description": "Payroll tax and income tax withholding calculations - annualization, pay-frequency conversion, percentage-method tables, wage-base caps for social insurance, employer vs employee shares, year-to-date tracking, and supplemental wages. Use when building payroll engines or paycheck calculators.",
+      "path": ".claude/skills/tax-payroll-withholding/SKILL.md"
+    },
+    {
+      "name": "tax-phaseouts-and-limits",
+      "description": "Implement phase-outs, phase-ins, caps, floors, percentage-of-income limits, carryforwards, and \"lesser of / greater of\" rules in tax engines, including step-rounding phrases like \"or fraction thereof\". Use when a deduction, credit, or exemption shrinks, grows, or is limited based on income or other amounts.",
+      "path": ".claude/skills/tax-phaseouts-and-limits/SKILL.md"
+    },
+    {
+      "name": "tax-progressive-brackets",
+      "description": "Compute progressive (marginal) tax from bracket schedules correctly - the algorithm, tax-table bands vs exact computation, preferential-rate stacking for capital gains, marginal/effective rate reporting, and the boundary tests that catch off-by-one bugs. Use when implementing or testing any tiered or bracketed rate.",
+      "path": ".claude/skills/tax-progressive-brackets/SKILL.md"
+    },
+    {
+      "name": "tax-rules-as-data",
+      "description": "Model tax law parameters (brackets, rates, thresholds, phase-outs, caps, inflation indexing, effective dates) as versioned, schema-validated data with citations, instead of code. Use when adding a tax year or jurisdiction, designing a ruleset schema, or reviewing hard-coded tax numbers.",
+      "path": ".claude/skills/tax-rules-as-data/SKILL.md"
+    },
+    {
+      "name": "tax-sales-and-vat",
+      "description": "Build sales tax, VAT, and GST calculation - tax-inclusive vs exclusive pricing, multiple rates and stacked jurisdictions, product taxability categories, exemptions, rounding per line vs per invoice, discounts, shipping, returns, and reverse charge. Use for any transaction/indirect tax engine or checkout tax logic.",
+      "path": ".claude/skills/tax-sales-and-vat/SKILL.md"
+    },
+    {
+      "name": "tax-source-research",
+      "description": "Research tax law parameters from primary sources and record them with citations - how to find official tables, revenue procedures, statutes, and agency publications, how to cross-check values, and how to mark anything unverified. Use before entering any rate, bracket, threshold, or rule into a tax ruleset.",
+      "path": ".claude/skills/tax-source-research/SKILL.md"
+    },
+    {
+      "name": "test-driven-development",
+      "description": "Red-green-refactor workflow - write a failing test that states the requirement, make it pass with the smallest change, then clean up. Use when implementing new behavior with a clear spec, fixing a bug (reproduce first), or when another agent will build against your tests.",
+      "path": ".claude/skills/test-driven-development/SKILL.md"
+    },
+    {
+      "name": "typescript-engineering",
+      "description": "TypeScript conventions - strict mode, discriminated unions, zod-style boundary validation, no number for money, vitest, and ESM packaging. Use when writing or reviewing TypeScript/JavaScript code.",
+      "path": ".claude/skills/typescript-engineering/SKILL.md"
+    },
+    {
+      "name": "verify-before-claiming",
+      "description": "Never report work as done, correct, or passing without running a command that proves it, and report exactly what was and wasn't verified. Use at the end of every task and every agent handoff.",
+      "path": ".claude/skills/verify-before-claiming/SKILL.md"
+    }
+  ],
+  "lenss": [
+    {
+      "name": "adversarial",
+      "description": "Adversarial: assume it's broken and prove where.",
+      "path": "forge/lenses/adversarial.md"
+    },
+    {
+      "name": "auditor",
+      "description": "Auditor: trace every number to its source and every claim to evidence.",
+      "path": "forge/lenses/auditor.md"
+    },
+    {
+      "name": "builder",
+      "description": "Builder: ship the simplest thing that fully works, then improve.",
+      "path": "forge/lenses/builder.md"
+    },
+    {
+      "name": "claude-agentic-coder",
+      "description": "Claude Code style: explore the repo, make focused edits, run the tests, iterate until green, report exactly what was verified.",
+      "path": "forge/lenses/claude-agentic-coder.md"
+    },
+    {
+      "name": "claude-artifact-builder",
+      "description": "Claude artifacts style: produce one complete, self-contained, runnable deliverable, polished enough to hand to someone.",
+      "path": "forge/lenses/claude-artifact-builder.md"
+    },
+    {
+      "name": "claude-careful",
+      "description": "Claude-style careful reasoning: surface assumptions, ask about real ambiguity, cite, and state uncertainty plainly.",
+      "path": "forge/lenses/claude-careful.md"
+    },
+    {
+      "name": "claude-projects-memory",
+      "description": "Claude Projects style: treat the board and repo docs as persistent project knowledge; keep them current and consult them first.",
+      "path": "forge/lenses/claude-projects-memory.md"
+    },
+    {
+      "name": "first-principles",
+      "description": "First principles: derive from the source definition, not from existing code or conventions.",
+      "path": "forge/lenses/first-principles.md"
+    },
+    {
+      "name": "gpt-canvas",
+      "description": "ChatGPT canvas style: work on one document in place with targeted, reviewable edits and short change summaries.",
+      "path": "forge/lenses/gpt-canvas.md"
+    },
+    {
+      "name": "gpt-code-interpreter",
+      "description": "ChatGPT code-interpreter style: compute every number by running code, show the code, and check results numerically.",
+      "path": "forge/lenses/gpt-code-interpreter.md"
+    },
+    {
+      "name": "gpt-custom-persona",
+      "description": "ChatGPT custom-GPT style: adopt a narrowly scoped expert persona with fixed conventions and refuse to drift outside scope.",
+      "path": "forge/lenses/gpt-custom-persona.md"
+    },
+    {
+      "name": "gpt-deep-research",
+      "description": "ChatGPT deep-research style: plan sub-questions, gather many sources, cross-check, and write a cited synthesis.",
+      "path": "forge/lenses/gpt-deep-research.md"
+    },
+    {
+      "name": "minimalist",
+      "description": "Minimalist: fewest moving parts, no speculative generality.",
+      "path": "forge/lenses/minimalist.md"
+    },
+    {
+      "name": "performance-hawk",
+      "description": "Performance hawk: measure, then make it fast where it matters.",
+      "path": "forge/lenses/performance-hawk.md"
+    },
+    {
+      "name": "product-thinker",
+      "description": "Product thinker: optimize for the user who reads the result.",
+      "path": "forge/lenses/product-thinker.md"
+    },
+    {
+      "name": "teacher",
+      "description": "Teacher: make the work understandable to a newcomer.",
+      "path": "forge/lenses/teacher.md"
+    },
+    {
+      "name": "test-first",
+      "description": "Test-first: the test is the spec; nothing is built without a failing test.",
+      "path": "forge/lenses/test-first.md"
+    }
+  ],
+  "domains": [
+    {
+      "name": "accounting-ledger",
+      "description": "Double-entry accounting domain pack.",
+      "path": "forge/domains/accounting-ledger.md"
+    },
+    {
+      "name": "australia-gst",
+      "description": "Australian GST and income tax domain pack.",
+      "path": "forge/domains/australia-gst.md"
+    },
+    {
+      "name": "benefits-eligibility",
+      "description": "Public benefits eligibility rules-engine domain pack.",
+      "path": "forge/domains/benefits-eligibility.md"
+    },
+    {
+      "name": "canada-income-tax",
+      "description": "Canadian federal and provincial income tax domain pack.",
+      "path": "forge/domains/canada-income-tax.md"
+    },
+    {
+      "name": "capital-gains",
+      "description": "Capital gains and investment income domain pack.",
+      "path": "forge/domains/capital-gains.md"
+    },
+    {
+      "name": "corporate-income-tax",
+      "description": "Corporate income tax domain pack.",
+      "path": "forge/domains/corporate-income-tax.md"
+    },
+    {
+      "name": "crypto-tax",
+      "description": "Crypto asset tax domain pack.",
+      "path": "forge/domains/crypto-tax.md"
+    },
+    {
+      "name": "ecommerce-checkout",
+      "description": "E-commerce checkout domain pack.",
+      "path": "forge/domains/ecommerce-checkout.md"
+    },
+    {
+      "name": "estate-gift-tax",
+      "description": "Estate and gift tax domain pack.",
+      "path": "forge/domains/estate-gift-tax.md"
+    },
+    {
+      "name": "eu-vat",
+      "description": "EU value-added tax domain pack.",
+      "path": "forge/domains/eu-vat.md"
+    },
+    {
+      "name": "fintech-payments",
+      "description": "Fintech and payments domain pack.",
+      "path": "forge/domains/fintech-payments.md"
+    },
+    {
+      "name": "india-gst",
+      "description": "Indian GST domain pack.",
+      "path": "forge/domains/india-gst.md"
+    },
+    {
+      "name": "international-tax",
+      "description": "International tax domain pack.",
+      "path": "forge/domains/international-tax.md"
+    },
+    {
+      "name": "invoicing-billing",
+      "description": "Invoicing and billing domain pack.",
+      "path": "forge/domains/invoicing-billing.md"
+    },
+    {
+      "name": "lending-interest",
+      "description": "Lending and interest calculation domain pack.",
+      "path": "forge/domains/lending-interest.md"
+    },
+    {
+      "name": "property-tax",
+      "description": "Property tax domain pack.",
+      "path": "forge/domains/property-tax.md"
+    },
+    {
+      "name": "retirement-accounts",
+      "description": "Retirement accounts domain pack.",
+      "path": "forge/domains/retirement-accounts.md"
+    },
+    {
+      "name": "rules-engines-general",
+      "description": "General rules-engine domain pack for law and policy.",
+      "path": "forge/domains/rules-engines-general.md"
+    },
+    {
+      "name": "uk-income-tax",
+      "description": "UK income tax and National Insurance domain pack.",
+      "path": "forge/domains/uk-income-tax.md"
+    },
+    {
+      "name": "us-federal-income-tax",
+      "description": "US federal individual income tax domain pack.",
+      "path": "forge/domains/us-federal-income-tax.md"
+    },
+    {
+      "name": "us-payroll",
+      "description": "US payroll tax and withholding domain pack.",
+      "path": "forge/domains/us-payroll.md"
+    },
+    {
+      "name": "us-sales-tax",
+      "description": "US sales and use tax domain pack.",
+      "path": "forge/domains/us-sales-tax.md"
+    },
+    {
+      "name": "us-state-income-tax",
+      "description": "US state and local income tax domain pack.",
+      "path": "forge/domains/us-state-income-tax.md"
+    }
+  ],
+  "agents": [
+    {
+      "name": "swarm-reviewer",
+      "description": "Reviews the integrated output of a swarm run - correctness, contract adherence against the board, test independence, and shared blind spots between agents. Use at the end of every swarm run.",
+      "path": ".claude/agents/swarm-reviewer.md",
+      "skills": "code-review-rigorous, adversarial-red-team, verify-before-claiming"
+    },
+    {
+      "name": "swarm-worker",
+      "description": "General-purpose swarm member that takes on whatever forged skill file the lead assigns. Use for any workstream without a dedicated agent; the prompt must name a skill file in .swarm/skills/.",
+      "path": ".claude/agents/swarm-worker.md",
+      "skills": "verify-before-claiming, prompt-engineering"
+    },
+    {
+      "name": "tax-api-builder",
+      "description": "Builds the public surface of a tax engine - compute/explain/diff/scenarios API, input validation with actionable errors, CLI, and optional HTTP service. Use once calc interfaces exist.",
+      "path": ".claude/agents/tax-api-builder.md",
+      "skills": "tax-api-and-scenarios, api-design, security-review-lite, python-engineering, docs-writer"
+    },
+    {
+      "name": "tax-architect",
+      "description": "Designs the tax engine spine - module layout, interfaces, ruleset schema, named-line catalog. Use first in a tax-engine swarm, or when restructuring a tax codebase.",
+      "path": ".claude/agents/tax-architect.md",
+      "skills": "tax-engine-architecture, tax-rules-as-data, tax-jurisdiction-modeling, tax-explainability-audit-trail, api-design, data-modeling"
+    },
+    {
+      "name": "tax-auditor",
+      "description": "Reviews tax engine code and data like an auditor - money math, hard-coded numbers, rounding sites, trace completeness, unverified parameters, test independence, and PII handling. Use after implementation, before reporting done.",
+      "path": ".claude/agents/tax-auditor.md",
+      "skills": "code-review-rigorous, adversarial-red-team, tax-explainability-audit-trail, tax-money-math, security-review-lite, verify-before-claiming"
+    },
+    {
+      "name": "tax-calc-engineer",
+      "description": "Implements tax calculation stages - brackets, preferential rates, deductions, phase-outs, limits, and credits - as pure functions over Decimal with full traces. Use for the core math of an income tax engine.",
+      "path": ".claude/agents/tax-calc-engineer.md",
+      "skills": "tax-money-math, tax-progressive-brackets, tax-phaseouts-and-limits, tax-credits-engine, tax-explainability-audit-trail, test-driven-development, python-engineering"
+    },
+    {
+      "name": "tax-indirect-engineer",
+      "description": "Implements sales tax, VAT, and GST calculation - taxability, stacked rates, inclusive/exclusive pricing, discount allocation, per-line vs per-invoice rounding, returns. Use when a tax engine covers transaction taxes.",
+      "path": ".claude/agents/tax-indirect-engineer.md",
+      "skills": "tax-sales-and-vat, tax-money-math, tax-rules-as-data, test-driven-development, python-engineering"
+    },
+    {
+      "name": "tax-payroll-engineer",
+      "description": "Implements payroll tax and income tax withholding - annualization, percentage method, wage-base caps, employer/employee shares, supplemental wages, YTD as explicit input/output. Use when a tax engine covers payroll.",
+      "path": ".claude/agents/tax-payroll-engineer.md",
+      "skills": "tax-payroll-withholding, tax-progressive-brackets, tax-money-math, test-driven-development, python-engineering"
+    },
+    {
+      "name": "tax-rules-researcher",
+      "description": "Researches tax parameters from primary sources and enters them as cited, versioned ruleset data. Also runs as a verifier that re-checks another researcher's values. Use for any rates, brackets, thresholds, or phase-out numbers.",
+      "path": ".claude/agents/tax-rules-researcher.md",
+      "skills": "tax-source-research, tax-rules-as-data, tax-filing-status-and-household, research-synthesis"
+    },
+    {
+      "name": "tax-test-oracle",
+      "description": "Builds the independent test suite for a tax engine - sourced golden vectors, property tests, boundary generators from ruleset data, a naive differential implementation, and trace snapshots. Use in every tax-engine swarm.",
+      "path": ".claude/agents/tax-test-oracle.md",
+      "skills": "tax-golden-test-vectors, tax-progressive-brackets, tax-money-math, adversarial-red-team, python-engineering"
+    }
+  ]
+}
