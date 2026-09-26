@@ -27,7 +27,7 @@ commands:
 
 # React 19 function components take ref as a prop
 
-React 19, documented in the December 5, 2024 release post, passes `ref` into function components as an ordinary prop. `forwardRef` still runs, but new components do not need it, and the upgrade guide says `element.ref` is deprecated in favor of `element.props.ref` with the warning `Accessing element.ref is no longer supported`.
+The React 19 release post from December 5, 2024 says new function components will no longer need `forwardRef`. The upgrade guide says to read `element.props.ref` instead of `element.ref`, and it quotes the warning `Accessing element.ref is no longer supported. ref is now a regular prop.` This check does not render that warning. It measures the ref callback.
 
 The failure this check measures: a function that destructures only `label` and renders an input without passing `ref` never invokes the parent's ref callback, so the callback stays `null`. Putting `ref` on `React.createElement("input", { ref })` makes that callback receive an `INPUT` node. The check is that `tagName`.
 

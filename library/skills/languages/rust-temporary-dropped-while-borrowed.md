@@ -25,14 +25,12 @@ commands:
 
 # value.unwrap().as_str() drops the temporary and rustc reports E0716
 
-`value.unwrap()` returns a `String` temporary. `.as_str()` borrows it. The temporary is dropped at the end of the statement, so the borrow in `borrowed` outlives it. rustc 1.83 reports error `E0716` with the text `temporary value dropped while borrowed`, and the note suggests a `let` binding. The error index page for E0716 is the reference.
+`value.unwrap()` returns a `String` temporary. `.as_str()` borrows it. The temporary is dropped at the end of the statement, so the borrow in `borrowed` outlives it. rustc 1.83.0 prints `error[E0716]: temporary value dropped while borrowed` and `help: consider using a `let` binding to create a longer lived value`. The error index page for E0716 is the reference.
 
-Bind the owned string first:
+The correct program binds the owned string first, then borrows it, and prints `hi`:
 
-`let owned = value.unwrap();`
-`let borrowed = owned.as_str();`
-
-The `let` extends the owner's lifetime to the end of the block, which covers the borrow. Cloning to escape the error works and hides the lifetime; prefer the binding rustc suggests unless you actually need a new allocation.
+`let binding = value.unwrap();`
+`let borrowed = binding.as_str();`
 
 ## Incorrect
 

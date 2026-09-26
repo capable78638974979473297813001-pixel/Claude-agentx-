@@ -29,7 +29,7 @@ commands:
 
 A full clone of the same repo prints a stdout line that starts with `v1.2.3-1-g`. The `-1-` is one commit after the tag, and `g` plus the abbreviated hash follows.
 
-`actions/checkout` with `fetch-depth: 1` is this clone. Set `fetch-depth: 0`, or fetch the tags you describe, before calling `git describe`. `describe` on a shallow clone that happens to include the tag still works; the failure is the missing tag, not the command spelling.
+The check builds that repo with `git init`, one commit of `a.txt`, an annotated tag `v1.2.3`, and a second commit. It then runs `git clone --depth 1` and compares `git describe --tags` on the shallow copy with the same command on the original repo.
 
 ## Incorrect
 

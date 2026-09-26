@@ -35,6 +35,22 @@ VERSION_RE = re.compile(
     r"|Java 21|SQLite 3\.\d+|Chrome \d+|WCAG 2\.2|@testing-library/dom \d+)\b",
     re.IGNORECASE,
 )
+# Spot-check: these official pages must contain the phrase, not merely return HTTP 200.
+# Phrases were read from the fetched HTML. A missing phrase fails validation.
+SOURCE_CONTENT_SAMPLE = (
+    ("https://go.dev/doc/go1.22", "loop variable"),
+    ("https://openjdk.org/jeps/441", "NullPointerException"),
+    ("https://react.dev/blog/2024/12/05/react-19", "forwardRef"),
+    ("https://react.dev/blog/2024/04/25/react-19-upgrade-guide", "no longer supported"),
+    ("https://blog.vuejs.org/posts/vue-3-5", "destructur"),
+    ("https://nodejs.org/docs/latest-v22.x/api/typescript.html#type-stripping", "Type stripping is enabled by default"),
+    ("https://nodejs.org/docs/latest-v22.x/api/packages.html#type", '"type"'),
+    ("https://www.sqlite.org/pragma.html#pragma_foreign_keys", "no-op within a transaction"),
+    ("https://git-scm.com/docs/git-describe", "most recent tag"),
+    ("https://doc.rust-lang.org/error_codes/E0716.html", "temporary value"),
+    ("https://www.w3.org/TR/WCAG22/#contrast-minimum", "4.5"),
+    ("https://svelte.dev/e/legacy_export_invalid", "legacy_export_invalid"),
+)
 
 
 def _fence_path(info: str) -> str | None:
@@ -85,8 +101,8 @@ def validate_skill_shape(skill: Skill, root: Path = ROOT) -> list[str]:
             errors.append(f"{where}: source is not a URL: {source}")
         if source not in skill.body:
             errors.append(f"{where}: source URL is not cited in the body: {source}")
-    if VERSION_RE.search(skill.body) and not URL_RE.search(skill.body):
-        errors.append(f"{where}: version claim without a URL in the body")
+    if VERSION_RE.search(skill.body) and not any(source in skill.body for source in skill.sources):
+        errors.append(f"{where}: version claim without a source URL")
     parsed = fences(skill.body)
     file_fences = [(info, content) for info, content in parsed if _fence_path(info)]
     if len(file_fences) < 2:
@@ -168,7 +184,18 @@ def validate_graph(skills: list[Skill]) -> list[str]:
     return errors
 
 
-def _fetch_status(url: str) -> tuple[str, str | None]:
+def content_phrase_error(url: str, body: str, phrases: dict[str, str] | None = None) -> str | None:
+    """Return an error when a spot-checked source does not contain its phrase."""
+    table = phrases if phrases is not None else dict(SOURCE_CONTENT_SAMPLE)
+    phrase = table.get(url)
+    if phrase is None:
+        return None
+    if phrase.lower() not in body.lower():
+        return f"source content missing {phrase!r} at {url}"
+    return None
+
+
+def _fetch_page(url: str) -> tuple[str, str | None, str]:
     request = urllib.request.Request(
         url,
         headers={"User-Agent": "skill-library-validator/1.0"},
@@ -178,15 +205,16 @@ def _fetch_status(url: str) -> tuple[str, str | None]:
     try:
         with urllib.request.urlopen(request, timeout=20, context=context) as response:
             status = getattr(response, "status", 200)
+            payload = response.read().decode("utf-8", "replace")
             if status >= 400:
-                return url, f"HTTP {status}"
-            return url, None
+                return url, f"HTTP {status}", payload
+            return url, None, payload
     except urllib.error.HTTPError as exc:
         if exc.code in {403, 429}:
-            return url, None
-        return url, f"HTTP {exc.code}"
+            return url, None, ""
+        return url, f"HTTP {exc.code}", ""
     except Exception as exc:  # noqa: BLE001 - report the network failure, do not invent success
-        return url, str(exc)
+        return url, str(exc), ""
 
 
 def validate_sources(skills: list[Skill]) -> list[str]:
@@ -194,12 +222,20 @@ def validate_sources(skills: list[Skill]) -> list[str]:
     errors: list[str] = []
     if not urls:
         return errors
+    cited = set(urls)
+    for url, _phrase in SOURCE_CONTENT_SAMPLE:
+        if url not in cited:
+            errors.append(f"source spot-check URL is not cited by any skill: {url}")
     with ThreadPoolExecutor(max_workers=8) as pool:
-        futures = [pool.submit(_fetch_status, url) for url in urls]
+        futures = [pool.submit(_fetch_page, url) for url in urls]
         for future in as_completed(futures):
-            url, problem = future.result()
+            url, problem, body = future.result()
             if problem:
                 errors.append(f"source unreachable {url}: {problem}")
+                continue
+            mismatch = content_phrase_error(url, body)
+            if mismatch:
+                errors.append(mismatch)
     return errors
 
 

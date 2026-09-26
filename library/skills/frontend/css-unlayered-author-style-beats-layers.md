@@ -31,8 +31,6 @@ The losing stylesheet puts `body #title { color: rgb(0, 0, 255) }` in `@layer co
 
 The working stylesheet declares `@layer reset, components` and puts both rules inside those layers. The component layer is later, so `body #title` wins and the computed color is `rgb(0, 0, 255)`.
 
-Put reset rules in an early layer. Leave the component rule in a later layer, or leave it unlayered on purpose. Do not add another class to a layered rule and expect it to beat an unlayered author rule.
-
 ## Incorrect
 
 ```html file=library/examples/css-unlayered-author-style-beats-layers/incorrect.html

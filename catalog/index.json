@@ -441,7 +441,7 @@
         {
           "id": "node-22-type-stripping-is-experimental",
           "task": "run-typescript-with-strip-types",
-          "title": "Node 22 runs .ts only with --experimental-strip-types",
+          "title": "Node.js 22.14.0 needs --experimental-strip-types to run this .ts file",
           "kind": "verified"
         }
       ],
@@ -1028,7 +1028,7 @@
       "topic": "react",
       "task": "survive-strict-mode-setup",
       "title": "React StrictMode runs effect setup twice in development",
-      "description": "Use when a useEffect subscription, fetch, or analytics call happens twice in development and once in production.",
+      "description": "Use when a useEffect under StrictMode finishes at count 2 without cleanup and at 1 when cleanup decrements.",
       "path": "library/skills/frontend/react-strict-mode-effect-double-invoke.md",
       "kind": "verified",
       "related": [
@@ -1167,8 +1167,8 @@
       "area": "languages",
       "topic": "node",
       "task": "run-typescript-with-strip-types",
-      "title": "Node 22 runs .ts only with --experimental-strip-types",
-      "description": "Use when node sample.ts throws SyntaxError on a type annotation, or when strip-types prints the value and an ExperimentalWarning.",
+      "title": "Node.js 22.14.0 needs --experimental-strip-types to run this .ts file",
+      "description": "Use when node sample.ts on Node.js 22.14.0 throws SyntaxError, and --experimental-strip-types prints 2 plus ExperimentalWarning.",
       "path": "library/skills/languages/node-22-type-stripping-is-experimental.md",
       "kind": "verified",
       "related": [

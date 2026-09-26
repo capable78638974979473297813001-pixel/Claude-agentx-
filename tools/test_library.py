@@ -11,6 +11,8 @@ from library.router import Router  # noqa: E402
 from library.textutil import jaccard, shingles  # noqa: E402
 from library.validate import (  # noqa: E402
     PROSE_JACCARD_LIMIT,
+    SOURCE_CONTENT_SAMPLE,
+    content_phrase_error,
     validate_graph,
     validate_skill_shape,
     validate_verified,
@@ -57,6 +59,33 @@ class LibraryValidationTest(unittest.TestCase):
         )
         errors = validate_skill_shape(_skill(body))
         self.assertTrue(any("best practices" in err for err in errors))
+
+    def test_source_field_and_content_phrase(self):
+        missing = _skill("body without a url and without a command\n" + ("word " * 200))
+        bare = Skill(
+            id=missing.id,
+            name=missing.name,
+            area=missing.area,
+            topic=missing.topic,
+            task=missing.task,
+            title=missing.title,
+            description=missing.description,
+            body=missing.body,
+            path=missing.path,
+            kind=missing.kind,
+            triggers=missing.triggers,
+            aliases=missing.aliases,
+            related=missing.related,
+            sources=(),
+            commands=missing.commands,
+        )
+        errors = validate_skill_shape(bare)
+        self.assertTrue(any("need at least one source URL" in err for err in errors), errors)
+        url, phrase = SOURCE_CONTENT_SAMPLE[0]
+        self.assertIsNone(content_phrase_error(url, f"notes about {phrase} here"))
+        mismatch = content_phrase_error(url, "this page has no matching phrase")
+        self.assertIsNotNone(mismatch)
+        self.assertIn(phrase, mismatch)
 
     def test_generic_advice_is_rejected(self):
         sentence = "Lists store ordered values and callers iterate them when they want each item. "

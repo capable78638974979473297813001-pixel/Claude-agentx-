@@ -4,7 +4,7 @@ area: frontend
 topic: react
 task: survive-strict-mode-setup
 title: React StrictMode runs effect setup twice in development
-description: Use when a useEffect subscription, fetch, or analytics call happens twice in development and once in production.
+description: Use when a useEffect under StrictMode finishes at count 2 without cleanup and at 1 when cleanup decrements.
 triggers:
   - useEffect runs twice
   - StrictMode double invoking
@@ -25,11 +25,7 @@ commands:
 
 # React StrictMode runs effect setup twice in development
 
-In development, React's StrictMode mounts, unmounts, and mounts again so that missing effect cleanup shows up before production. The official StrictMode reference documents this extra setup/cleanup cycle. It does not mean the effect runs twice in production.
-
-This check renders a probe under `StrictMode` with React 19.1.1. An effect that only does `calls.count += 1` finishes at 2. The same effect that returns a cleanup doing `calls.count -= 1` finishes at 1, because the development remount runs setup, cleanup, setup. If you open a socket, start a timer, or fire a request without aborting it in cleanup, development will leak the first one and the second one stays.
-
-Fix the cleanup. Do not delete `<StrictMode>` to hide the double call.
+The StrictMode reference says functions run "twice in development." This check renders a probe under `StrictMode` with React 19.1.1. An effect that only does `calls.count += 1` finishes at 2. The same effect that returns a cleanup doing `calls.count -= 1` finishes at 1. The development remount runs setup, then cleanup, then setup, so the decrement cancels the first increment and one increment remains.
 
 ## Incorrect
 

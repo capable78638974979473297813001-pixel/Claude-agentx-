@@ -27,9 +27,7 @@ commands:
 
 `getByRole` compares a string `name` with `matches`, not a substring. In `@testing-library/dom` 10.4.0, `{ name: "Save" }` does not match a button whose accessible name is `Save draft`, and `{ name: "save" }` does not match `Save`. The query throws `Unable to find an accessible element with the role "button" and name "Save"`.
 
-The name that matches is the full accessible name, `Save draft`, including the text inside nested elements. A regex such as `/Save/` matches every button whose name contains that pattern and then throws `Found multiple elements with the role "button" and name /Save/` when two buttons qualify. Pass the full name, or a regex that only one element satisfies.
-
-This is not the same as `getByText`, which has its own exact flag. Do not copy a text matcher into a role query and expect a substring.
+The name that matches is the full accessible name, `Save draft`, including the text inside nested elements. A regex such as `/Save/` matches every button whose name contains that pattern and then throws `Found multiple elements with the role "button" and name /Save/` when two buttons qualify. The passing query uses the full name `Save draft`.
 
 ## Incorrect
 

@@ -20,6 +20,10 @@ with tempfile.TemporaryDirectory() as tmp:
         raise SystemExit("incorrect.rs compiled")
     if "error[E0716]" not in bad.stderr:
         raise SystemExit(bad.stderr)
+    if "temporary value dropped while borrowed" not in bad.stderr:
+        raise SystemExit(bad.stderr)
+    if "consider using a `let` binding" not in bad.stderr:
+        raise SystemExit(bad.stderr)
     print("incorrect: observed")
     print(bad.stderr.splitlines()[0])
 
