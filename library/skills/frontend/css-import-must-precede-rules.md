@@ -27,9 +27,7 @@ commands:
 
 CSS Cascading and Inheritance Level 5 invalidates an `@import` that follows a style rule in the same stylesheet. The browser drops that import. It does not move it above the selector.
 
-`#title { color: rgb(255, 0, 0); }` followed by `@import url("green.css")` stays `rgb(255, 0, 0)`. `green.css` contains `#title { color: rgb(0, 128, 0); }`. With the import first and no later rule, the computed color is `rgb(0, 128, 0)`. The check loads the HTML with `page.goto` on a `file:` URL so the relative `green.css` resolves. `setContent` of a string does not give that file a URL to resolve against.
-
-A data URL import is not a substitute in this Chrome: it did not apply even when it was the first rule. Use a real stylesheet URL, and put the import above every selector.
+`#title { color: rgb(255, 0, 0); }` followed by `@import url("green.css")` stays `rgb(255, 0, 0)`. `green.css` contains `#title { color: rgb(0, 128, 0); }`. With the import first and no later rule, the computed color is `rgb(0, 128, 0)`. The check loads each file with `page.goto` on a `file:` URL so the relative `green.css` resolves.
 
 ## Incorrect
 

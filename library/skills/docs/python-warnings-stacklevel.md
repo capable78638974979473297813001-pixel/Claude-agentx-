@@ -27,9 +27,7 @@ commands:
 
 `warnings.warn` records the filename `stacklevel` frames above the `warn` call. The default is 1, the line that called `warn`. A helper in `incorrect.py` that warns with `stacklevel=1` attributes the warning to `incorrect.py`. Callers then think the library file is the code they must change.
 
-`stacklevel=2` attributes it to the caller. In this check the caller lives in `check.py`, and the warning filename is `check.py`. The warnings docs say stacklevel is how far up the stack the warning refers to.
-
-Add one for each wrapper between the public function and `warn`. A decorator that calls the helper needs a higher level, or the warning lands on the decorator. This check measured level 1 and level 2 only.
+`stacklevel=2` attributes it to the caller. In this check the caller lives in `check.py`, and the warning filename is `check.py`. The warnings docs say stacklevel is how far up the stack the warning refers to. The check compares those two filenames and does not call `warn` through another wrapper.
 
 ## Incorrect
 

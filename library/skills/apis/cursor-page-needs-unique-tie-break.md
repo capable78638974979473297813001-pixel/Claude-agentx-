@@ -27,9 +27,7 @@ commands:
 
 Rows with ids 2 and 1 share `created = 2024-01-01`. Id 3 is the next day. With page size 1, a cursor that keeps only `created` and asks for `created > ?` returns pages `[1, 3]`. Id 2 is never emitted: it is not greater than the timestamp of id 1, and it is not the row already returned.
 
-A tuple comparison `(created, id) > (?, ?)` returns `[1, 2]`. SQLite row values document that comparison. The tie-break column has to be unique and present in the sort, or two rows with the same timestamp collapse into one page boundary.
-
-Sorting in Python with a stable sort and then using OFFSET does not reproduce this skip. The bug is the strict greater-than on a non-unique column. Include the primary key in both the ORDER BY and the cursor predicate.
+A tuple comparison `(created, id) > (?, ?)` returns `[1, 2]`. SQLite row values document that comparison. Page size in the check is `1`. The skip is `created >` on a timestamp that two rows share.
 
 ## Incorrect
 

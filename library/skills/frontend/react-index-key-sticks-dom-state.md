@@ -27,9 +27,7 @@ commands:
 
 React matches list children by `key`. The rendering-lists page says the key must identify the item among siblings, not its current index. An index key is stable for a given position, so React reuses the DOM node at that position when the data moves.
 
-Measured with React 19.1.1 and uncontrolled inputs: items `['a','b']`, the first input's value set to `EDITED`, then the list rendered as `['b','a']`. With `key={index}` the values are `EDITED,b`. With `key={item}` they are `b,EDITED`. The edited DOM state followed the index, not the letter `a`.
-
-Use a stable id from the data. Index keys are only safe for lists that are never reordered, filtered, or inserted into except at the end, and that have no state inside the row.
+Measured with React 19.1.1 and uncontrolled inputs: items `['a','b']`, the first input's value set to `EDITED`, then the list rendered as `['b','a']`. With `key={index}` the values are `EDITED,b`. With `key={item}` they are `b,EDITED`. The edited DOM state followed the index, not the letter `a`. The check expects `b,EDITED`.
 
 ## Incorrect
 

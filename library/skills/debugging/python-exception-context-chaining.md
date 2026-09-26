@@ -25,11 +25,9 @@ commands:
 
 # raise X from exc sets __cause__; a bare raise inside except sets __context__
 
-Raising `RuntimeError` inside `except ValueError` attaches the `ValueError` as `__context__` and leaves `__cause__` as `None`. The traceback printer then says the new error happened "During handling of the above exception". The exceptions docs describe this implicit chain.
+Raising `RuntimeError("bad token")` inside `except ValueError` attaches the `ValueError` as `__context__` and leaves `__cause__` as `None`. The check calls `convert("nope")` and reads those two attributes. The exceptions docs describe this implicit chain.
 
-`raise RuntimeError from exc` sets `__cause__` to that `ValueError`. The printer says "The above exception was the direct cause". `__suppress_context__` is also set, so the implicit context is not the line you read first.
-
-Use `raise NewError(...) from exc` when the new error is the one callers should catch and the original is the reason. Use `raise NewError(...) from None` only when the original context is noise you have deliberately dropped.
+`raise RuntimeError from exc` sets `__cause__` to that `ValueError`. The check requires `__cause__ is __context__` and that the cause is a `ValueError`.
 
 ## Incorrect
 

@@ -27,9 +27,7 @@ commands:
 
 `http.request` sends headers when you `write`, and it finishes the body only when you `end`. A server that waits for the request `end` event before `response.end("ok")` will never answer a client that writes and then waits.
 
-The incomplete client hits its own `setTimeout` of 200ms and resolves `timeout`. `request.destroy()` from that timer emits `ECONNRESET`. Without `request.on("error", () => {})` that error is unhandled and the process crashes after the timeout line. The check therefore installs the error listener before the timer.
-
-`request.end()` on the same server returns the body `ok`. Calling `response.end` on the server without reading the request is a different bug: Node may answer before the body is finished, which hides the missing `end()` on the client.
+The incomplete client hits its own `setTimeout` of `200` ms, calls `request.destroy()`, and resolves `timeout`. It writes `"{}"` and never calls `end`. The example installs `request.on("error", () => {})` before that timer. `request.end()` on the same server returns the body `ok`. The server writes that body from the request `end` listener.
 
 ## Incorrect
 

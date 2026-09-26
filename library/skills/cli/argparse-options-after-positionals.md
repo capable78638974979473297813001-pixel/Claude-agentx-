@@ -27,9 +27,7 @@ commands:
 
 The argparse page "Arguments containing `-`" says optional arguments start with `-`, and `--` ends option processing. A positional with `nargs='*'` still treats `--flag` as an optional it does not know. `parse_args(['run', '--flag'])` raises `SystemExit` with code 2 and the message `unrecognized arguments: --flag`.
 
-`parse_args(['run', '--', '--flag'])` puts `['--flag']` in the positional. Document the `--` for callers who need to forward another program's flags.
-
-`nargs=argparse.REMAINDER` swallows `--flag` without `--`. That is a different contract, and it also swallows flags that belong to your own parser if they appear after the positional. Prefer `nargs='*'` plus `--` when the rest of the CLI still has options.
+`parse_args(['run', '--', '--flag'])` puts `['--flag']` in the positional. The check expects `SystemExit` code `2` for the first argv and that list for the second.
 
 ## Incorrect
 

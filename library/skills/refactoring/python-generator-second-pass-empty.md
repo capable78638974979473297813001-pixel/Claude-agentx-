@@ -25,11 +25,11 @@ commands:
 
 # A generator iterator is empty the second time you iterate it
 
-The glossary defines a generator iterator as the object a generator function returns. It yields until exhaustion. `list(gen)` pulls every value. A second `list(gen)` on that same object is `[]`. Nothing in the iterator resets it.
+The glossary defines a generator iterator as the object a generator function returns. `rows()` in `incorrect.py` yields `"a"` then `"b"`. `list(gen)` on that object is `['a', 'b']`. A second `list(gen)` on the same object is `[]`. The check raises `SystemExit` unless both of those lists match.
 
-Returning a list produces a new sequence each call, and the same list object can be iterated twice. If the caller needs two passes, return a list or have them call the generator function again to get a new iterator. Re-calling the function re-runs the body, which matters if the body reads a changing database.
+`correct.py` returns `["a", "b"]`. `list()` on that object twice is `['a', 'b']` both times. The check loads each file with `importlib` from the example directory and prints `incorrect: observed []` for the exhausted iterator.
 
-A generator expression `(n for n in rows)` has the same one-pass behavior. `len()` on that object raises `TypeError` because a generator has no length. Call the generator function again when you need a second pass, or return a list.
+The second pass is an empty list, not an exception. The iterator does not refill itself. A caller that keeps the object from the first `rows()` call and iterates it again sees no rows.
 
 ## Incorrect
 

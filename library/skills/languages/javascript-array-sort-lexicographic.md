@@ -27,9 +27,7 @@ commands:
 
 `Array.prototype.sort` with no compare function converts each element to a string and orders those strings by UTF-16 code units. MDN documents that default. `[10, 2, 1].sort()` joins to `1,10,2` because `"10"` starts with `"1"` and is less than `"2"`.
 
-A compare function `(a, b) => a - b` sorts numerically and joins to `1,2,10`. The function must return a negative number, zero, or a positive number. Returning a boolean coerces to 0 or 1 and does not order the pair in both directions.
-
-`sort` mutates the array. Copy with `slice` before sorting when the caller still needs the original order.
+A compare function `(a, b) => a - b` sorts numerically and joins to `1,2,10`. The check calls both helpers on `[10, 2, 1]`.
 
 ## Incorrect
 

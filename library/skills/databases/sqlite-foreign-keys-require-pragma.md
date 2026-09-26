@@ -30,7 +30,7 @@ SQLite leaves foreign key enforcement off. `PRAGMA foreign_keys` reads 0 on a ne
 
 Python's `sqlite3` module opens a transaction on the first DML statement. Creating the parent row and then executing `PRAGMA foreign_keys = ON` leaves the pragma at 0. The child insert with `parent_id` 99 succeeds, and a count of orphans is 1.
 
-Set `connection.isolation_level = None` (autocommit, documented under sqlite3 transaction control) and run `PRAGMA foreign_keys = ON` before any DDL or DML. The same orphan insert then raises `IntegrityError: FOREIGN KEY constraint failed`. Enable the pragma on every new connection, including pools that reset connections.
+Set `connection.isolation_level = None` (autocommit, documented under sqlite3 transaction control) and run `PRAGMA foreign_keys = ON` before any DDL or DML. The same orphan insert then raises `IntegrityError: FOREIGN KEY constraint failed`. The check reads the pragma on that connection.
 
 ## Incorrect
 

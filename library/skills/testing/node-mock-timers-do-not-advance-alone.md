@@ -25,11 +25,11 @@ commands:
 
 # node:test mock.timers does not fire a timer until tick()
 
-`mock.timers.enable({ apis: ['setTimeout'] })` replaces `setTimeout`. The clock does not move with wall time. A callback scheduled for 5000ms stays pending until `mock.timers.tick(5000)`. The Node.js test runner docs for `tick` say it advances the mocked clock by that many milliseconds.
+`mock.timers.enable({ apis: ['setTimeout'] })` replaces `setTimeout`. The clock does not move with wall time. A callback scheduled for `5000` ms stays pending until `mock.timers.tick(5000)`. The Node.js test runner docs for `tick` say it advances the mocked clock by that many milliseconds.
 
-Enabling the mock and then awaiting a real `setTimeout(resolve, 10)` will not flush the mocked 5000ms timer. The incorrect helper returns before the flag flips. `tick(5000)` runs the callback and the flag becomes true.
+The check calls `schedule`, then `setImmediate`. `flag.fired` is still `false`. `tick(5000)` runs the callback and `flag.fired` becomes `true`.
 
-Node 22 prints `ExperimentalWarning` for this API. Assert on the flag, not on an empty stderr. `tick` only advances timers you enabled; a `setInterval` left out of `apis` still uses the real clock.
+The check listens for `process` `warning` events before `enable`. Node 22 emits `ExperimentalWarning` for this API. The pass/fail line is the flag. The warning is why stderr is non-empty.
 
 ## Incorrect
 

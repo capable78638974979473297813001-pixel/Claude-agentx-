@@ -25,11 +25,9 @@ commands:
 
 # An idempotency key must replay the stored response, not run the handler again
 
-A retry of a POST is a second HTTP request. Without a store, the handler runs twice and returns two ids (`calls == 2`). The Idempotency-Key header draft says the server should save the first response and replay it for the same key.
+A retry of a POST is a second HTTP request. The handler with no store runs twice (`calls == 2`) and returns a new id on the second call. The Idempotency-Key header draft says the server saves the first response and replays it for the same key.
 
-The store keyed by that header runs the handler once. The second call returns the same body and does not increment the id. Key the store by the header plus the authenticated user and the request fingerprint you actually care about. A global map of keys will replay one tenant's response to another tenant who reused the same string.
-
-Persist the response before you acknowledge success if a crash between the write and the HTTP response would otherwise cause the retry to create a second row. The transactional outbox skill is the pairing for that crash window.
+The store keyed by that header runs the handler once. The second call returns the stored body, and the id does not become `2`.
 
 ## Incorrect
 

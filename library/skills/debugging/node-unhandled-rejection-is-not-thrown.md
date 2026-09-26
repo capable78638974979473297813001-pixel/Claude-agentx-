@@ -27,9 +27,7 @@ commands:
 
 `try { Promise.reject(new Error("nope")) }` does not throw on Node 22. The rejection is scheduled. The function returns `fell-through`, and `process.on("unhandledRejection")` later receives the error whose message is `nope`. Node's `unhandledRejection` event is the documented hook for that path.
 
-`await` inside the `try` turns the rejection into a throw, and `catch` returns `nope`. `.catch` on the same promise also handles it, which means the `unhandledRejection` listener must not assume it is the only consumer.
-
-A `try/catch` around a function that starts async work and returns before that work settles has the same hole. Return the promise, or `await` it, in the function that owns the `try`.
+`await` inside the `try` turns the rejection into a throw, and `catch` returns `nope`. The check waits 30ms after the bare `Promise.reject` so the `unhandledRejection` listener can record `nope`.
 
 ## Incorrect
 

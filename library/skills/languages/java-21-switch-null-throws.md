@@ -27,9 +27,7 @@ commands:
 
 JEP 441, which Java 21 ships as pattern matching for switch, says a switch throws `NullPointerException` when the selector is null and no `case null` is present. `switch (null)` with only `case "ok"` and `default` prints `npe` under `javac --release 21`.
 
-`case null -> "missing"` is a separate label. It does not fall into `default`. With that label, the same call prints `missing`.
-
-`default` matching null is the pre-pattern assumption that no longer holds for these switches. If the selector comes from a map lookup or an empty optional, add `case null` or reject null before the switch. Compiling with `--release 17` will not accept the pattern form this example uses.
+`case null -> "missing"` is a separate label. It does not fall into `default`. With that label, the same call prints `missing`. The check compiles with `javac --release 21` and compares those two stdout lines.
 
 ## Incorrect
 

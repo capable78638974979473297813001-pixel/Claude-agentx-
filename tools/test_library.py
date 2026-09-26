@@ -58,6 +58,20 @@ class LibraryValidationTest(unittest.TestCase):
         errors = validate_skill_shape(_skill(body))
         self.assertTrue(any("best practices" in err for err in errors))
 
+    def test_generic_advice_is_rejected(self):
+        sentence = "Lists store ordered values and callers iterate them when they want each item. "
+        body = (
+            "https://example.com/doc\n"
+            "python3 library/examples/sample/check.py\n"
+            + sentence * 12
+            + "```py file=library/examples/sample/incorrect.py\n"
+            + "values = [1, 2, 3, 4, 5]\nreturn values\n```\n"
+            + "```py file=library/examples/sample/correct.py\n"
+            + "values = [1, 2, 3, 4, 6]\nreturn values\n```\n"
+        )
+        errors = validate_skill_shape(_skill(body))
+        self.assertTrue(any("mostly generic advice" in err for err in errors), errors)
+
     def test_near_duplicate_bodies_are_rejected(self):
         left = _skill("one two three four five six seven eight nine ten " * 30, "left-skill")
         right = _skill("one two three four five six seven eight nine ten " * 30, "right-skill")

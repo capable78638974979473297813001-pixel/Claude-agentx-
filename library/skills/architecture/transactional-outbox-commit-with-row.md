@@ -25,11 +25,9 @@ commands:
 
 # The outbox row has to commit in the same transaction as the order
 
-sqlite3 transaction control commits when you `commit()`. An insert into `orders`, a `commit()`, and then a raise before the outbox insert leaves `orders` at 1 and `outbox` at 0. A worker that publishes from the outbox never sees the order. A worker that publishes from `orders` can also double-send if a later retry inserts a second outbox row.
+sqlite3 transaction control commits when you `commit()`. An insert into `orders`, a `commit()`, and then a raise before the outbox insert leaves `orders` at 1 and `outbox` at 0.
 
-Insert the order and the outbox row, then raise if the operation must fail, and `rollback()` in the handler. Both counts stay 0. Raising before either insert also leaves both at 0, and it does not prove the rollback undid a write.
-
-Commit once, after both inserts. A publisher reads the outbox in a later transaction and marks the row sent. The crash window between "business row committed" and "message row committed" is the window this pattern closes.
+Insert both rows, then raise, and `rollback()` in the handler. Both counts stay 0. The check calls `place(..., True)` on each version and counts the rows after the `RuntimeError`.
 
 ## Incorrect
 

@@ -30,7 +30,7 @@ Svelte 5.39.6 compiles a component in runes mode as soon as it uses a rune such 
 
 `export let count = 0` next to `let extra = $state(1)` fails before any HTML is produced. `let { count = 0 } = $props()` compiles. Server-side render (`generate: 'server'`) of that component with `count: 7` yields a body containing `>7<`.
 
-Do not pass `css: 'none'` to `compile`; Svelte 5 rejects that option with `options_invalid_value`. Write the compiled module under `node_modules` (this check uses `library/node_modules/.skill-svelte-app.js`) so the generated `import ... from 'svelte'` resolves. A file written to `/tmp` cannot see the package.
+The check writes the compiled module to `library/node_modules/.skill-svelte-app.js` so the generated `import` of `svelte` resolves.
 
 ## Incorrect
 

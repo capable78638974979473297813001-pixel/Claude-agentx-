@@ -27,9 +27,7 @@ commands:
 
 Loading three users and then selecting each user's events inside the loop records 3 statements. The number of statements grows with the page. That is the N+1 shape: 1 query for the parents plus N queries for the children, and here the trace is counting the N child queries.
 
-One statement, `WHERE user_id IN (?,?,?)`, records a single execution. Build the placeholder list from `len(user_ids)`, not by interpolating the ids into the SQL text. The sqlite3 placeholder docs require a `?` per bound value.
-
-An `IN` list of hundreds of ids can hit SQLite's variable limit (`SQLITE_MAX_VARIABLE_NUMBER`, often 999 or 32766 depending on the build). Chunk the ids. An index on `events.user_id` is still required or the single statement scans; see the unindexed lookup skill.
+One statement, `WHERE user_id IN (?,?,?)`, records a single execution. Build the placeholder list from `len(user_ids)`, not by interpolating the ids into the SQL text. The sqlite3 placeholder docs require a `?` per bound value. The check's trace length is `3` for the loop and `1` for the `IN` list.
 
 ## Incorrect
 

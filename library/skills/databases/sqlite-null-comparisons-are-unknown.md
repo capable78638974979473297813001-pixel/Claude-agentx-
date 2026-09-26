@@ -27,9 +27,7 @@ commands:
 
 SQLite's NULL handling page: a comparison with NULL is not true. `name != 'Ada'` is unknown for the row whose name is NULL, so the row is filtered out. With rows (1, 'Ada'), (2, 'Grace'), (3, NULL), the query returns only id 2.
 
-`name != 'Ada' OR name IS NULL` returns ids 2 and 3. `IS NOT` is the operator that treats NULL as a value; `!=` is not.
-
-The same unknown result applies to `=`, `<`, and `IN` when the column is NULL. `NOT IN` with a NULL in the list is a separate trap that can filter out every row. This skill is the `!=` case: add `OR column IS NULL` when nulls belong in the "not this value" set.
+`name != 'Ada' OR name IS NULL` returns ids 2 and 3. The check's rows are `(1, 'Ada')`, `(2, 'Grace')`, and `(3, NULL)`.
 
 ## Incorrect
 

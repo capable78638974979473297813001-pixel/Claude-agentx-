@@ -27,9 +27,7 @@ commands:
 
 An interface value is a type pointer plus a data pointer. `var p *int` is a nil pointer. `var i interface{} = p` stores type `*int` and a nil data pointer. `i == nil` is false because the type is set. The FAQ entry "Why is my nil error value not equal to nil?" describes the same pair of words.
 
-The incorrect program prints `typed-nil`. `reflect.Value.IsNil` is valid for Ptr, Map, Slice, Interface, Func, and Chan, and it reports the data pointer. The correct helper prints `nil` for this `*int`.
-
-Return a bare `nil` error, not a nil pointer of a concrete error type assigned to an `error` variable. `var err *MyError; return err` is the usual way to smuggle a typed nil past `if err != nil`.
+The incorrect program prints `typed-nil`. The correct helper calls `reflect.Value.IsNil` for `Ptr`, `Map`, `Slice`, `Interface`, `Func`, and `Chan`, and it prints `nil` for this `*int`. `go run` on each file is the check.
 
 ## Incorrect
 

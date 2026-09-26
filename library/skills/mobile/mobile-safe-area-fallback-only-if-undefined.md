@@ -27,9 +27,7 @@ commands:
 
 `env(safe-area-inset-top, 12px)` uses 12px only when the variable is missing. CSS Environment Variables defines the UA insets `safe-area-inset-*`. In this headless Chrome they exist and are 0, so computed `padding-top` is `0px`. The fallback never runs.
 
-`env(no-such-inset, 12px)` is a name the UA does not define, so the same engine computes `padding-top: 12px`. That is the distinction the fallback grammar actually implements.
-
-A desktop layout that needs 12px of padding cannot get it from the safe-area fallback. Use a separate declaration, for example `padding-top: 12px` overridden by `padding-top: max(12px, env(safe-area-inset-top))` when you have measured a non-zero inset on a device. This check does not claim a difference between `dvh` and `vh`; that comparison was not measured here.
+`env(no-such-inset, 12px)` is a name the UA does not define, so the same engine computes `padding-top: 12px`. The check reads those two computed values. The fallback runs only for the undefined name.
 
 ## Incorrect
 

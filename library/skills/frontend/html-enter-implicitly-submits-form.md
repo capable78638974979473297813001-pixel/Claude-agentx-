@@ -25,11 +25,11 @@ commands:
 
 # Enter in a one-field form submits, and type=button does not stop it
 
-The HTML spec's implicit submission fires when the user hits Enter in a text field and the form has one text-like control, even if there is no submit button. A real key press from Puppeteer on this one-field form increments the submit count to 1. A synthetic `KeyboardEvent` dispatched from script does not, because implicit submission is tied to the user activation path, not to an untrusted event.
+The HTML spec's implicit submission fires when the user hits Enter in a text field and the form has one text-like control, even if there is no submit button. Puppeteer `keyboard.press("Enter")` on `#q` in the one-field form increments the submit count to `1`.
 
-`type="button"` on a second control does not block that path. The spec only treats certain controls (submit buttons, and more than one blocking field when there is no submit button) as changing implicit submission. Adding `<button type="button">` next to the text field still submits.
+`<button type="button">Go</button>` beside that field still yields `1` for the same key press. A synthetic `KeyboardEvent` (`keydown`, `key` `Enter`, `bubbles`, `cancelable`) dispatched on `#q` yields `0`.
 
-`keydown` on the field with `event.key === "Enter"` and `preventDefault()` drops the count to 0. That is the lever when a one-field search box must not navigate.
+`correct.html` calls `preventDefault()` on `keydown` when `event.key` is `Enter`. The same `keyboard.press("Enter")` then yields `0`.
 
 ## Incorrect
 

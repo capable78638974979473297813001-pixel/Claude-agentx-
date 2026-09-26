@@ -27,9 +27,7 @@ commands:
 
 GitHub Actions substitutes `${{ }}` expressions into the shell script before the shell parses it. The secure-use page calls this script injection. Building `echo {message}` with message `hello; echo PWNED` produces the script `echo hello; echo PWNED`, and bash runs `PWNED` as its own command.
 
-An environment variable does not reparse `;` on expansion. `echo $MSG` with that same string prints one line, `hello; echo PWNED`. The injection is the substitution into the script source, not the unquoted expansion of a variable. The fix in this check is to emit `echo "$MSG"` and pass the text as the environment variable, so the semicolon stays data.
-
-Do not paste `github.event.issue.title`, pull request bodies, or commit messages into `run:`. Put them in `env:` and quote the expansion.
+The check's correct script is `echo "$MSG"`, with `MSG` set to `hello; echo PWNED`. bash prints that whole string as one line. The incorrect script is `echo hello; echo PWNED`, and `PWNED` is its own stdout line. The injection is the substitution into the script source.
 
 ## Incorrect
 

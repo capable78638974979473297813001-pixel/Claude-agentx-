@@ -26,7 +26,9 @@ ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 URL_RE = re.compile(r"https?://[^\s)>\]]+")
 PROSE_JACCARD_LIMIT = 0.42
 MIN_BODY_CHARS = 900
+MIN_EXAMPLE_CHARS = 60
 COMMAND_TIMEOUT_S = 90
+PROSE_FENCE_RE = re.compile(r"```[^\n]*\n.*?```", re.DOTALL)
 
 VERSION_RE = re.compile(
     r"\b(React 19|React 18|Vue 3\.5|Svelte 5|Go 1\.2\d|Python 3\.\d+|Node\.js \d+"
@@ -104,7 +106,41 @@ def validate_skill_shape(skill: Skill, root: Path = ROOT) -> list[str]:
             errors.append(f"{where}: command is not written in the body: {command}")
     if not re.search(r"\d", skill.body):
         errors.append(f"{where}: no concrete number (version, threshold, or exit condition)")
+    example_chars = sum(len(content) for info, content in file_fences)
+    if example_chars < MIN_EXAMPLE_CHARS:
+        errors.append(
+            f"{where}: example code is under {MIN_EXAMPLE_CHARS} characters"
+        )
+    errors.extend(_generic_advice(skill, where))
     return errors
+
+
+def _generic_advice(skill: Skill, where: str) -> list[str]:
+    """Flag a body whose prose is filler or unanchored advice.
+
+    Code fences are ignored. A long sentence counts as concrete when it
+    carries a number, a backticked command or symbol, a URL, or a quote.
+    """
+    prose = PROSE_FENCE_RE.sub(" ", skill.body)
+    sentences = [
+        sentence.strip()
+        for sentence in re.split(r"(?<=[.!?])\s+", prose)
+        if len(sentence.strip()) > 40
+    ]
+    if len(sentences) < 4:
+        return [f"{where}: prose is too thin to show a failure mode"]
+    anchored = [
+        sentence
+        for sentence in sentences
+        if re.search(r"\d|`|https?://|\"[^\"]{2,}\"|'[^']{2,}'", sentence)
+    ]
+    if len(anchored) * 2 < len(sentences):
+        return [
+            f"{where}: mostly generic advice "
+            f"({len(anchored)} of {len(sentences)} prose sentences name a "
+            "number, command, error, or quoted fact)"
+        ]
+    return []
 
 
 def validate_graph(skills: list[Skill]) -> list[str]:

@@ -27,9 +27,7 @@ commands:
 
 Vue 3.5's compiler treats `const { count = 0 } = defineProps(...)` as a props binding, not a one-time JavaScript destructure. The compiler bindings map for that component is `{count: "props"}`, and the template render code reads `$props.count`. The Vue 3.5 release post describes this reactive props destructure.
 
-A hand-written `const count = props.count` on a reactive object does the ordinary snapshot. After `props.count = 4` the reader still returns 1. That is the bug people reintroduce when they "simplify" the compiler output or when they destructure a `props` object passed into a plain function.
-
-The default `= 0` in the destructure is the missing-prop default. It does not freeze the value. Read `count` in the template, or call a computed that reads the prop, instead of storing the number in a local `const`.
+A hand-written `const count = props.count` on a reactive object does the ordinary snapshot. After `props.count = 4` the reader still returns `1`. The check asserts the compiler binding `count: "props"` and that snapshot value.
 
 ## Incorrect
 

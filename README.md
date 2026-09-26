@@ -21,7 +21,7 @@ Lenses in `forge/lenses/` and domain notes in `forge/domains/` are reference mat
 
 ## What is verified
 
-Each file under `library/skills/<area>/<id>.md` has incorrect and correct code, a command, and at least one official source URL. `python3 tools/skillforge.py validate` checks the schema, banned filler, near-duplicate bodies, source URLs, and runs every example. An example passes only when it prints both `incorrect: observed` and `correct: ok`.
+Each file under `library/skills/<area>/<id>.md` has incorrect and correct code, a command, and at least one official source URL. `python3 tools/skillforge.py validate` checks the schema, banned filler, near-duplicate bodies, example code under 60 characters, prose that is mostly generic advice, source URLs, and runs every example. An example passes only when it prints both `incorrect: observed` and `correct: ok`.
 
 The verified count is whatever `stats` prints. Quality rules outrank filling the catalog toward 10,000. Notes that could not be executed in this environment were not added.
 

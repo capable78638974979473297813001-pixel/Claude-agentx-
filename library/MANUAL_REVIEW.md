@@ -1,61 +1,76 @@
 # Manual review
 
-Seed `random.Random(20260926)`, 30 of 43 verified skills. The review looked at the prose (the code fences are the programs the validator runs).
+Stratified sample of 30 of the 50 verified skills. Seed `random.Random(20260926)`.
+
+Draw: sort area names, sort skill ids inside each area, shuffle each area list, take one id from every area, shuffle what remains, and draw until the sample has 30. All 16 areas are in the sample.
+
+The review read the prose against the bar. A sentence had to match a command that was run, a number or error that command printed, or a quoted line from the cited source. Filler and unrun advice were removed. No sampled skill was deleted. Each one still has an incorrect result and a fix that the example command prints.
 
 ## Sample
 
-- backend/go-http-shutdown-blocks-on-handler
-- apis/if-match-rejects-stale-update
 - apis/idempotency-key-replays-stored-response
-- refactoring/python-generator-second-pass-empty
-- docs/python-warnings-stacklevel
-- languages/python-closure-late-binding
-- debugging/python-exception-context-chaining
-- testing/node-mock-timers-do-not-advance-alone
-- databases/sqlite-foreign-keys-require-pragma
-- frontend/testing-library-byrole-name-is-exact
-- languages/node-22-type-stripping-is-experimental
-- frontend/css-container-query-ignores-viewport
-- languages/go-1-22-loop-var-per-iteration
-- languages/rust-temporary-dropped-while-borrowed
-- vcs/git-abbrev-ref-is-head-when-detached
-- frontend/svelte-5-export-let-invalid-in-runes
-- languages/python-unboundlocalerror-on-assignment
-- devops/github-actions-unquoted-run-script
-- languages/javascript-array-sort-lexicographic
-- security/sql-fstring-interpolates-untrusted-input
-- databases/sqlite-unindexed-lookup-plans-scan
-- frontend/css-unlayered-author-style-beats-layers
-- frontend/react-19-ref-as-prop
-- cli/argparse-options-after-positionals
-- frontend/html-enter-implicitly-submits-form
-- security/hmac-compare-digest-for-secrets
+- apis/cursor-page-needs-unique-tie-break
+- architecture/transactional-outbox-commit-with-row
 - backend/node-http-client-hangs-without-end
-- frontend/react-index-key-sticks-dom-state
+- cli/argparse-options-after-positionals
+- databases/sqlite-null-comparisons-are-unknown
+- databases/sqlite-foreign-keys-require-pragma
+- debugging/python-exception-context-chaining
+- debugging/node-unhandled-rejection-is-not-thrown
+- devops/github-actions-unquoted-run-script
+- docs/python-warnings-stacklevel
+- frontend/formdata-omits-disabled-fields
+- frontend/react-19-ref-as-prop
 - frontend/vue-3-5-destructured-props-stay-bound
-- devops/git-describe-fails-on-shallow-clone
+- frontend/offsetheight-in-loop-forces-layout
+- frontend/html-enter-implicitly-submits-form
+- frontend/aria-hidden-removed-from-role-query
+- frontend/react-index-key-sticks-dom-state
+- frontend/css-import-must-precede-rules
+- frontend/svelte-5-export-let-invalid-in-runes
+- languages/javascript-array-sort-lexicographic
+- languages/go-nil-pointer-stored-in-interface
+- languages/java-21-switch-null-throws
+- mobile/mobile-safe-area-fallback-only-if-undefined
+- performance/n-plus-one-query-per-row
+- refactoring/python-generator-second-pass-empty
+- security/hmac-compare-digest-for-secrets
+- security/sql-fstring-interpolates-untrusted-input
+- testing/node-mock-timers-do-not-advance-alone
+- vcs/git-abbrev-ref-is-head-when-detached
 
 ## Fixes from this pass
 
-- Generator note claimed `len()` consumes a generator. It raises `TypeError`. The sentence now says that.
-- `warnings.warn` mentioned `stacklevel=0`, which this check did not run. That sentence is gone.
-- Go loop note claimed `go run main.go` outside a module. The check ran `go run .`. The note now says only that.
-- React 19 note claimed class-component ref behavior that this check did not render. That sentence is gone.
-- Form note claimed a two-field form does not submit. The measured case is one field. The extra sentence is gone.
-- SQLite plan note described a non-covering `SEARCH` plan that this check did not print. The note now sticks to the `COVERING` plan that was printed.
+- Idempotency: removed the unmeasured tenant-key map and the crash-before-response paragraph. The check is `calls == 2` versus one stored body.
+- Outbox: removed the unmeasured worker and double-send sentences. The check counts `orders=1` / `outbox=0` versus both `0`.
+- Generator: removed unmeasured `len()`, generator-expression, and database sentences. The check is `['a', 'b']` then `[]`.
+- `Array.prototype.sort`: removed the unmeasured boolean compare and the `slice` mutation sentence. The check joins `[10, 2, 1]` as `1,10,2` and `1,2,10`.
+- SQL f-string: removed the unmeasured identifier allow-list paragraph. The payload is `' OR '1'='1`.
+- NULL comparison: removed the unmeasured `NOT IN` paragraph. The rows are ids `2` versus `2` and `3`.
+- N+1: removed the unmeasured `SQLITE_MAX_VARIABLE_NUMBER` figures. The trace lengths are `3` and `1`.
+- GitHub Actions: the correct script in the check is `echo "$MSG"`. The unquoted `$MSG` sentence is gone.
+- Exception chaining: removed `raise ... from None` and traceback-banner lines the check does not read. The check reads `__context__` and `__cause__`.
+- Unhandled rejection: removed the unmeasured `.catch` sentence. The listener records `nope` after `30` ms.
+- `warnings.warn`: removed the unmeasured decorator sentence. The filenames are `incorrect.py` and `check.py`.
+- argparse: removed the unmeasured `REMAINDER` paragraph. The check now also requires stderr `unrecognized arguments: --flag` and exit code `2`.
+- Keyset cursor: removed the unmeasured `OFFSET` sentence. Page size `1` returns `[1, 3]` versus `[1, 2]`.
+- Foreign keys: removed the unmeasured connection-pool sentence. The check reads `PRAGMA foreign_keys`.
+- Java 21 switch: removed the unmeasured `--release 17` sentence. The check uses `javac --release 21` and stdout `npe` versus `missing`.
+- Go nil interface: removed the unmeasured `*MyError` sentence. The programs print `typed-nil` and `nil` for a nil `*int`.
+- Safe area: removed the unmeasured `max()` recipe. Computed padding is `0px` versus `12px`.
+- Svelte: removed the unmeasured `css: 'none'` sentence.
+- Vue 3.5: removed the unmeasured computed sentence. The snapshot stays `1` after `props.count = 4`.
+- React 19 ref: removed the unmeasured instruction to skip `forwardRef` on every component. The callback stays `null` or receives `INPUT`.
+- CSS `@import`: removed the unmeasured data-URL and `setContent` sentences. The file URL colors are `rgb(255, 0, 0)` and `rgb(0, 128, 0)`.
+- List keys: removed the unmeasured "only safe when never reordered" rule. The values are `EDITED,b` versus `b,EDITED`.
+- Node HTTP: removed the unmeasured `ECONNRESET` crash and the early `response.end` sentence. The client resolves `timeout` at `200` ms, and `end()` returns `ok`.
+- Form Enter: `<button type="button">Go</button>` still submits (`1`), and a synthetic `KeyboardEvent` stays at `0`. Those two assertions are now in the example check, next to `preventDefault()` yielding `0`.
+- Mock timers: the check records `ExperimentalWarning` on the process `warning` event. The unmeasured `setInterval` sentence is gone. `setImmediate` leaves the `5000` ms flag `false` until `tick(5000)`.
 
-No sampled skill was dropped. The other 13 of that 43 were not in this sample; they still have to pass `validate`.
+`validate` now rejects banned filler phrases, near-duplicate bodies, example code under 60 characters, and a body whose long prose sentences are mostly unanchored advice.
 
-## Skills added after the sample
+## Earlier pass
 
-The seed drew 30 of the 43 skills that existed for that review. These seven were written later, after the same checks: an incorrect example and a correct example were run on this machine, and the prose stays inside what those runs printed. They were not part of the random sample.
+The same seed, drawn as 30 of the 43 skills that existed then, fixed six inaccurate sentences: generator `len()` is a `TypeError` rather than a consuming call (that `len()` sentence was later removed because this check does not call it), `stacklevel=0`, `go run main.go` outside a module, class-component refs, a two-field form, and a non-covering SQLite `SEARCH` plan.
 
-- frontend/react-stale-state-updater
-- frontend/history-pushstate-skips-popstate
-- frontend/css-import-must-precede-rules
-- frontend/formdata-omits-disabled-fields
-- frontend/aria-hidden-removed-from-role-query
-- frontend/package-json-type-module-rejects-require
-- frontend/offsetheight-in-loop-forces-layout
-
-Sentences that were not in those runs were left out: a `.cjs` `require` path, `readonly` versus `disabled`, `hashchange`, `display: none`, and restarting the interval by listing `count` in the effect dependency array.
+The other 20 skills were not in this draw. They still have to pass `validate`.

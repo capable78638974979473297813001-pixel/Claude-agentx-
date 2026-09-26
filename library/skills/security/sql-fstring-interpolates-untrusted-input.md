@@ -27,9 +27,7 @@ commands:
 
 `f"SELECT id FROM people WHERE name = '{payload}'"` with `payload` equal to `' OR '1'='1` is one statement whose predicate is true for every row. The query returns the Ada row. sqlite3's placeholder section says to use `?` and a parameter sequence instead of formatting values into the string.
 
-`WHERE name = ?` with `(payload,)` returns `[]`. The quote characters stay inside the bound value. They are not SQL syntax.
-
-Bind every value that comes from a request, including `ORDER BY` only if you map it to a fixed column name yourself. A placeholder cannot replace a column or a table name. Identifiers still need an allow-list.
+`WHERE name = ?` with `(payload,)` returns `[]`. The quote characters stay inside the bound value. They are not SQL syntax. The payload in the check is `' OR '1'='1`.
 
 ## Incorrect
 
