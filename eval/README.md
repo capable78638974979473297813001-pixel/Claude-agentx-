@@ -8,9 +8,15 @@
 python3 eval/harness.py dry-run
 ```
 
-This checks that every starter fails and every reference solution passes. It also routes each prompt with `--k 5` and writes `eval/dry-run.json`.
+This checks that every starter fails and every reference solution passes. It also records, per task, the expected skill ids, whether they landed in the top five, and the time spent on the checker and on retrieval. It writes `eval/dry-run.json`.
 
-`pass_rate` and `tokens` are `null`. Those fields stay null until a model is actually called. `top5_hit_rate.new` is the router only: a hit means every expected skill id is in the top five. An abstention is a miss. `top5_hit_rate.old` searches `eval/snapshots/old-skills/` (the catalog from before this library). `top5_hit_rate.none` is 0 because that arm retrieves nothing.
+Three setups are in that file:
+
+- `none` — no skill text. Retrieval time is 0 and the top-five hit is false.
+- `old` — keyword search of `eval/snapshots/old-skills/` (the pre-change catalog).
+- `new` — `library` router, top 5, abstain counts as a miss.
+
+`pass_rate` and `tokens` are `null` on every setup. The model comparison has not been run. `top5_hit_rate` is retrieval only. A hit means every expected skill id is in the top five. `check_seconds` is how long the automatic checker took on the starter and on the reference solution.
 
 ## Running the real comparison
 

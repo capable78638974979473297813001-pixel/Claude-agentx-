@@ -47,7 +47,7 @@ EXPECTED_AREAS = {
 }
 
 
-def _run(task: dict, variant: str) -> subprocess.CompletedProcess[str]:
+def _run(task: dict, variant: str) -> tuple[subprocess.CompletedProcess[str], float]:
     dest = WORK / task["id"] / variant
     if dest.exists():
         shutil.rmtree(dest)
@@ -58,7 +58,8 @@ def _run(task: dict, variant: str) -> subprocess.CompletedProcess[str]:
         (dest / name).write_text(text, encoding="utf-8")
     env = dict(**{k: v for k, v in __import__("os").environ.items()})
     env["SKILL_REPO"] = str(ROOT)
-    return subprocess.run(
+    started = time.perf_counter()
+    completed = subprocess.run(
         task["command"],
         cwd=dest,
         check=False,
@@ -67,6 +68,7 @@ def _run(task: dict, variant: str) -> subprocess.CompletedProcess[str]:
         timeout=task.get("timeout", 60),
         env=env,
     )
+    return completed, time.perf_counter() - started
 
 
 def _old_ids(query: str, k: int = 5) -> list[str]:
@@ -105,15 +107,19 @@ def dry_run() -> dict:
     new_hits = 0
     old_hits = 0
     route_seconds = 0.0
+    old_seconds = 0.0
     misses: list[dict] = []
+    per_task: list[dict] = []
     for task in TASKS:
-        starter = _run(task, "starter")
-        solution = _run(task, "solution")
-        if starter.returncode != 0:
+        starter, starter_seconds = _run(task, "starter")
+        solution, solution_seconds = _run(task, "solution")
+        starter_failed = starter.returncode != 0
+        solution_passed = solution.returncode == 0
+        if starter_failed:
             starter_fail += 1
         else:
             failures.append(f"{task['id']}: starter passed\n{starter.stdout[-400:]}\n{starter.stderr[-400:]}")
-        if solution.returncode == 0:
+        if solution_passed:
             solution_pass += 1
         else:
             failures.append(
@@ -122,9 +128,11 @@ def dry_run() -> dict:
             )
         started = time.perf_counter()
         routed = router.route(task["prompt"], k=5)
-        route_seconds += time.perf_counter() - started
+        new_seconds = time.perf_counter() - started
+        route_seconds += new_seconds
         found = [hit.skill_id for hit in routed.hits] if routed.confident else []
-        if _hit(found, task["expected_skills"]):
+        new_hit = _hit(found, task["expected_skills"])
+        if new_hit:
             new_hits += 1
         else:
             misses.append(
@@ -136,12 +144,41 @@ def dry_run() -> dict:
                     "reason": routed.reason,
                 }
             )
-        if _hit(_old_ids(task["prompt"]), task["expected_skills"]):
+        started = time.perf_counter()
+        old_found = _old_ids(task["prompt"])
+        old_task_seconds = time.perf_counter() - started
+        old_seconds += old_task_seconds
+        old_hit = _hit(old_found, task["expected_skills"])
+        if old_hit:
             old_hits += 1
+        per_task.append(
+            {
+                "id": task["id"],
+                "area": task["area"],
+                "expected_skills": task["expected_skills"],
+                "starter_failed": starter_failed,
+                "solution_passed": solution_passed,
+                "check_seconds": {
+                    "starter": round(starter_seconds, 4),
+                    "solution": round(solution_seconds, 4),
+                },
+                "retrieval_seconds": {
+                    "none": 0.0,
+                    "old": round(old_task_seconds, 4),
+                    "new": round(new_seconds, 4),
+                },
+                "top5_hit": {"none": False, "old": old_hit, "new": new_hit},
+                "top5": {"none": [], "old": old_found, "new": found},
+                "pass": {"none": None, "old": None, "new": None},
+                "tokens": {"none": None, "old": None, "new": None},
+            }
+        )
     report = {
         "model_invoked": False,
+        "comparison_run": False,
         "tasks": len(TASKS),
         "areas": counts,
+        "setups": ["none", "old", "new"],
         "pass_rate": {"none": None, "old": None, "new": None},
         "top5_hit_rate": {
             "none": 0.0,
@@ -149,7 +186,12 @@ def dry_run() -> dict:
             "new": new_hits / len(TASKS),
         },
         "top5_hits": {"none": 0, "old": old_hits, "new": new_hits},
-        "tokens": None,
+        "tokens": {"none": None, "old": None, "new": None},
+        "retrieval_seconds": {
+            "none": 0.0,
+            "old": round(old_seconds, 4),
+            "new": round(route_seconds, 4),
+        },
         "route_seconds": round(route_seconds, 4),
         "dry_run": {
             "starter_failures": starter_fail,
@@ -157,11 +199,13 @@ def dry_run() -> dict:
             "ok": starter_fail == len(TASKS) and solution_pass == len(TASKS),
         },
         "router_misses": misses,
+        "per_task": per_task,
         "note": (
-            "pass_rate and tokens are null because no model was called. "
-            "top5_hit_rate.new is the router only. "
-            "A hit requires every expected skill id to appear in the top 5. "
-            "An abstention counts as a miss."
+            "The model comparison has not been run. pass_rate and tokens are null. "
+            "top5_hit_rate is retrieval only: none retrieves nothing, old searches "
+            "eval/snapshots/old-skills, new uses the router. A hit requires every "
+            "expected skill id in the top 5. An abstention is a miss. "
+            "check_seconds is the automatic checker, not a model."
         ),
     }
     out = ROOT / "eval" / "dry-run.json"
