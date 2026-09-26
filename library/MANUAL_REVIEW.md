@@ -44,4 +44,18 @@ Seed `random.Random(20260926)`, 30 of 43 verified skills. The review looked at t
 - Form note claimed a two-field form does not submit. The measured case is one field. The extra sentence is gone.
 - SQLite plan note described a non-covering `SEARCH` plan that this check did not print. The note now sticks to the `COVERING` plan that was printed.
 
-No sampled skill was dropped. The other 13 were not in this sample; they still have to pass `validate`.
+No sampled skill was dropped. The other 13 of that 43 were not in this sample; they still have to pass `validate`.
+
+## Skills added after the sample
+
+The seed drew 30 of the 43 skills that existed for that review. These seven were written later, after the same checks: an incorrect example and a correct example were run on this machine, and the prose stays inside what those runs printed. They were not part of the random sample.
+
+- frontend/react-stale-state-updater
+- frontend/history-pushstate-skips-popstate
+- frontend/css-import-must-precede-rules
+- frontend/formdata-omits-disabled-fields
+- frontend/aria-hidden-removed-from-role-query
+- frontend/package-json-type-module-rejects-require
+- frontend/offsetheight-in-loop-forces-layout
+
+Sentences that were not in those runs were left out: a `.cjs` `require` path, `readonly` versus `disabled`, `hashchange`, `display: none`, and restarting the interval by listing `count` in the effect dependency array.

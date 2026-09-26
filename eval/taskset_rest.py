@@ -443,32 +443,39 @@ if ran.stdout.strip() != "missing":
 """,
         timeout=60,
     ),
-    py(
-        "keyset-second-page",
-        "apis",
-        "Page size 1. Rows id 1 and id 2 share created 2024-01-01, id 3 is the next day. A cursor that keeps only created skips id 2. The second page must be id 2. SQLite row values.",
-        ["cursor-page-needs-unique-tie-break"],
-        """def second_id(rows):
-    ordered = sorted(rows, key=lambda row: (row["created"], row["id"]))
-    first = ordered[0]
-    rest = [row for row in ordered if row["created"] > first["created"]]
-    return rest[0]["id"]
+    node(
+        "formdata-skips-disabled",
+        "frontend",
+        "querySelectorAll of a form's inputs includes the disabled field, so the keys are a,b. new FormData(form) omits disabled controls and the keys are a. HTML form data set.",
+        ["formdata-omits-disabled-fields"],
+        {"answer.html": """<form id="f">
+  <input name="a" value="1" />
+  <input name="b" value="2" disabled />
+</form>
+<script>
+  const data = new URLSearchParams();
+  for (const input of document.querySelectorAll("#f input")) {
+    data.append(input.name, input.value);
+  }
+  window.__keys = [...data.keys()].join(",");
+</script>
+"""},
+        {"answer.html": """<form id="f">
+  <input name="a" value="1" />
+  <input name="b" value="2" disabled />
+</form>
+<script>
+  window.__keys = [...new FormData(document.getElementById("f")).keys()].join(",");
+</script>
+"""},
+        CHROME + """
+await withPage(async (page) => {
+  await page.goto(pathToFileURL(process.cwd() + "/answer.html").href, { waitUntil: "domcontentloaded" });
+  const keys = await page.evaluate(() => window.__keys);
+  if (keys !== "a") throw new Error(String(keys));
+});
 """,
-        """def second_id(rows):
-    ordered = sorted(rows, key=lambda row: (row["created"], row["id"]))
-    first = ordered[0]
-    rest = [row for row in ordered if (row["created"], row["id"]) > (first["created"], first["id"])]
-    return rest[0]["id"]
-""",
-        LOAD + """
-rows = [
-    {"id": 2, "created": "2024-01-01"},
-    {"id": 1, "created": "2024-01-01"},
-    {"id": 3, "created": "2024-01-02"},
-]
-if answer.second_id(rows) != 2:
-    raise SystemExit(answer.second_id(rows))
-""",
+        timeout=40,
     ),
     py(
         "idempotency-replays-body",
@@ -523,33 +530,25 @@ if status != 412 or row != {"name": "b", "version": 2}:
     raise SystemExit((status, row))
 """,
     ),
-    py(
-        "cursor-does-not-skip-tie",
-        "apis",
-        "created > cursor skips the other row with the same timestamp. After returning id 1, the next id with page size 1 must be 2, not 3. Include id in the comparison.",
-        ["cursor-page-needs-unique-tie-break"],
-        """def next_id(rows, cursor):
-    ordered = sorted(rows, key=lambda row: (row["created"], row["id"]))
-    for row in ordered:
-        if row["created"] > cursor[0]:
-            return row["id"]
-    raise RuntimeError("empty")
-""",
-        """def next_id(rows, cursor):
-    ordered = sorted(rows, key=lambda row: (row["created"], row["id"]))
-    for row in ordered:
-        if (row["created"], row["id"]) > cursor:
-            return row["id"]
-    raise RuntimeError("empty")
-""",
-        LOAD + """
-rows = [
-    {"id": 1, "created": "2024-01-01"},
-    {"id": 2, "created": "2024-01-01"},
-    {"id": 3, "created": "2024-01-02"},
-]
-if answer.next_id(rows, ("2024-01-01", 1)) != 2:
-    raise SystemExit(answer.next_id(rows, ("2024-01-01", 1)))
+    node(
+        "type-module-require-throws",
+        "frontend",
+        'package.json "type": "module" makes a .js file ESM. require("node:path") throws ReferenceError: require is not defined in ES module scope. import path from "node:path" and print basename b.',
+        ["package-json-type-module-rejects-require"],
+        {
+            "package.json": '{ "type": "module" }\n',
+            "answer.js": 'console.log(require("node:path").basename("/a/b"));\n',
+        },
+        {
+            "package.json": '{ "type": "module" }\n',
+            "answer.mjs": 'import path from "node:path";\nconsole.log(path.basename("/a/b"));\n',
+        },
+        """import { existsSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+const file = existsSync("answer.js") ? "answer.js" : "answer.mjs";
+const ran = spawnSync(process.execPath, [file], { encoding: "utf8" });
+if (ran.status !== 0) throw new Error(ran.stderr);
+if (ran.stdout.trim() !== "b") throw new Error(ran.stdout || ran.stderr);
 """,
     ),
     py(
@@ -1014,31 +1013,45 @@ if (!flag) throw new Error("timer did not run");
 """,
     ),
     node(
-        "mock-timers-partial-tick",
-        "testing",
-        "mock.timers.tick(1000) does not run a callback scheduled for 5000ms. tick advances the mocked clock by the amount you pass. Node mock.timers.tick.",
-        ["node-mock-timers-do-not-advance-alone"],
-        {"answer.mjs": """import { mock } from "node:test";
-export function advance(ms) {
-  mock.timers.tick(5000);
-}
+        "offsetheight-loop-layouts",
+        "frontend",
+        "Appending 80 nodes and reading offsetHeight each time reports Chrome LayoutCount 81. Build them on a DocumentFragment, append once, then read offsetHeight once so LayoutCount is 2 and the height sum stays 1440.",
+        ["offsetheight-in-loop-forces-layout"],
+        {"answer.html": """<div id="list"></div>
+<script>
+  const list = document.getElementById("list");
+  let reads = 0;
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement("div");
+    el.textContent = "item-" + i;
+    list.appendChild(el);
+    reads += el.offsetHeight;
+  }
+  window.__reads = reads;
+</script>
 """},
-        {"answer.mjs": """import { mock } from "node:test";
-export function advance(ms) {
-  mock.timers.tick(ms);
-}
+        {"answer.html": """<div id="list"></div>
+<script>
+  const list = document.getElementById("list");
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement("div");
+    el.textContent = "item-" + i;
+    frag.appendChild(el);
+  }
+  list.appendChild(frag);
+  window.__reads = list.offsetHeight;
+</script>
 """},
-        """import { mock } from "node:test";
-import { pathToFileURL } from "node:url";
-const answer = await import(pathToFileURL(process.cwd() + "/answer.mjs").href);
-mock.timers.enable({ apis: ["setTimeout"] });
-let flag = false;
-setTimeout(() => {
-  flag = true;
-}, 5000);
-answer.advance(1000);
-if (flag) throw new Error("fired early");
+        CHROME + """
+await withPage(async (page) => {
+  await setHtmlFile(page, "answer.html");
+  const metrics = await page.metrics();
+  const reads = await page.evaluate(() => window.__reads);
+  if (metrics.LayoutCount !== 2 || reads !== 1440) throw new Error(metrics.LayoutCount + " " + reads);
+});
 """,
+        timeout=40,
     ),
     py(
         "detached-head-is-not-a-branch",

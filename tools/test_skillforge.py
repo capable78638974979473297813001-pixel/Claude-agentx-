@@ -19,7 +19,7 @@ class SkillforgeCliTest(unittest.TestCase):
             text=True,
             capture_output=True,
         )
-        self.assertIn("verified skills   43", completed.stdout)
+        self.assertIn("verified skills   50", completed.stdout)
         self.assertIn("curated skills", completed.stdout)
         self.assertNotIn("blends", completed.stdout)
 
@@ -55,7 +55,7 @@ class SkillforgeCliTest(unittest.TestCase):
         code = sf.cmd_index(argparse_namespace())
         self.assertEqual(code, 0)
         payload = json.loads((ROOT / "catalog" / "index.json").read_text(encoding="utf-8"))
-        self.assertEqual(payload["verified"], 43)
+        self.assertEqual(payload["verified"], 50)
         self.assertNotIn("blends", payload)
         self.assertGreaterEqual(payload["curated"], 30)
         ids = {item["id"] for item in payload["skills"]}

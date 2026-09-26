@@ -25,6 +25,8 @@ Each file under `library/skills/<area>/<id>.md` has incorrect and correct code, 
 
 The verified count is whatever `stats` prints. Quality rules outrank filling the catalog toward 10,000. Notes that could not be executed in this environment were not added.
 
+Verified areas are frontend, backend, APIs, languages, debugging, databases, DevOps, testing, security, performance, mobile, CLIs, architecture, refactoring, documentation, and version control. Frontend topics include frameworks, components, state, CSS, accessibility, forms, routing, testing queries, build tooling, and layout performance. `python3 tools/skillforge.py browse --area frontend` lists them.
+
 Tax skills were kept as one section and were not expanded. Money in those notes is decimal or integer minor units. Rates and thresholds come from a cited source or stay `UNVERIFIED`.
 
 ## Layout

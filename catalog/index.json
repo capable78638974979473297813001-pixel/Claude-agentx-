@@ -1,7 +1,7 @@
 {
-  "verified": 43,
+  "verified": 50,
   "curated": 32,
-  "total": 75,
+  "total": 82,
   "verified_by_area": {
     "apis": 3,
     "architecture": 1,
@@ -11,7 +11,7 @@
     "debugging": 2,
     "devops": 2,
     "docs": 1,
-    "frontend": 12,
+    "frontend": 19,
     "languages": 8,
     "mobile": 1,
     "performance": 1,
@@ -271,9 +271,23 @@
     "frontend": {
       "accessibility": [
         {
+          "id": "aria-hidden-removed-from-role-query",
+          "task": "query-hidden-from-accessibility-tree",
+          "title": "getByRole skips a button inside aria-hidden",
+          "kind": "verified"
+        },
+        {
           "id": "wcag-contrast-below-4-5-fails-aa",
           "task": "compute-srgb-contrast",
           "title": "WCAG 2.2 contrast needs sRGB linearization, and 4.5 is a hard floor",
+          "kind": "verified"
+        }
+      ],
+      "build": [
+        {
+          "id": "package-json-type-module-rejects-require",
+          "task": "load-cjs-when-type-is-module",
+          "title": "package.json \"type\": \"module\" makes require a ReferenceError in .js files",
           "kind": "verified"
         }
       ],
@@ -291,9 +305,23 @@
           "kind": "verified"
         },
         {
+          "id": "css-import-must-precede-rules",
+          "task": "place-import-before-style-rules",
+          "title": "@import after a style rule is ignored",
+          "kind": "verified"
+        },
+        {
           "id": "css-unlayered-author-style-beats-layers",
           "task": "order-cascade-layers",
           "title": "An unlayered author rule beats any style inside @layer",
+          "kind": "verified"
+        }
+      ],
+      "forms": [
+        {
+          "id": "formdata-omits-disabled-fields",
+          "task": "submit-successful-controls-only",
+          "title": "FormData skips a disabled field that querySelectorAll still sees",
           "kind": "verified"
         }
       ],
@@ -302,6 +330,14 @@
           "id": "html-enter-implicitly-submits-form",
           "task": "stop-implicit-form-submit",
           "title": "Enter in a one-field form submits, and type=button does not stop it",
+          "kind": "verified"
+        }
+      ],
+      "performance": [
+        {
+          "id": "offsetheight-in-loop-forces-layout",
+          "task": "batch-dom-writes-before-layout-read",
+          "title": "Reading offsetHeight inside an append loop forces a layout per item",
           "kind": "verified"
         }
       ],
@@ -319,9 +355,23 @@
           "kind": "verified"
         },
         {
+          "id": "react-stale-state-updater",
+          "task": "update-state-from-interval",
+          "title": "An interval that closes over count sticks at 1",
+          "kind": "verified"
+        },
+        {
           "id": "react-strict-mode-effect-double-invoke",
           "task": "survive-strict-mode-setup",
           "title": "React StrictMode runs effect setup twice in development",
+          "kind": "verified"
+        }
+      ],
+      "routing": [
+        {
+          "id": "history-pushstate-skips-popstate",
+          "task": "listen-for-real-navigations",
+          "title": "history.pushState does not fire popstate",
           "kind": "verified"
         }
       ],
@@ -791,6 +841,20 @@
       ]
     },
     {
+      "id": "aria-hidden-removed-from-role-query",
+      "area": "frontend",
+      "topic": "accessibility",
+      "task": "query-hidden-from-accessibility-tree",
+      "title": "getByRole skips a button inside aria-hidden",
+      "description": "Use when getByRole cannot find a button that is in the DOM because an ancestor has aria-hidden=true.",
+      "path": "library/skills/frontend/aria-hidden-removed-from-role-query.md",
+      "kind": "verified",
+      "related": [
+        "testing-library-byrole-name-is-exact",
+        "wcag-contrast-below-4-5-fails-aa"
+      ]
+    },
+    {
       "id": "css-container-query-ignores-viewport",
       "area": "frontend",
       "topic": "css",
@@ -819,6 +883,20 @@
       ]
     },
     {
+      "id": "css-import-must-precede-rules",
+      "area": "frontend",
+      "topic": "css",
+      "task": "place-import-before-style-rules",
+      "title": "@import after a style rule is ignored",
+      "description": "Use when a stylesheet @import of a color rule does nothing because a selector was written above it.",
+      "path": "library/skills/frontend/css-import-must-precede-rules.md",
+      "kind": "verified",
+      "related": [
+        "css-unlayered-author-style-beats-layers",
+        "css-flex-item-min-width-auto"
+      ]
+    },
+    {
       "id": "css-unlayered-author-style-beats-layers",
       "area": "frontend",
       "topic": "css",
@@ -829,6 +907,34 @@
       "kind": "verified",
       "related": [
         "css-flex-item-min-width-auto",
+        "css-container-query-ignores-viewport"
+      ]
+    },
+    {
+      "id": "formdata-omits-disabled-fields",
+      "area": "frontend",
+      "topic": "forms",
+      "task": "submit-successful-controls-only",
+      "title": "FormData skips a disabled field that querySelectorAll still sees",
+      "description": "Use when a disabled input is missing from the POST body, or a hand-built payload still sends it.",
+      "path": "library/skills/frontend/formdata-omits-disabled-fields.md",
+      "kind": "verified",
+      "related": [
+        "html-enter-implicitly-submits-form",
+        "idempotency-key-replays-stored-response"
+      ]
+    },
+    {
+      "id": "history-pushstate-skips-popstate",
+      "area": "frontend",
+      "topic": "routing",
+      "task": "listen-for-real-navigations",
+      "title": "history.pushState does not fire popstate",
+      "description": "Use when a client router updates the URL with pushState and a popstate listener never runs until the user hits Back.",
+      "path": "library/skills/frontend/history-pushstate-skips-popstate.md",
+      "kind": "verified",
+      "related": [
+        "html-enter-implicitly-submits-form",
         "css-container-query-ignores-viewport"
       ]
     },
@@ -844,6 +950,34 @@
       "related": [
         "idempotency-key-replays-stored-response",
         "if-match-rejects-stale-update"
+      ]
+    },
+    {
+      "id": "offsetheight-in-loop-forces-layout",
+      "area": "frontend",
+      "topic": "performance",
+      "task": "batch-dom-writes-before-layout-read",
+      "title": "Reading offsetHeight inside an append loop forces a layout per item",
+      "description": "Use when a loop appends DOM nodes and reads offsetHeight, and Chrome LayoutCount climbs once per item.",
+      "path": "library/skills/frontend/offsetheight-in-loop-forces-layout.md",
+      "kind": "verified",
+      "related": [
+        "css-flex-item-min-width-auto",
+        "n-plus-one-query-per-row"
+      ]
+    },
+    {
+      "id": "package-json-type-module-rejects-require",
+      "area": "frontend",
+      "topic": "build",
+      "task": "load-cjs-when-type-is-module",
+      "title": "package.json \"type\": \"module\" makes require a ReferenceError in .js files",
+      "description": "Use when a frontend build or Node script throws require is not defined in ES module scope after adding type module.",
+      "path": "library/skills/frontend/package-json-type-module-rejects-require.md",
+      "kind": "verified",
+      "related": [
+        "node-22-type-stripping-is-experimental",
+        "javascript-array-sort-lexicographic"
       ]
     },
     {
@@ -872,6 +1006,20 @@
       "related": [
         "cursor-page-needs-unique-tie-break",
         "react-19-ref-as-prop"
+      ]
+    },
+    {
+      "id": "react-stale-state-updater",
+      "area": "frontend",
+      "topic": "react",
+      "task": "update-state-from-interval",
+      "title": "An interval that closes over count sticks at 1",
+      "description": "Use when a setInterval or setTimeout inside useEffect keeps writing the same count because the effect deps are empty.",
+      "path": "library/skills/frontend/react-stale-state-updater.md",
+      "kind": "verified",
+      "related": [
+        "react-strict-mode-effect-double-invoke",
+        "react-index-key-sticks-dom-state"
       ]
     },
     {

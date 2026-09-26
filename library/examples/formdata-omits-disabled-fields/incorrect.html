@@ -1,0 +1,11 @@
+<form id="f">
+  <input name="a" value="1" />
+  <input name="b" value="2" disabled />
+</form>
+<script>
+  const data = new URLSearchParams();
+  for (const input of document.querySelectorAll("#f input")) {
+    data.append(input.name, input.value);
+  }
+  window.__keys = [...data.keys()].join(",");
+</script>

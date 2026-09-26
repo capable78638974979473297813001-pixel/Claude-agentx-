@@ -214,62 +214,86 @@ if (!node.textContent.includes("draft")) throw new Error(node.textContent);
 """,
     ),
     node(
-        "byrole-regex-matches-multiple",
+        "react-interval-stays-at-one",
         "frontend",
-        'getByRole with name /Save/ throws Found multiple elements with the role "button" and name /Save/ when buttons are Save draft and Save as. Query the one full accessible name Save draft.',
-        ["testing-library-byrole-name-is-exact"],
-        {"answer.mjs": """import { createRequire } from "node:module";
-const require = createRequire(process.env.SKILL_REPO + "/library/package.json");
-const { getByRole } = require("@testing-library/dom");
-export function saveButton(container) {
-  return getByRole(container, "button", { name: /Save/ });
+        "setInterval(() => setCount(count + 1), 1000) with useEffect deps [] stays at 1 after mock.timers.tick(3000). The functional updater setCount(value => value + 1) ends at 3. React useState previous state.",
+        ["react-stale-state-updater"],
+        {"answer.mjs": REACT + """
+export function Counter() {
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setCount(count + 1), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return React.createElement("span", { id: "n" }, String(count));
 }
 """},
-        {"answer.mjs": """import { createRequire } from "node:module";
-const require = createRequire(process.env.SKILL_REPO + "/library/package.json");
-const { getByRole } = require("@testing-library/dom");
-export function saveButton(container) {
-  return getByRole(container, "button", { name: "Save draft" });
+        {"answer.mjs": REACT + """
+export function Counter() {
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setCount((value) => value + 1), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return React.createElement("span", { id: "n" }, String(count));
 }
 """},
         """import { createRequire } from "node:module";
 import { pathToFileURL } from "node:url";
 const require = createRequire(process.env.SKILL_REPO + "/library/package.json");
-const { JSDOM } = require("jsdom");
+const React = require("react");
+const { act } = require("react");
+const { mock } = await import("node:test");
+const { installDom, render } = await import(pathToFileURL(process.env.SKILL_REPO + "/library/runtime/react-harness.mjs").href);
 const answer = await import(pathToFileURL(process.cwd() + "/answer.mjs").href);
-const dom = new JSDOM("<button>Save draft</button><button>Save as</button>");
-const node = answer.saveButton(dom.window.document.body);
-if (node.textContent.trim() !== "Save draft") throw new Error(node.textContent);
+installDom();
+mock.timers.enable({ apis: ["setInterval"] });
+const root = await render(React.createElement(answer.Counter));
+await act(async () => {
+  mock.timers.tick(3000);
+});
+const text = document.getElementById("n").textContent;
+root.unmount();
+if (text !== "3") throw new Error(text);
 """,
+        timeout=40,
     ),
     node(
-        "byrole-name-case",
+        "pushstate-does-not-pop",
         "frontend",
-        'getByRole name strings are case-sensitive. name "save" does not match a button whose accessible name is Save. @testing-library/dom exact name option.',
-        ["testing-library-byrole-name-is-exact"],
-        {"answer.mjs": """import { createRequire } from "node:module";
-const require = createRequire(process.env.SKILL_REPO + "/library/package.json");
-const { getByRole } = require("@testing-library/dom");
-export function saveButton(container) {
-  return getByRole(container, "button", { name: "save" });
-}
+        "history.pushState does not fire popstate. After pushState the popstate count stays 0. Push two entries and call history.back() so the popstate count is 1. HTML popstate.",
+        ["history-pushstate-skips-popstate"],
+        {"answer.html": """<p id="n">0</p>
+<script>
+  window.__pops = 0;
+  addEventListener("popstate", () => {
+    window.__pops += 1;
+  });
+  history.pushState({ step: 1 }, "", "#a");
+  document.getElementById("n").textContent = String(window.__pops);
+</script>
 """},
-        {"answer.mjs": """import { createRequire } from "node:module";
-const require = createRequire(process.env.SKILL_REPO + "/library/package.json");
-const { getByRole } = require("@testing-library/dom");
-export function saveButton(container) {
-  return getByRole(container, "button", { name: "Save" });
-}
+        {"answer.html": """<p id="n">0</p>
+<script>
+  window.__pops = 0;
+  addEventListener("popstate", () => {
+    window.__pops += 1;
+    document.getElementById("n").textContent = String(window.__pops);
+  });
+  history.pushState({ step: 1 }, "", "#a");
+  history.pushState({ step: 2 }, "", "#b");
+  history.back();
+</script>
 """},
-        """import { createRequire } from "node:module";
-import { pathToFileURL } from "node:url";
-const require = createRequire(process.env.SKILL_REPO + "/library/package.json");
-const { JSDOM } = require("jsdom");
-const answer = await import(pathToFileURL(process.cwd() + "/answer.mjs").href);
-const dom = new JSDOM("<button>Save</button>");
-const node = answer.saveButton(dom.window.document.body);
-if (node.textContent.trim() !== "Save") throw new Error(node.textContent);
+        CHROME + """
+await withPage(async (page) => {
+  await page.goto(pathToFileURL(process.cwd() + "/answer.html").href, { waitUntil: "domcontentloaded" });
+  await new Promise((resolve) => setTimeout(resolve, 100));
+  const pops = await page.evaluate(() => window.__pops);
+  if (pops !== 1) throw new Error(String(pops));
+});
 """,
+        timeout=40,
     ),
     node(
         "unlayered-style-loses",

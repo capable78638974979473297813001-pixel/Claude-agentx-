@@ -27,16 +27,16 @@ from library.textutil import tokenize  # noqa: E402
 WORK = ROOT / "eval" / "work"
 SNAPSHOT = ROOT / "eval" / "snapshots" / "old-skills"
 EXPECTED_AREAS = {
-    "frontend": 14,
+    "frontend": 17,
     "cross": 5,
     "languages": 6,
-    "apis": 4,
+    "apis": 2,
     "databases": 3,
     "security": 3,
     "backend": 2,
     "debugging": 2,
     "devops": 2,
-    "testing": 2,
+    "testing": 1,
     "vcs": 1,
     "cli": 1,
     "architecture": 1,
