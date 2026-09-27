@@ -1,0 +1,11 @@
+<p id="n">0</p>
+<script>
+  window.__pops = 0;
+  addEventListener("popstate", () => {
+    window.__pops += 1;
+    document.getElementById("n").textContent = String(window.__pops);
+  });
+  history.pushState({ step: 1 }, "", "#a");
+  history.pushState({ step: 2 }, "", "#b");
+  history.back();
+</script>

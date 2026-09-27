@@ -1,0 +1,2569 @@
+{
+  "model_invoked": false,
+  "comparison_run": false,
+  "tasks": 50,
+  "areas": {
+    "frontend": 17,
+    "cross": 5,
+    "languages": 6,
+    "apis": 2,
+    "databases": 3,
+    "security": 3,
+    "backend": 2,
+    "debugging": 2,
+    "devops": 2,
+    "testing": 1,
+    "vcs": 1,
+    "cli": 1,
+    "architecture": 1,
+    "refactoring": 1,
+    "docs": 1,
+    "performance": 1,
+    "mobile": 1
+  },
+  "setups": [
+    "none",
+    "old",
+    "new"
+  ],
+  "pass_rate": {
+    "none": null,
+    "old": null,
+    "new": null
+  },
+  "top5_hit_rate": {
+    "none": 0.0,
+    "old": 0.0,
+    "new": 1.0
+  },
+  "top5_hits": {
+    "none": 0,
+    "old": 0,
+    "new": 50
+  },
+  "tokens": {
+    "none": null,
+    "old": null,
+    "new": null
+  },
+  "retrieval_seconds": {
+    "none": 0.0,
+    "old": 0.1288,
+    "new": 0.2128
+  },
+  "route_seconds": 0.2128,
+  "dry_run": {
+    "starter_failures": 50,
+    "solution_passes": 50,
+    "ok": true
+  },
+  "router_misses": [],
+  "per_task": [
+    {
+      "id": "react-ref-reaches-input",
+      "area": "frontend",
+      "expected_skills": [
+        "react-19-ref-as-prop"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4239,
+        "solution": 0.3992
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.002,
+        "new": 0.0036
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-credits-engine",
+          "tax-progressive-brackets",
+          "tax-explainability-audit-trail"
+        ],
+        "new": [
+          "react-19-ref-as-prop",
+          "react-index-key-sticks-dom-state",
+          "react-stale-state-updater",
+          "react-strict-mode-effect-double-invoke",
+          "java-21-switch-null-throws"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "strict-mode-effect-cleanup",
+      "area": "frontend",
+      "expected_skills": [
+        "react-strict-mode-effect-double-invoke"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.5086,
+        "solution": 0.3685
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.0028
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "tax-engine-kit",
+          "test-driven-development"
+        ],
+        "new": [
+          "react-strict-mode-effect-double-invoke",
+          "react-stale-state-updater",
+          "react-19-ref-as-prop",
+          "test-driven-development",
+          "react-index-key-sticks-dom-state"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "list-key-follows-item",
+      "area": "frontend",
+      "expected_skills": [
+        "react-index-key-sticks-dom-state"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.5096,
+        "solution": 0.4447
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0025,
+        "new": 0.0037
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-money-math",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "react-index-key-sticks-dom-state",
+          "iterative-canvas-editing",
+          "sqlite-unindexed-lookup-plans-scan",
+          "tax-money-math",
+          "sqlite-foreign-keys-require-pragma"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "number-input-spinbutton",
+      "area": "frontend",
+      "expected_skills": [
+        "testing-library-input-number-is-spinbutton"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.547,
+        "solution": 0.4078
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.0036
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-engine-kit",
+          "tax-rules-as-data"
+        ],
+        "new": [
+          "testing-library-input-number-is-spinbutton",
+          "testing-library-byrole-name-is-exact",
+          "aria-hidden-removed-from-role-query",
+          "node-22-type-stripping-is-experimental",
+          "html-enter-implicitly-submits-form"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "byrole-name-is-full-string",
+      "area": "frontend",
+      "expected_skills": [
+        "testing-library-byrole-name-is-exact"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4434,
+        "solution": 0.611
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0026,
+        "new": 0.0037
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-phaseouts-and-limits"
+        ],
+        "new": [
+          "testing-library-byrole-name-is-exact",
+          "testing-library-input-number-is-spinbutton",
+          "aria-hidden-removed-from-role-query",
+          "sqlite-unindexed-lookup-plans-scan",
+          "sql-fstring-interpolates-untrusted-input"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "react-interval-stays-at-one",
+      "area": "frontend",
+      "expected_skills": [
+        "react-stale-state-updater"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4146,
+        "solution": 0.5001
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.004
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-jurisdiction-modeling",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math"
+        ],
+        "new": [
+          "react-stale-state-updater",
+          "react-strict-mode-effect-double-invoke",
+          "react-index-key-sticks-dom-state",
+          "react-19-ref-as-prop",
+          "node-mock-timers-do-not-advance-alone"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "pushstate-does-not-pop",
+      "area": "frontend",
+      "expected_skills": [
+        "history-pushstate-skips-popstate"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.6233,
+        "solution": 0.7128
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0032,
+        "new": 0.0055
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "history-pushstate-skips-popstate",
+          "react-strict-mode-effect-double-invoke",
+          "vue-3-5-destructured-props-stay-bound",
+          "html-enter-implicitly-submits-form",
+          "react-stale-state-updater"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "unlayered-style-loses",
+      "area": "frontend",
+      "expected_skills": [
+        "css-unlayered-author-style-beats-layers"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.5819,
+        "solution": 0.5772
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0025,
+        "new": 0.0038
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-progressive-brackets",
+          "tax-money-math"
+        ],
+        "new": [
+          "css-unlayered-author-style-beats-layers",
+          "css-import-must-precede-rules",
+          "css-container-query-ignores-viewport",
+          "wcag-contrast-below-4-5-fails-aa",
+          "mobile-safe-area-fallback-only-if-undefined"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "flex-min-width-zero",
+      "area": "frontend",
+      "expected_skills": [
+        "css-flex-item-min-width-auto"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.5464,
+        "solution": 0.5151
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0032,
+        "new": 0.0053
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-phaseouts-and-limits"
+        ],
+        "new": [
+          "css-flex-item-min-width-auto",
+          "react-index-key-sticks-dom-state",
+          "tax-phaseouts-and-limits",
+          "n-plus-one-query-per-row",
+          "sqlite-null-comparisons-are-unknown"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "container-query-not-viewport",
+      "area": "frontend",
+      "expected_skills": [
+        "css-container-query-ignores-viewport"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.5119,
+        "solution": 0.584
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.0057
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "css-container-query-ignores-viewport",
+          "css-flex-item-min-width-auto",
+          "adversarial-red-team",
+          "wcag-contrast-below-4-5-fails-aa",
+          "css-unlayered-author-style-beats-layers"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "enter-does-not-submit",
+      "area": "frontend",
+      "expected_skills": [
+        "html-enter-implicitly-submits-form"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.5326,
+        "solution": 0.5188
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0024,
+        "new": 0.0036
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-engine-architecture",
+          "tax-rules-as-data"
+        ],
+        "new": [
+          "html-enter-implicitly-submits-form",
+          "formdata-omits-disabled-fields",
+          "python-unboundlocalerror-on-assignment",
+          "python-exception-context-chaining",
+          "node-22-type-stripping-is-experimental"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "wcag-srgb-contrast",
+      "area": "frontend",
+      "expected_skills": [
+        "wcag-contrast-below-4-5-fails-aa"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0187,
+        "solution": 0.0238
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0028,
+        "new": 0.0039
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "skill-router",
+          "tax-engine-kit"
+        ],
+        "new": [
+          "wcag-contrast-below-4-5-fails-aa",
+          "spec-writing",
+          "test-driven-development",
+          "iterative-canvas-editing",
+          "css-container-query-ignores-viewport"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "svelte-props-not-export-let",
+      "area": "frontend",
+      "expected_skills": [
+        "svelte-5-export-let-invalid-in-runes"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.2026,
+        "solution": 0.1706
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0026,
+        "new": 0.003
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "tax-filing-status-and-household",
+          "tax-money-math",
+          "tax-sales-and-vat",
+          "tax-rules-as-data",
+          "debugging-scientific-method"
+        ],
+        "new": [
+          "svelte-5-export-let-invalid-in-runes",
+          "vue-3-5-destructured-props-stay-bound",
+          "react-strict-mode-effect-double-invoke",
+          "python-unboundlocalerror-on-assignment",
+          "css-flex-item-min-width-auto"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "vue-prop-read-stays-live",
+      "area": "frontend",
+      "expected_skills": [
+        "vue-3-5-destructured-props-stay-bound"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0891,
+        "solution": 0.0797
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0031,
+        "new": 0.0057
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "tax-sales-and-vat",
+          "tax-golden-test-vectors",
+          "tax-engine-architecture",
+          "tax-explainability-audit-trail",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "vue-3-5-destructured-props-stay-bound",
+          "react-stale-state-updater",
+          "python-unboundlocalerror-on-assignment",
+          "history-pushstate-skips-popstate",
+          "react-strict-mode-effect-double-invoke"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "sql-placeholder-and-null",
+      "area": "cross",
+      "expected_skills": [
+        "sql-fstring-interpolates-untrusted-input",
+        "sqlite-null-comparisons-are-unknown"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0205,
+        "solution": 0.0188
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0021,
+        "new": 0.0047
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-phaseouts-and-limits"
+        ],
+        "new": [
+          "sql-fstring-interpolates-untrusted-input",
+          "sqlite-null-comparisons-are-unknown",
+          "n-plus-one-query-per-row",
+          "sqlite-foreign-keys-require-pragma",
+          "transactional-outbox-commit-with-row"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "retry-post-and-stale-version",
+      "area": "cross",
+      "expected_skills": [
+        "idempotency-key-replays-stored-response",
+        "if-match-rejects-stale-update"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0174,
+        "solution": 0.0181
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0024,
+        "new": 0.0034
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "idempotency-key-replays-stored-response",
+          "if-match-rejects-stale-update",
+          "history-pushstate-skips-popstate",
+          "go-http-shutdown-blocks-on-handler",
+          "react-strict-mode-effect-double-invoke"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "outbox-and-foreign-key",
+      "area": "cross",
+      "expected_skills": [
+        "sqlite-foreign-keys-require-pragma",
+        "transactional-outbox-commit-with-row"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0266,
+        "solution": 0.0189
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0041,
+        "new": 0.0082
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "sqlite-foreign-keys-require-pragma",
+          "transactional-outbox-commit-with-row",
+          "javascript-array-sort-lexicographic",
+          "css-unlayered-author-style-beats-layers",
+          "react-stale-state-updater"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "page-ties-and-one-query",
+      "area": "cross",
+      "expected_skills": [
+        "cursor-page-needs-unique-tie-break",
+        "n-plus-one-query-per-row"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0188,
+        "solution": 0.0268
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0034,
+        "new": 0.0073
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-money-math",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-sales-and-vat"
+        ],
+        "new": [
+          "cursor-page-needs-unique-tie-break",
+          "n-plus-one-query-per-row",
+          "aria-hidden-removed-from-role-query",
+          "sql-fstring-interpolates-untrusted-input",
+          "sqlite-null-comparisons-are-unknown"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "shallow-describe-and-detached-head",
+      "area": "cross",
+      "expected_skills": [
+        "git-describe-fails-on-shallow-clone",
+        "git-abbrev-ref-is-head-when-detached"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.1249,
+        "solution": 0.1103
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.0035
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-filing-status-and-household",
+          "tax-engine-architecture",
+          "tax-money-math"
+        ],
+        "new": [
+          "git-describe-fails-on-shallow-clone",
+          "git-abbrev-ref-is-head-when-detached",
+          "testing-library-byrole-name-is-exact",
+          "svelte-5-export-let-invalid-in-runes",
+          "offsetheight-in-loop-forces-layout"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "go-1-22-loop-variable",
+      "area": "languages",
+      "expected_skills": [
+        "go-1-22-loop-var-per-iteration"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.103,
+        "solution": 0.093
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.002,
+        "new": 0.0035
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "go-1-22-loop-var-per-iteration",
+          "go-nil-pointer-stored-in-interface",
+          "go-http-shutdown-blocks-on-handler",
+          "python-closure-late-binding",
+          "tax-explainability-audit-trail"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "python-unbound-local-count",
+      "area": "languages",
+      "expected_skills": [
+        "python-unboundlocalerror-on-assignment"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0159,
+        "solution": 0.0154
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0021,
+        "new": 0.0032
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-sales-and-vat",
+          "tax-engine-architecture",
+          "tax-money-math"
+        ],
+        "new": [
+          "python-unboundlocalerror-on-assignment",
+          "css-flex-item-min-width-auto",
+          "html-enter-implicitly-submits-form",
+          "svelte-5-export-let-invalid-in-runes",
+          "n-plus-one-query-per-row"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "python-lambda-defaults",
+      "area": "languages",
+      "expected_skills": [
+        "python-closure-late-binding"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0155,
+        "solution": 0.0167
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0019,
+        "new": 0.0032
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-progressive-brackets",
+          "tax-engine-architecture"
+        ],
+        "new": [
+          "python-closure-late-binding",
+          "python-unboundlocalerror-on-assignment",
+          "sql-fstring-interpolates-untrusted-input",
+          "cursor-page-needs-unique-tie-break",
+          "path-join-allows-traversal"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "javascript-numeric-sort",
+      "area": "languages",
+      "expected_skills": [
+        "javascript-array-sort-lexicographic"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0285,
+        "solution": 0.0219
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0018,
+        "new": 0.003
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "tax-engine-architecture",
+          "tax-payroll-withholding",
+          "swarm",
+          "tax-money-math",
+          "tax-engine-kit"
+        ],
+        "new": [
+          "javascript-array-sort-lexicographic",
+          "hmac-compare-digest-for-secrets",
+          "tax-money-math",
+          "transactional-outbox-commit-with-row",
+          "adversarial-red-team"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "rust-let-temporary",
+      "area": "languages",
+      "expected_skills": [
+        "rust-temporary-dropped-while-borrowed"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0482,
+        "solution": 0.1382
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.0038
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-money-math",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-source-research"
+        ],
+        "new": [
+          "rust-temporary-dropped-while-borrowed",
+          "python-unboundlocalerror-on-assignment",
+          "sql-fstring-interpolates-untrusted-input",
+          "css-flex-item-min-width-auto",
+          "svelte-5-export-let-invalid-in-runes"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "java-switch-case-null",
+      "area": "languages",
+      "expected_skills": [
+        "java-21-switch-null-throws"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.454,
+        "solution": 0.5042
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0021,
+        "new": 0.0029
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-phaseouts-and-limits"
+        ],
+        "new": [
+          "java-21-switch-null-throws",
+          "sqlite-null-comparisons-are-unknown",
+          "testing-library-byrole-name-is-exact",
+          "formdata-omits-disabled-fields",
+          "package-json-type-module-rejects-require"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "formdata-skips-disabled",
+      "area": "frontend",
+      "expected_skills": [
+        "formdata-omits-disabled-fields"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4159,
+        "solution": 0.4855
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0022,
+        "new": 0.0032
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "formdata-omits-disabled-fields",
+          "html-enter-implicitly-submits-form",
+          "tax-rules-as-data",
+          "sqlite-foreign-keys-require-pragma",
+          "react-index-key-sticks-dom-state"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "idempotency-replays-body",
+      "area": "apis",
+      "expected_skills": [
+        "idempotency-key-replays-stored-response"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0197,
+        "solution": 0.0162
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0031,
+        "new": 0.004
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "idempotency-key-replays-stored-response",
+          "react-strict-mode-effect-double-invoke",
+          "go-http-shutdown-blocks-on-handler",
+          "mobile-safe-area-fallback-only-if-undefined",
+          "tax-api-and-scenarios"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "if-match-412",
+      "area": "apis",
+      "expected_skills": [
+        "if-match-rejects-stale-update"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0147,
+        "solution": 0.0153
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0023,
+        "new": 0.0036
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "if-match-rejects-stale-update",
+          "idempotency-key-replays-stored-response",
+          "react-strict-mode-effect-double-invoke",
+          "python-generator-second-pass-empty",
+          "history-pushstate-skips-popstate"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "type-module-require-throws",
+      "area": "frontend",
+      "expected_skills": [
+        "package-json-type-module-rejects-require"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0524,
+        "solution": 0.0508
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0024,
+        "new": 0.0037
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-sales-and-vat"
+        ],
+        "new": [
+          "package-json-type-module-rejects-require",
+          "node-22-type-stripping-is-experimental",
+          "aria-hidden-removed-from-role-query",
+          "testing-library-input-number-is-spinbutton",
+          "node-unhandled-rejection-is-not-thrown"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "sqlite-pragma-before-ddl",
+      "area": "databases",
+      "expected_skills": [
+        "sqlite-foreign-keys-require-pragma"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0202,
+        "solution": 0.0177
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0028,
+        "new": 0.0049
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "tax-money-math"
+        ],
+        "new": [
+          "sqlite-foreign-keys-require-pragma",
+          "transactional-outbox-commit-with-row",
+          "n-plus-one-query-per-row",
+          "sqlite-unindexed-lookup-plans-scan",
+          "sqlite-null-comparisons-are-unknown"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "sqlite-null-not-equal",
+      "area": "databases",
+      "expected_skills": [
+        "sqlite-null-comparisons-are-unknown"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0168,
+        "solution": 0.0168
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0018,
+        "new": 0.0028
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-golden-test-vectors",
+          "tax-money-math"
+        ],
+        "new": [
+          "sqlite-null-comparisons-are-unknown",
+          "n-plus-one-query-per-row",
+          "sqlite-unindexed-lookup-plans-scan",
+          "sql-fstring-interpolates-untrusted-input",
+          "sqlite-foreign-keys-require-pragma"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "sqlite-index-search-plan",
+      "area": "databases",
+      "expected_skills": [
+        "sqlite-unindexed-lookup-plans-scan"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0162,
+        "solution": 0.0166
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0025,
+        "new": 0.0034
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "sqlite-unindexed-lookup-plans-scan",
+          "n-plus-one-query-per-row",
+          "skill-router",
+          "testing-library-byrole-name-is-exact",
+          "testing-library-input-number-is-spinbutton"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "path-commonpath-not-prefix",
+      "area": "security",
+      "expected_skills": [
+        "path-join-allows-traversal"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.027,
+        "solution": 0.0267
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.002,
+        "new": 0.0028
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-progressive-brackets",
+          "tax-engine-architecture",
+          "tax-money-math"
+        ],
+        "new": [
+          "path-join-allows-traversal",
+          "aria-hidden-removed-from-role-query",
+          "debugging-scientific-method",
+          "css-container-query-ignores-viewport",
+          "react-19-ref-as-prop"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "hmac-bytes-compare-digest",
+      "area": "security",
+      "expected_skills": [
+        "hmac-compare-digest-for-secrets"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0148,
+        "solution": 0.017
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0019,
+        "new": 0.0028
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-golden-test-vectors",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-engine-architecture"
+        ],
+        "new": [
+          "hmac-compare-digest-for-secrets",
+          "python-generator-second-pass-empty",
+          "rust-temporary-dropped-while-borrowed",
+          "python-closure-late-binding",
+          "tax-engine-architecture"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "sql-bind-untrusted-name",
+      "area": "security",
+      "expected_skills": [
+        "sql-fstring-interpolates-untrusted-input"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0169,
+        "solution": 0.0168
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0017,
+        "new": 0.0025
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "sql-fstring-interpolates-untrusted-input",
+          "sqlite-null-comparisons-are-unknown",
+          "n-plus-one-query-per-row",
+          "cursor-page-needs-unique-tie-break",
+          "python-generator-second-pass-empty"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "go-shutdown-returns",
+      "area": "backend",
+      "expected_skills": [
+        "go-http-shutdown-blocks-on-handler"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4045,
+        "solution": 0.2523
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0033,
+        "new": 0.006
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "tax-money-math"
+        ],
+        "new": [
+          "go-http-shutdown-blocks-on-handler",
+          "node-http-client-hangs-without-end",
+          "node-mock-timers-do-not-advance-alone",
+          "transactional-outbox-commit-with-row",
+          "html-enter-implicitly-submits-form"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "node-request-must-end",
+      "area": "backend",
+      "expected_skills": [
+        "node-http-client-hangs-without-end"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.2533,
+        "solution": 0.0521
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0025,
+        "new": 0.0038
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "tax-money-math"
+        ],
+        "new": [
+          "node-http-client-hangs-without-end",
+          "history-pushstate-skips-popstate",
+          "go-http-shutdown-blocks-on-handler",
+          "node-mock-timers-do-not-advance-alone",
+          "node-unhandled-rejection-is-not-thrown"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "exception-cause-is-set",
+      "area": "debugging",
+      "expected_skills": [
+        "python-exception-context-chaining"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0148,
+        "solution": 0.0181
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.002,
+        "new": 0.0028
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-money-math",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-sales-and-vat"
+        ],
+        "new": [
+          "python-exception-context-chaining",
+          "transactional-outbox-commit-with-row",
+          "path-join-allows-traversal",
+          "sqlite-foreign-keys-require-pragma",
+          "python-unboundlocalerror-on-assignment"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "await-rejected-promise",
+      "area": "debugging",
+      "expected_skills": [
+        "node-unhandled-rejection-is-not-thrown"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0252,
+        "solution": 0.0218
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0029,
+        "new": 0.0048
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-golden-test-vectors",
+          "tax-engine-architecture",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "node-unhandled-rejection-is-not-thrown",
+          "node-http-client-hangs-without-end",
+          "node-22-type-stripping-is-experimental",
+          "node-mock-timers-do-not-advance-alone",
+          "go-http-shutdown-blocks-on-handler"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "quote-actions-run-script",
+      "area": "devops",
+      "expected_skills": [
+        "github-actions-unquoted-run-script"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0308,
+        "solution": 0.0304
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0031,
+        "new": 0.0052
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-engine-architecture",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "github-actions-unquoted-run-script",
+          "sql-fstring-interpolates-untrusted-input",
+          "security-review-lite",
+          "argparse-options-after-positionals",
+          "docs-writer"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "describe-after-unshallow",
+      "area": "devops",
+      "expected_skills": [
+        "git-describe-fails-on-shallow-clone"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0889,
+        "solution": 0.1073
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.003,
+        "new": 0.0048
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-payroll-withholding",
+          "tax-engine-kit",
+          "tax-money-math"
+        ],
+        "new": [
+          "git-describe-fails-on-shallow-clone",
+          "git-abbrev-ref-is-head-when-detached",
+          "testing-library-byrole-name-is-exact",
+          "python-unboundlocalerror-on-assignment",
+          "sqlite-unindexed-lookup-plans-scan"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "mock-timers-need-tick",
+      "area": "testing",
+      "expected_skills": [
+        "node-mock-timers-do-not-advance-alone"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0296,
+        "solution": 0.0397
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0032,
+        "new": 0.0052
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-golden-test-vectors",
+          "tax-progressive-brackets",
+          "test-driven-development"
+        ],
+        "new": [
+          "node-mock-timers-do-not-advance-alone",
+          "node-http-client-hangs-without-end",
+          "history-pushstate-skips-popstate",
+          "react-stale-state-updater",
+          "tax-golden-test-vectors"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "offsetheight-loop-layouts",
+      "area": "frontend",
+      "expected_skills": [
+        "offsetheight-in-loop-forces-layout"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4262,
+        "solution": 0.5176
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0032,
+        "new": 0.0063
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-engine-architecture",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "offsetheight-in-loop-forces-layout",
+          "tax-sales-and-vat",
+          "package-json-type-module-rejects-require",
+          "svelte-5-export-let-invalid-in-runes",
+          "css-unlayered-author-style-beats-layers"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "detached-head-is-not-a-branch",
+      "area": "vcs",
+      "expected_skills": [
+        "git-abbrev-ref-is-head-when-detached"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0746,
+        "solution": 0.0603
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.003,
+        "new": 0.005
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-progressive-brackets",
+          "tax-money-math",
+          "tax-engine-architecture"
+        ],
+        "new": [
+          "git-abbrev-ref-is-head-when-detached",
+          "git-describe-fails-on-shallow-clone",
+          "java-21-switch-null-throws",
+          "package-json-type-module-rejects-require",
+          "tax-explainability-audit-trail"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "argparse-double-dash",
+      "area": "cli",
+      "expected_skills": [
+        "argparse-options-after-positionals"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0334,
+        "solution": 0.0235
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0027,
+        "new": 0.0046
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "test-driven-development"
+        ],
+        "new": [
+          "argparse-options-after-positionals",
+          "iterative-canvas-editing",
+          "path-join-allows-traversal",
+          "node-22-type-stripping-is-experimental",
+          "transactional-outbox-commit-with-row"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "outbox-rolls-back-both",
+      "area": "architecture",
+      "expected_skills": [
+        "transactional-outbox-commit-with-row"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0165,
+        "solution": 0.016
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.003,
+        "new": 0.0053
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-architecture",
+          "tax-engine-kit",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "transactional-outbox-commit-with-row",
+          "sqlite-foreign-keys-require-pragma",
+          "javascript-array-sort-lexicographic",
+          "css-unlayered-author-style-beats-layers",
+          "tax-sales-and-vat"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "generator-second-pass",
+      "area": "refactoring",
+      "expected_skills": [
+        "python-generator-second-pass-empty"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0144,
+        "solution": 0.015
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0025,
+        "new": 0.0047
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "tax-money-math"
+        ],
+        "new": [
+          "python-generator-second-pass-empty",
+          "react-strict-mode-effect-double-invoke",
+          "python-closure-late-binding",
+          "idempotency-key-replays-stored-response",
+          "python-warnings-stacklevel"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "warning-stacklevel-caller",
+      "area": "docs",
+      "expected_skills": [
+        "python-warnings-stacklevel"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0305,
+        "solution": 0.0218
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0025,
+        "new": 0.0037
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-progressive-brackets",
+          "tax-money-math"
+        ],
+        "new": [
+          "python-warnings-stacklevel",
+          "go-nil-pointer-stored-in-interface",
+          "git-describe-fails-on-shallow-clone",
+          "path-join-allows-traversal",
+          "sql-fstring-interpolates-untrusted-input"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "one-query-for-users",
+      "area": "performance",
+      "expected_skills": [
+        "n-plus-one-query-per-row"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.0187,
+        "solution": 0.0168
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0029,
+        "new": 0.0047
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-golden-test-vectors"
+        ],
+        "new": [
+          "n-plus-one-query-per-row",
+          "sqlite-unindexed-lookup-plans-scan",
+          "skill-router",
+          "sqlite-null-comparisons-are-unknown",
+          "package-json-type-module-rejects-require"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    },
+    {
+      "id": "safe-area-max-with-env",
+      "area": "mobile",
+      "expected_skills": [
+        "mobile-safe-area-fallback-only-if-undefined"
+      ],
+      "starter_failed": true,
+      "solution_passed": true,
+      "check_seconds": {
+        "starter": 0.4485,
+        "solution": 0.5196
+      },
+      "retrieval_seconds": {
+        "none": 0.0,
+        "old": 0.0037,
+        "new": 0.0074
+      },
+      "top5_hit": {
+        "none": false,
+        "old": false,
+        "new": true
+      },
+      "top5": {
+        "none": [],
+        "old": [
+          "swarm",
+          "tax-engine-kit",
+          "tax-engine-architecture",
+          "tax-money-math",
+          "tax-progressive-brackets"
+        ],
+        "new": [
+          "mobile-safe-area-fallback-only-if-undefined",
+          "css-import-must-precede-rules",
+          "offsetheight-in-loop-forces-layout",
+          "python-unboundlocalerror-on-assignment",
+          "github-actions-unquoted-run-script"
+        ]
+      },
+      "pass": {
+        "none": null,
+        "old": null,
+        "new": null
+      },
+      "tokens": {
+        "none": null,
+        "old": null,
+        "new": null
+      }
+    }
+  ],
+  "note": "The model comparison has not been run. pass_rate and tokens are null. top5_hit_rate is retrieval only: none retrieves nothing, old searches eval/snapshots/old-skills, new uses the router. A hit requires every expected skill id in the top 5. An abstention is a miss. check_seconds is the automatic checker, not a model."
+}

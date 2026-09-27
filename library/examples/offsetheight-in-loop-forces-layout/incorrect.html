@@ -1,0 +1,12 @@
+<div id="list"></div>
+<script>
+  const list = document.getElementById("list");
+  let reads = 0;
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement("div");
+    el.textContent = "item-" + i;
+    list.appendChild(el);
+    reads += el.offsetHeight;
+  }
+  window.__reads = reads;
+</script>

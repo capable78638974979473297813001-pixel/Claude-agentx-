@@ -1,6 +1,6 @@
 ---
 name: refactoring-safe
-description: Change code structure without changing behavior - characterization tests first, small mechanical steps, one move at a time, run tests after each. Use when restructuring code, extracting modules, renaming across files, or cleaning up after a swarm integrates.
+description: Change code structure without changing behavior - characterization tests first, small mechanical steps, one move at a time, run tests after each. Use when restructuring code, extracting modules, renaming across files, or cleaning up after a large change lands.
 ---
 
 # Safe refactoring

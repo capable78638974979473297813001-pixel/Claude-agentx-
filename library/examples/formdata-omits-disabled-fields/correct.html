@@ -1,0 +1,7 @@
+<form id="f">
+  <input name="a" value="1" />
+  <input name="b" value="2" disabled />
+</form>
+<script>
+  window.__keys = [...new FormData(document.getElementById("f")).keys()].join(",");
+</script>

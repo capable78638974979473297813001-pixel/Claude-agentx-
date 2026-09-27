@@ -1,0 +1,11 @@
+<style>
+  #wrap { container-type: inline-size; width: 200px; }
+  #card { color: rgb(0, 0, 0); }
+  @container (min-width: 300px) {
+    #card { color: rgb(255, 0, 0); }
+  }
+  @container (max-width: 250px) {
+    #card { color: rgb(0, 128, 0); }
+  }
+</style>
+<div id="wrap"><p id="card">Card</p></div>

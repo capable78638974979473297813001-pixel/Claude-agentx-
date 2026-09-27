@@ -1,0 +1,8 @@
+<form id="find">
+  <input id="q" name="q" />
+</form>
+<script>
+  document.getElementById("q").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") event.preventDefault();
+  });
+</script>
